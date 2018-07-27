@@ -1,0 +1,128 @@
+<meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="There might come a time when you wanna print a webpage using Javascript. This is a simple task and could be done using window.print(), but there is a slight issue that you may not encounter at once.
+
+" />
+    <meta property="og:description" content="There might come a time when you wanna print a webpage using Javascript. This is a simple task and could be done using window.print(), but there is a slight issue that you may not encounter at once.
+
+" />
+    
+
+    <meta name="author" content="Farzad YZ" />
+
+    
+    <meta property="og:title" content="Hide browsers's default metadata when printing a webpage" />
+    <meta property="twitter:title" content="Hide browsers's default metadata when printing a webpage" />
+    
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
+  
+  <title>Farzad YZ personal blog</title>
+  <link rel="icon" href="/images/favicon.png">
+</head>
+
+<body>
+<main class="l-post">
+
+  <section class="post__header" style="background-image: url(https://unsplash.it/1024/768/?random)">
+    <a href="/" class="button button--outline button--white button--small button--rounded">&larr; Back</a>
+    <section class="post container">
+      <h1 class="post__title">
+        Hide browsers's default metadata when printing a webpage
+      </h1>
+      <date class="post__date post__date--large">06 Aug 2017</date>
+    </section>
+  </section>
+
+  <section class="post__body">
+    <article class="post container">
+      <div class="post__entry">
+        <p>There might come a time when you wanna print a webpage using Javascript. This is a simple task and could be done using <code class="highlighter-rouge">window.print()</code>, but there is a slight issue that you may not encounter at once.</p>
+
+<p>Browsers by default, put the webpage’s title and the date of the day, on top of your webpage inside the printed sheet. For instance, if you print Google.com homepage, following printed sheet will be the result:</p>
+
+<p><img src="https://image.ibb.co/f9htxF/Screen_Shot_2017_08_06_at_2_01_28_AM.png" alt="https://image.ibb.co/f9htxF/Screen_Shot_2017_08_06_at_2_01_28_AM.png" /></p>
+
+<h2 id="hiding-the-default-values">Hiding the default values</h2>
+
+<p>In order to hide those title and date values, put the CSS snippet below inside your stylesheet and watch the magic:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@media</span> <span class="n">print</span> <span class="p">{</span>
+  <span class="k">@page</span> <span class="p">{</span>
+    <span class="nl">size</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0mm</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">@media print</code> will load any style inside of it, only when the webpage is being printed.</p>
+</blockquote>
+
+<p>To find more details about  <code class="highlighter-rouge">@page</code> rule, visit <a href="https://developer.mozilla.org/en/docs/Web/CSS/@page" title="https://developer.mozilla.org/en/docs/Web/CSS/@page">More about @page on MDN</a>.</p>
+
+<p>Have Fun ;)</p>
+
+      </div>
+    </article>
+  </section>
+
+</main>
+
+<div class="container">
+  <div class="row post__siblings">
+    
+      <a class="button button--outline" href="/Manage-and-Promisify-async-actions-in-javascript/">&larr; Manage and Promisify async actions in javascript</a>
+    
+    
+      <a class="button button--outline" href="/Handling-lodings-in-react-using-higher-order-components/">Handling loadings in React using Higher Order Components &rarr;</a>
+    
+  </div>
+</div>
+
+<section class="post__footer container">
+  <div class="row">
+    <div class="col--3 text--center">
+      <div class="hero__avatar avatar avatar--circle"></div>
+    </div>
+    <div class="col--9">
+      <h3 class="post__footer__title">Farzad YZ</h3>
+      <p class="post__footer__entry">
+        Javascript enthusiast, blogger, astronomer
+      </p>
+      <a href="/about" class="button button--fill button--small button--rounded">More about me</a>
+    </div>
+  </div>
+</section>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104117544-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Open Sans Condensed:300,300italic,700', 'Merriweather:300,300italic,400,italic,700,700italic', 'Open Sans:300,300italic,400,italic,600,600italic,700,700italic', 'Overpass Mono']
+    }
+  });
+
+</script>
+ <script src="/assets/site-1778c2a687e031eca121a38276054984eee6654585660db2bff6a212665d5341.js" type="text/javascript"></script>
+</body>
+
+</html>

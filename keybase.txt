@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/farskid
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://farzadyz.com
+  * I am farskid (https://keybase.io/farskid) on keybase.
+  * I have a public key ASDf3J3qhJ_y_QkaxGwL65icVgcJz4divVFQFf8VT58Qxgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120dfdc9dea849ff2fd091ac46c0beb989c560709cf8762bd515015ff154f9f10c60a",
+      "host": "keybase.io",
+      "kid": "0120dfdc9dea849ff2fd091ac46c0beb989c560709cf8762bd515015ff154f9f10c60a",
+      "uid": "bc6326a16b6b30adcc9f6a2ca1717d19",
+      "username": "farskid"
+    },
+    "merkle_root": {
+      "ctime": 1507205417,
+      "hash": "acae1bbdbe71936cea050acaba6e8d5f486a2087db491b04f83820d7d502f3029e6e7ad3991665fe0256fa5202687c6f0f428718153cc1bd06d0b57b6f49d59e",
+      "hash_meta": "a9311fc31eb854425226b8b3432a25c578b137cad58d8df92051d226d5274cf0",
+      "seqno": 1511706
+    },
+    "service": {
+      "hostname": "farzadyz.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.33"
+  },
+  "ctime": 1507205440,
+  "expire_in": 504576000,
+  "prev": "86f852fe7502356edf0cff765ed2ea3632ffdba97b7bb5b6d9296d6c5b031f81",
+  "seqno": 19,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg39yd6oSf8v0JGsRsC+uYnFYHCc+HYr1RUBX/FU+fEMYKp3BheWxvYWTFA0R7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZGZkYzlkZWE4NDlmZjJmZDA5MWFjNDZjMGJlYjk4OWM1NjA3MDljZjg3NjJiZDUxNTAxNWZmMTU0ZjlmMTBjNjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZGZkYzlkZWE4NDlmZjJmZDA5MWFjNDZjMGJlYjk4OWM1NjA3MDljZjg3NjJiZDUxNTAxNWZmMTU0ZjlmMTBjNjBhIiwidWlkIjoiYmM2MzI2YTE2YjZiMzBhZGNjOWY2YTJjYTE3MTdkMTkiLCJ1c2VybmFtZSI6ImZhcnNraWQifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MDcyMDU0MTcsImhhc2giOiJhY2FlMWJiZGJlNzE5MzZjZWEwNTBhY2FiYTZlOGQ1ZjQ4NmEyMDg3ZGI0OTFiMDRmODM4MjBkN2Q1MDJmMzAyOWU2ZTdhZDM5OTE2NjVmZTAyNTZmYTUyMDI2ODdjNmYwZjQyODcxODE1M2NjMWJkMDZkMGI1N2I2ZjQ5ZDU5ZSIsImhhc2hfbWV0YSI6ImE5MzExZmMzMWViODU0NDI1MjI2YjhiMzQzMmEyNWM1NzhiMTM3Y2FkNThkOGRmOTIwNTFkMjI2ZDUyNzRjZjAiLCJzZXFubyI6MTUxMTcwNn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJmYXJ6YWR5ei5jb20iLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4zMyJ9LCJjdGltZSI6MTUwNzIwNTQ0MCwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiI4NmY4NTJmZTc1MDIzNTZlZGYwY2ZmNzY1ZWQyZWEzNjMyZmZkYmE5N2I3YmI1YjZkOTI5NmQ2YzViMDMxZjgxIiwic2Vxbm8iOjE5LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQCNKBr8g0DrxYmbrOGwxOe6GrxM2foQzwvgw+c50DyY9bR1sJ6sFeYgpLezolIkyr5VjjzDjxfUW3pwEpf5OogGoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCAWYVF39Yo2v9pj2rst3ik6gZulSflRmWtJgQvAvucI8qN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/farskid
+
+==================================================================
