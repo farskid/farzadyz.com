@@ -1,3 +1,6 @@
 module.exports = {
-  extends: "react-tools"
+  extends: "react-tools",
+  rules: {
+    "import/no-extraneous-dependencies": "off"
+  }
 };

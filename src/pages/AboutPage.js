@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { hot } from "react-hot-loader";
 import { RouteData, Head } from "react-static";
 
-class AboutPage extends Component {
+class AboutPage extends React.PureComponent {
   render() {
     return (
       <RouteData

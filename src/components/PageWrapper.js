@@ -3,7 +3,8 @@ import { SiteData, RouteData } from "react-static";
 import styled from "styled-components";
 
 const StyledPageWrapper = styled.div`
-  margin-top: 50px;
+  /* 70px is height of navbar */
+  padding-top: 120px;
 `;
 
 export const PageWrapper = ({ children }) => (
