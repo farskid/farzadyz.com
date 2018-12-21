@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-// Your top level component
 import App from "./App";
 
 // Export your top level component as JSX (for static rendering)

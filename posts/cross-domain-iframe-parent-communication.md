@@ -20,7 +20,9 @@ I was assigned a task to do something challenging on this element. The company i
 
 First thing I tried to was to use postMessage to send a message from iframe to it’s parent. I came up with this code:
 
-`<iframe src="Path/To/Html"><button id="my-btn">Start</button></iframe>`
+```html
+<iframe src="Path/To/Html"><button id="my-btn">Start</button></iframe>
+```
 
 ```js
 document

@@ -1,7 +1,7 @@
 import React from "react";
 import { hot } from "react-hot-loader";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import { PageWrapper } from "../components/PageWrapper";
 
 const PostList = styled.ul`
@@ -12,18 +12,14 @@ const PostList = styled.ul`
 `;
 
 const StyledPost = styled.li`
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: block;
-  padding: 10px;
   text-align: left;
   position: relative;
   border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: 150ms;
 
   &:hover {
-    transform: translate(-5px, -5px);
-    box-shadow: 5px 5px 20px 0px #999;
+    /* box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.2); */
   }
 `;
 
@@ -39,9 +35,16 @@ const PostDate = styled.p`
   color: #777;
 `;
 
+const PostContentContainer = styled.div`
+  padding: 0 30px;
+  @media (max-width: 30em) {
+    padding: 0 15px;
+  }
+`;
+
 const PostSummary = styled.p``;
 
-export const PostListItem = ({ post }) => {
+export const PostListItem = React.memo(({ post }) => {
   const url = `/blog/${post.slug}`;
   return (
     <StyledPost key={post.id}>
@@ -50,26 +53,26 @@ export const PostListItem = ({ post }) => {
         href={url}
         style={{ display: "block", height: "100%", color: "inherit" }}
       >
-        <PostTitle>{post.title}</PostTitle>
         <PostDate>{post.publishedAt}</PostDate>
-        <PostSummary>{post.summary}</PostSummary>
+        <PostTitle>{post.title}</PostTitle>
+        {/* <PostSummary>{post.summary}</PostSummary> */}
       </Link>
     </StyledPost>
   );
-};
+});
 
 class BlogPage extends React.PureComponent {
   render() {
     return (
       <PageWrapper>
         {({ routeData }) => (
-          <React.Fragment>
+          <PostContentContainer>
             <PostList>
               {routeData.posts.map(p => (
                 <PostListItem post={p} key={p.id} />
               ))}
             </PostList>
-          </React.Fragment>
+          </PostContentContainer>
         )}
       </PageWrapper>
     );

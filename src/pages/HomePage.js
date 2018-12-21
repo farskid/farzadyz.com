@@ -35,13 +35,21 @@ export const SocialLink = styled.a`
   text-decoration: underline;
 `;
 
+const PageContentContainer = styled.div`
+  padding: 0 30px;
+
+  @media (max-width: 30em) {
+    padding: 0 15px;
+  }
+`;
+
 class MainPage extends React.PureComponent {
   /* eslint-disable jsx-a11y/accessible-emoji */
   render() {
     return (
       <PageWrapper>
         {({ siteData, routeData }) => (
-          <React.Fragment>
+          <PageContentContainer>
             <RoundedImage
               size={150}
               src={siteData.avatar}
@@ -114,7 +122,7 @@ class MainPage extends React.PureComponent {
                 </SocialLink>
               </p>
             </DescriptionContainer>
-          </React.Fragment>
+          </PageContentContainer>
         )}
       </PageWrapper>
     );

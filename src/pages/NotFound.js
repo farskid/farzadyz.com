@@ -16,29 +16,31 @@ const BlogPostContainer = styled.div`
   margin-top: 50px;
 `;
 
-const NotFound = () => (
-  <PageWrapper>
-    {({ routeData: { randomPost } }) => (
-      <React.Fragment>
-        <Shrug>¯\_(ツ)_/¯</Shrug>
-        <h2>Looks like you're lost!</h2>
-        <p>
-          <SocialLink href="/" to="/">
-            Willing to know me better?
-          </SocialLink>
-        </p>
-        <p>
-          <SocialLink href="/blog" to="/blog">
-            How about reading my BLOG?
-          </SocialLink>
-        </p>
-        <BlogPostContainer>
-          <p>In the meantime, Here is also a random post from my blog</p>
-          <PostListItem post={randomPost} />
-        </BlogPostContainer>
-      </React.Fragment>
-    )}
-  </PageWrapper>
-);
+const NotFound = React.memo(() => {
+  return (
+    <PageWrapper>
+      {({ routeData: { randomPost } }) => (
+        <React.Fragment>
+          <Shrug>¯\_(ツ)_/¯</Shrug>
+          <h2>Looks like you're lost!</h2>
+          <p>
+            <SocialLink href="/" to="/">
+              Willing to know me better?
+            </SocialLink>
+          </p>
+          <p>
+            <SocialLink href="/blog" to="/blog">
+              How about reading my BLOG?
+            </SocialLink>
+          </p>
+          <BlogPostContainer>
+            <p>In the meantime, Here is also a random post from my blog</p>
+            <PostListItem post={randomPost} />
+          </BlogPostContainer>
+        </React.Fragment>
+      )}
+    </PageWrapper>
+  );
+});
 
 export default hot(module)(NotFound);

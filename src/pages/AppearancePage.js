@@ -3,16 +3,16 @@ import { hot } from "react-hot-loader";
 import { Head } from "react-static";
 import { PageWrapper } from "../components/PageWrapper";
 
-class AboutPage extends React.PureComponent {
+class AppearancePage extends React.PureComponent {
   render() {
     return (
       <PageWrapper>
         {({ routeData }) => (
           <React.Fragment>
             <Head>
-              <title>AboutPage</title>
+              <title>AppearancePage</title>
             </Head>
-            <h1>About Page</h1>
+            <h1>Appearance Page</h1>
             <p>{routeData.title}</p>
           </React.Fragment>
         )}
@@ -21,4 +21,4 @@ class AboutPage extends React.PureComponent {
   }
 }
 
-export default hot(module)(AboutPage);
+export default hot(module)(AppearancePage);

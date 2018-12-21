@@ -1,7 +1,7 @@
 import React from "react";
 import { hot } from "react-hot-loader";
 import styled, { createGlobalStyle } from "styled-components";
-import { Link } from "react-static";
+import { Link } from "@reach/router";
 import Prism from "prismjs";
 import "../dracula-prism.css";
 import { PageWrapper } from "../components/PageWrapper";
@@ -14,7 +14,7 @@ const Global = createGlobalStyle`
     padding: 10px;
     border-left: 2px solid #292929;
   }
-  .highlight img {
+  .blog img {
     display: block;
     max-width: 100%;
   }
@@ -25,14 +25,13 @@ const Post = styled.article`
 `;
 
 const PostTitle = styled.h1`
-  font-size: 2rem;
+  font-size: 2em;
   margin-bottom: 0;
 `;
 
 const PostDate = styled.p`
   margin: 0 auto;
-  font-style: italic;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 14px;
   color: #777;
 `;
@@ -46,15 +45,35 @@ const PostTopBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #f7f7f7;
+  position: sticky;
+  /* Required for position sticky! */
+  top: 70px;
+  padding: 5px 30px;
+
+  @media (max-width: 30em) {
+    padding: 5px 15px;
+  }
 `;
 
 const Button = styled.div`
-  border: 1px solid #777;
-  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   display: inline-block;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+`;
+
+const ShareLink = styled.a`
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
   }
 `;
 
@@ -63,52 +82,70 @@ const ShareIcon = styled.img`
   height: 30px;
 `;
 
-const PrismLoader = () => {
-  Prism.highlightAll(false);
-  return null;
-};
+// const PrismLoader = () => {
+//   Prism.highlightAll(false);
+//   return null;
+// };
+
+const PostContentContainer = styled.div`
+  padding: 0 30px;
+  @media (max-width: 30em) {
+    padding: 0 15px;
+  }
+`;
 
 const isPostUpdated = post =>
   post.updatedAt && post.updatedAt !== post.publishedAt;
 
+const PostNavbar = React.memo(({ post, url }) => {
+  return (
+    <PostTopBar>
+      <Button>
+        <Link href="/blog" to="/blog" style={{ display: "block", padding: 6 }}>
+          Back to Blog
+        </Link>
+      </Button>
+      <ShareLink
+        target="_blank"
+        id="share-post-twitter"
+        rel="noopener noreferrer"
+        href={`http://twitter.com/share?text=${
+          post.title
+        } by @farzad_yz&amp;url=${url}&amp;hashtags=${post.tags
+          .split(" ")
+          .join(",")}`}
+      >
+        <ShareIcon src={twitterIcon} alt="share on twitter" />
+      </ShareLink>
+    </PostTopBar>
+  );
+});
+
 class BlogPage extends React.PureComponent {
+  componentDidMount() {
+    setTimeout(() => {
+      console.log(`highlight`);
+      Prism.highlightAll(false);
+    }, 1000);
+  }
   render() {
     return (
       <React.Fragment>
         <Global />
         <PageWrapper>
-          {({ routeData: { post } }) => (
+          {({ routeData: { post, url } }) => (
             <Post>
-              <PostTopBar>
-                <Button>
-                  <Link
-                    href="/blog"
-                    to="/blog"
-                    style={{ display: "block", padding: 6 }}
-                  >
-                    Back to Blog
-                  </Link>
-                </Button>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={`http://twitter.com/share?text=${
-                    post.title
-                  } by @farzad_yz&amp;url=${
-                    window.location.href
-                  }&amp;hashtags=${post.tags.split(" ").join(",")}`}
-                >
-                  <ShareIcon src={twitterIcon} alt="share on twitter" />
-                </a>
-              </PostTopBar>
-              <PostTitle>{post.title}</PostTitle>
-              <PostDate>{post.publishedAt}</PostDate>
-              {isPostUpdated(post) && <p>Last updated at {post.updatedAt}</p>}
-              <PostContents
-                className="highlight"
-                dangerouslySetInnerHTML={{ __html: post.contents }}
-              />
-              <PrismLoader />
+              <PostNavbar post={post} url={url} />
+              <PostContentContainer>
+                <PostTitle>{post.title}</PostTitle>
+                <PostDate>{post.publishedAt}</PostDate>
+                {isPostUpdated(post) && <p>Last updated at {post.updatedAt}</p>}
+                <PostContents
+                  className="blog"
+                  dangerouslySetInnerHTML={{ __html: post.contents }}
+                />
+              </PostContentContainer>
+              <PostNavbar post={post} url={url} />
             </Post>
           )}
         </PageWrapper>

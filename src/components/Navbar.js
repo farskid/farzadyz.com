@@ -1,14 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import { Wrapper } from "./Wrapper";
 
 const NavbarPositioner = styled.div`
-  position: fixed;
+  position: sticky;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0 30px;
+  /* Required for position sticky! */
   top: 0;
-  left: 0;
-  right: 0;
-  border-bottom: 1px solid #999;
+  background-color: #fff;
+  z-index: 3;
+
+  @media (max-width: 30em) {
+    padding: 0 15px;
+  }
 `;
 
 const NavbarContainer = styled.div`
@@ -28,7 +34,7 @@ const NavbarList = styled.ul`
 `;
 
 const NavbarListItem = styled.li`
-  margin: 0 10px;
+  margin-left: 20px;
   color: #777;
   text-transform: uppercase;
 `;
@@ -41,7 +47,7 @@ export const Navbar = () => (
           <h4 style={{ textTransform: "uppercase" }}>Farzad YZ</h4>
         </Link>
         <NavbarList>
-          <NavbarListItem>
+          {/* <NavbarListItem>
             <Link href="/cv" to="/cv">
               CV
             </Link>
@@ -50,7 +56,7 @@ export const Navbar = () => (
             <Link href="/appearances" to="/appearances">
               Appearances
             </Link>
-          </NavbarListItem>
+          </NavbarListItem> */}
           <NavbarListItem>
             <Link href="/blog" to="/blog">
               Blog

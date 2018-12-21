@@ -10,14 +10,15 @@
     "serve": "serve dist -p 3000"
   },
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "axios": "^0.16.2",
     "prismjs": "^1.15.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-hot-loader": "^4.6.0",
-    "react-router": "^4.2.0",
-    "react-static": "^5.9.12",
+    "react-static": "6.0.11",
     "react-static-plugin-styled-components": "^6.0.0",
+    "react-static-routes": "^1.0.0",
     "styled-components": "^4.1.2"
   },
   "devDependencies": {
