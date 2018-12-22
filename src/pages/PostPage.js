@@ -2,8 +2,7 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import styled, { createGlobalStyle } from "styled-components";
 import { Link } from "@reach/router";
-import Prism from "prismjs";
-import "../dracula-prism.css";
+// import "../dracula.css";
 import { PageWrapper } from "../components/PageWrapper";
 import twitterIcon from "../icons/twitter.svg";
 
@@ -82,11 +81,6 @@ const ShareIcon = styled.img`
   height: 30px;
 `;
 
-// const PrismLoader = () => {
-//   Prism.highlightAll(false);
-//   return null;
-// };
-
 const PostContentContainer = styled.div`
   padding: 0 30px;
   @media (max-width: 30em) {
@@ -122,12 +116,6 @@ const PostNavbar = React.memo(({ post, url }) => {
 });
 
 class BlogPage extends React.PureComponent {
-  componentDidMount() {
-    setTimeout(() => {
-      console.log(`highlight`);
-      Prism.highlightAll(false);
-    }, 1000);
-  }
   render() {
     return (
       <React.Fragment>

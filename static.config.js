@@ -1,6 +1,7 @@
 import { reloadRoutes } from "react-static/node";
 import jdown from "jdown";
 import chokidar from "chokidar";
+import highlight from "highlight.js";
 import packageJson from "./package.json";
 import { Document } from "./src/Document";
 
@@ -32,7 +33,8 @@ chokidar.watch("posts").on("all", () => {
 });
 
 export default {
-  plugins: [["analytics", { trackId: trackIdEnum[process.env.NODE_ENV] }]],
+  // plugins: [["analytics", { trackId: trackIdEnum[process.env.NODE_ENV] }]],
+  Document,
   getSiteData() {
     return {
       version,
@@ -42,7 +44,9 @@ export default {
   },
   getRoutes: async () => {
     const parsedPosts = await jdown("posts", {
-      parseMd: true
+      highlight: code => {
+        return highlight.highlightAuto(code).value;
+      }
     });
     posts = Object.values(parsedPosts);
     // sort posts based on published date
