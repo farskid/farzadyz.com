@@ -16,7 +16,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-hot-loader": "^4.6.0",
-    "react-static": "6.0.11",
+    "react-static": "^6.0.18",
     "react-static-plugin-styled-components": "^6.0.0",
     "react-static-routes": "^1.0.0",
     "styled-components": "^4.1.2"

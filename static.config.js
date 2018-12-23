@@ -26,9 +26,8 @@ const trackIdEnum = {
   production: "4121499896"
 };
 
-// Watch posts for changes
-chokidar.watch("posts").on("all", () => {
-  console.log(`change in posts, reloading routes...`);
+chokidar.watch("./posts", "./static.config.js").on("all", () => {
+  console.log(`reloading config...`);
   reloadRoutes();
 });
 
@@ -38,13 +37,17 @@ export default {
   getSiteData() {
     return {
       version,
-      avatar: `https://s.gravatar.com/avatar/25710181a99650b72a5f43841afcda9e?s=1024`,
+      avatar: `https://s.gravatar.com/avatar/25710181a99650b72a5f43841afcda9e?s=512`,
       siteRoot: siteRootEnum[process.env.NODE_ENV]
     };
   },
   getRoutes: async () => {
     const parsedPosts = await jdown("posts", {
       highlight: code => {
+        highlight.configure({
+          tabReplace: "  ",
+          classPrefix: "hljs-"
+        });
         return highlight.highlightAuto(code).value;
       }
     });

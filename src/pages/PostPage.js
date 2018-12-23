@@ -2,7 +2,7 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import styled, { createGlobalStyle } from "styled-components";
 import { Link } from "@reach/router";
-// import "../dracula.css";
+import "../syntax-highlight.css";
 import { PageWrapper } from "../components/PageWrapper";
 import twitterIcon from "../icons/twitter.svg";
 
