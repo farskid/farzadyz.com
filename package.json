@@ -24,6 +24,7 @@
   "devDependencies": {
     "babel-plugin-styled-components": "^1.9.4",
     "chokidar": "^2.0.4",
+    "classnames": "^2.2.6",
     "eslint-config-react-tools": "1.x.x",
     "jdown": "^0.6.6",
     "serve": "^6.1.0"
