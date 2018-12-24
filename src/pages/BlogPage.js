@@ -42,7 +42,7 @@ const PostContentContainer = styled.div`
   }
 `;
 
-const PostSummary = styled.p``;
+// const PostSummary = styled.p``;
 
 export const PostListItem = React.memo(({ post }) => {
   const url = `/blog/${post.slug}`;

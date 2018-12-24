@@ -44,10 +44,6 @@ const PostTopBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f7f7f7;
-  position: sticky;
-  /* Required for position sticky! */
-  top: 70px;
   padding: 5px 30px;
 
   @media (max-width: 30em) {
@@ -79,6 +75,17 @@ const ShareLink = styled.a`
 const ShareIcon = styled.img`
   width: 30px;
   height: 30px;
+`;
+
+const Hr = styled.hr`
+  margin: 30px;
+  border: 0 none;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 1px;
+
+  @media (max-width: 30em) {
+    margin: 30px auto;
+  }
 `;
 
 const PostContentContainer = styled.div`
@@ -133,6 +140,7 @@ class BlogPage extends React.PureComponent {
                   dangerouslySetInnerHTML={{ __html: post.contents }}
                 />
               </PostContentContainer>
+              <Hr />
               <PostNavbar post={post} url={url} />
             </Post>
           )}

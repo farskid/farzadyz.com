@@ -78,10 +78,10 @@ class MainPage extends React.PureComponent {
                 <Highlighted>React Native</Highlighted>,{" "}
                 <Highlighted>GraphQL</Highlighted>,{" "}
                 <Highlighted>ReasonML</Highlighted> and{" "}
-                <Highlighted>Golang</Highlighted>. I'm usually facinated by{" "}
+                <Highlighted>Golang.</Highlighted> I'm usually facinated by{" "}
                 <Highlighted>Abstract Tooling</Highlighted>,{" "}
                 <Highlighted>State management patterns</Highlighted>,{" "}
-                <Highlighted>Automation</Highlighted> and
+                <Highlighted>Automation</Highlighted> and{" "}
                 <Highlighted>Architectural patterns</Highlighted>.
               </p>
               <p>
@@ -120,6 +120,7 @@ class MainPage extends React.PureComponent {
                 >
                   Linkedin
                 </SocialLink>
+                .
               </p>
             </DescriptionContainer>
           </PageContentContainer>

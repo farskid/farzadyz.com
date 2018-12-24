@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import classnames from "classnames";
 import { Link } from "@reach/router";
 import { Wrapper } from "./Wrapper";
 
@@ -20,7 +21,7 @@ const NavbarPositioner = styled.div`
 const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   background-color: #fff;
   height: 70px;
 `;
@@ -30,6 +31,7 @@ const NavbarList = styled.ul`
   margin: 0;
   display: flex;
   justify-content: space-around;
+  align-items: stretch;
   list-style: none;
 `;
 
@@ -58,7 +60,11 @@ export const Navbar = () => (
             </Link>
           </NavbarListItem> */}
           <NavbarListItem>
-            <Link href="/blog" to="/blog">
+            <Link
+              href="/blog"
+              to="/blog"
+              style={{ lineHeight: "70px", display: "block" }}
+            >
               Blog
             </Link>
           </NavbarListItem>

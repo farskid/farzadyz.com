@@ -21,6 +21,7 @@ pre {
 
   hyphens: none;
   padding: 1em;
+  overflow: auto;
 }
 
 .hljs,
