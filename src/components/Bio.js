@@ -26,7 +26,6 @@ const SocialLink = ({ children, ...props }) => (
 );
 
 function Bio() {
-  console.log(window.ga);
   return (
     <StaticQuery
       query={bioQuery}
