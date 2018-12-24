@@ -7,12 +7,12 @@ import { Document } from "./src/Document";
 
 const { version } = packageJson;
 let posts;
-let randomPost;
+// let randomPost;
 
-function randomPickFromArray(array) {
-  const randomIndex = Math.floor(Math.random() * array.length);
-  return array[randomIndex];
-}
+// function randomPickFromArray(array) {
+//   const randomIndex = Math.floor(Math.random() * array.length);
+//   return array[randomIndex];
+// }
 
 // TODO: put this in env variable
 const siteRootEnum = {
@@ -21,15 +21,30 @@ const siteRootEnum = {
   production: "https://farzadyz.com"
 };
 
-const trackIdEnum = {
-  development: "1826126532",
-  production: "4121499896"
-};
-
 chokidar.watch("./posts", "./static.config.js").on("all", () => {
   console.log(`reloading config...`);
   reloadRoutes();
 });
+
+// async function handlePosts() {
+//   const parsedPosts = await jdown("posts", {
+//     highlight: code => {
+//       highlight.configure({
+//         tabReplace: "  ",
+//         classPrefix: "hljs-"
+//       });
+//       return highlight.highlightAuto(code).value;
+//     }
+//   });
+//   // posts = Object.values(parsedPosts);
+//   // // sort posts based on published date
+//   // posts.sort((a, b) =>
+//   //   new Date(a.publishedAt).getTime() > new Date(b.publishedAt).getTime()
+//   //     ? -1
+//   //     : 1
+//   // );
+//   // randomPost = randomPickFromArray(posts);
+// }
 
 export default {
   // plugins: [["analytics", { trackId: trackIdEnum[process.env.NODE_ENV] }]],
@@ -42,7 +57,7 @@ export default {
     };
   },
   getRoutes: async () => {
-    const parsedPosts = await jdown("posts", {
+    posts = await jdown("posts", {
       highlight: code => {
         highlight.configure({
           tabReplace: "  ",
@@ -51,14 +66,6 @@ export default {
         return highlight.highlightAuto(code).value;
       }
     });
-    posts = Object.values(parsedPosts);
-    // sort posts based on published date
-    posts.sort((a, b) =>
-      new Date(a.publishedAt).getTime() > new Date(b.publishedAt).getTime()
-        ? -1
-        : 1
-    );
-    randomPost = randomPickFromArray(posts);
     return [
       {
         path: "/",
@@ -89,8 +96,7 @@ export default {
       },
       {
         path: "404",
-        component: "src/pages/NotFound",
-        getData: () => ({ randomPost })
+        component: "src/pages/NotFound"
       }
     ];
   }
