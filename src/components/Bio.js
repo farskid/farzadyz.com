@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Image from "gatsby-image";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 import { rhythm } from "../utils/typography";
 
@@ -8,8 +9,8 @@ const Highlighted = ({ children }) => (
   <span style={{ fontWeight: 700, display: "inline-block" }}>{children}</span>
 );
 
-const SocialLink = ({ children }) => (
-  <a
+const SocialLink = ({ children, ...props }) => (
+  <OutboundLink
     style={{
       fontWeight: 700,
       color: " #282828",
@@ -18,12 +19,14 @@ const SocialLink = ({ children }) => (
       textDecoration: "underline",
       boxShadow: "none"
     }}
+    {...props}
   >
     {children}
-  </a>
+  </OutboundLink>
 );
 
 function Bio() {
+  console.log(window.ga);
   return (
     <StaticQuery
       query={bioQuery}

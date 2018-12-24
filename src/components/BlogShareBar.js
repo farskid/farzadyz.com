@@ -2,6 +2,7 @@ import React from "react";
 import { rhythm } from "../utils/typography";
 import twitterIcon from "./twitter.svg";
 import { Link } from "gatsby";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 export const BlogShareBar = ({ title, href, tags, style, ...props }) => (
   <nav
@@ -16,7 +17,7 @@ export const BlogShareBar = ({ title, href, tags, style, ...props }) => (
     {...props}
   >
     <Link to="/blog">Check out all posts</Link>
-    <a
+    <OutboundLink
       target="_blank"
       rel="noopener noreferrer"
       href={`http://twitter.com/share?text=${title} by @farzad_yz&amp;url=${href}&amp;hashtags=${tags
@@ -31,6 +32,6 @@ export const BlogShareBar = ({ title, href, tags, style, ...props }) => (
         src={twitterIcon}
         alt="share on twitter"
       />
-    </a>
+    </OutboundLink>
   </nav>
 );
