@@ -6,7 +6,7 @@ import { Navbar } from "./Navbar";
 
 const StyledPageWrapper = styled.div`
   /* 70px is height of navbar */
-  padding-top: 50px;
+  padding: 50px 0;
 `;
 
 export const PageWrapper = props => (
@@ -16,12 +16,17 @@ export const PageWrapper = props => (
       <SiteData>
         {siteData => (
           <RouteData>
-            {routeData =>
-              console.log(routeData) || props.children({ siteData, routeData })
-            }
+            {routeData => props.children({ siteData, routeData })}
           </RouteData>
         )}
       </SiteData>
     </StyledPageWrapper>
+  </Wrapper>
+);
+
+export const PresentationalPageWrapper = props => (
+  <Wrapper>
+    <Navbar />
+    <StyledPageWrapper>{props.children}</StyledPageWrapper>
   </Wrapper>
 );
