@@ -1,0 +1,5 @@
+pre[class*="language-"],
+code[class*="language-"] {
+  font-family: "IBM Plex Mono", "Consolas", "Monaco", "Andale Mono",
+    "Ubuntu Mono", monospace;
+}

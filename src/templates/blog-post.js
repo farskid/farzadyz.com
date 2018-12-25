@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import SEO from "../components/Seo";
 import { rhythm, scale } from "../utils/typography";
 import { BlogShareBar } from "../components/BlogShareBar";
+import "./blogPost.css";
 
 class BlogPostTemplate extends React.Component {
   render() {
