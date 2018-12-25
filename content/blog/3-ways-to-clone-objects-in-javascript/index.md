@@ -1,8 +1,7 @@
 ---
 title: 3 Ways to clone objects in Javascript
 slug: 3-ways-to-clone-objects-in-javascript
-id: asldlaskjdlajdlkajalkCDAKLSJ
-summary: As it may seem simple for not seasoned Javascript developers, it actually has some pitfalls that would hurt you in the bones if you didn’t know the proper way to do it.
+id: c007e1a5-f068-403b-9283-6ed1d6e97a63
 date: "2017-10-01"
 tags: Javascript Objects clone
 ---

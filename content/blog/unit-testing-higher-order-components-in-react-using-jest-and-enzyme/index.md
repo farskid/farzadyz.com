@@ -1,8 +1,7 @@
 ---
 title: Unit Testing Higher Order Components with Enzyme and Jest
 slug: unit-test-react-higher-order-components-with-jest-and-enzyme
-id: asldlaskjdlajdlkaj
-summary: To properly test these badass components, you just need to know that they are simple functions and that’s all!
+id: d84898ff-1666-45cc-a9c1-676b1c990042
 date: "2017-11-03"
 tags: React Javascript Jest Enzyme Unit-Test Higher-order-componenets
 ---

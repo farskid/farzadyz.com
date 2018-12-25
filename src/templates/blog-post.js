@@ -117,7 +117,6 @@ export const pageQuery = graphql`
         title
         slug
         id
-        summary
         date(formatString: "MMMM DD, YYYY")
         tags
       }
