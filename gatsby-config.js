@@ -5,6 +5,7 @@ module.exports = {
     description: `I'm a Software engineer living in Finland.I'm interested in Javascript,Typescript,React,React Native,GraphQL,ReasonML and,Golang. I'm usually facinated by Abstract Tooling,State management patterns,Automation and,Architectural patterns.`,
     siteUrl: process.env.SITE_URL || "http://localhost:8000",
     social: {
+      twitterHandle: "@farzad_yz",
       twitter: `https://twitter.com/farzad_yz`,
       github: `https://github.com/farskid`,
       linkedin: `https://www.linkedin.com/in/farzadyz`,
