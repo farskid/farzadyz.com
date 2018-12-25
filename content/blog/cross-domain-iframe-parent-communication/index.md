@@ -1,8 +1,7 @@
 ---
 title: Cross-Domain Iframe-parent communication
 slug: cross-domain-iframe-parent-communication
-id: aslkd;alkda;lkdl;akd;lak
-summary: Knowing a way to communicate through iframe to parent is such a valuable and time saver.
+id: 0e24acc6-ec72-424a-8c33-9528d016bf8d
 date: "2016-12-28"
 tags: Javascript HTML iframe messaging
 ---
