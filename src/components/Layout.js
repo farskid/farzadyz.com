@@ -7,6 +7,12 @@ import { StaticQuery, graphql } from "gatsby";
 import { rhythm, scale } from "../utils/typography";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
+const styles = {
+  navbarItem: {
+    margin: "0 5px"
+  }
+};
+
 class Layout extends React.Component {
   render() {
     const {
@@ -41,13 +47,14 @@ class Layout extends React.Component {
                   justifyContent: "center"
                 }}
               >
-                <li style={{ margin: "0 5px" }}>
-                  <Link to="/blog" style={{}}>
-                    Blog
-                  </Link>
-                </li>
-                <li style={{ margin: "0 5px" }}>
+                <li style={styles.navbarItem}>
                   <Link to="/">About</Link>
+                </li>
+                <li style={styles.navbarItem}>
+                  <Link to="/blog">Blog</Link>
+                </li>
+                <li style={styles.navbarItem}>
+                  <Link to="/tweets">My Heroic Tweet</Link>
                 </li>
               </ul>
             </nav>
