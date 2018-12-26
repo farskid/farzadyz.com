@@ -57,7 +57,7 @@ class BlogIndex extends React.Component {
                     {title}
                   </Link>
                 </h2>
-                <date
+                <p
                   style={{
                     marginBottom: rhythm(1 / 2),
                     display: "block",
@@ -65,7 +65,7 @@ class BlogIndex extends React.Component {
                   }}
                 >
                   {date}
-                </date>
+                </p>
                 <div dangerouslySetInnerHTML={{ __html: excerpt }} />
               </article>
             );
