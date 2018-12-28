@@ -54,7 +54,7 @@ class Layout extends React.Component {
                   <Link to="/blog">Blog</Link>
                 </li>
                 <li style={styles.navbarItem}>
-                  <Link to="/tweets">My Heroic Tweet</Link>
+                  <Link to="/tweets">Heroic Tweets</Link>
                 </li>
               </ul>
             </nav>
