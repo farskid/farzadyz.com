@@ -60,7 +60,7 @@ function Bio() {
               <Highlighted>React Native</Highlighted>,{" "}
               <Highlighted>GraphQL</Highlighted>,{" "}
               <Highlighted>ReasonML</Highlighted> and{" "}
-              <Highlighted>Golang.</Highlighted> I'm usually facinated by{" "}
+              <Highlighted>Golang.</Highlighted> I'm usually fascinated by{" "}
               <Highlighted>Abstract Tooling</Highlighted>,{" "}
               <Highlighted>State management patterns</Highlighted>,{" "}
               <Highlighted>Automation</Highlighted> and{" "}
