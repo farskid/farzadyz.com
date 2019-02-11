@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Helmet from "react-helmet";
 
 import Layout from "../components/Layout";
 import SEO from "../components/Seo";
@@ -21,6 +22,7 @@ function Section({ title, texts = [], children }) {
 function JobExperience({ position, date, responsibilities }) {
   return (
     <section
+      className="job-experience"
       style={{
         marginBottom: rhythm(2),
         marginTop: rhythm(2),
@@ -74,6 +76,24 @@ class CV extends React.Component {
             `react native`
           ]}
         />
+        <Helmet>
+          <style type="text/css">
+            {`
+              @media print {
+                @page {
+                  size: auto;
+                  margin: 0mm;
+                }
+                .job-experience {
+                  box-shadow: none!important;
+                  border: none!important;
+                  padding-left: 0!important;
+                  padding-right: 0!important;
+                }
+              }
+              `}
+          </style>
+        </Helmet>
         <Section
           title="SKILLS"
           texts={[
@@ -123,6 +143,13 @@ class CV extends React.Component {
         />
 
         <Section title="PROFESSIONAL EXPERIENCE">
+          <JobExperience
+            position="Senior Software engineer at Futurice"
+            date="Nov 2018 - Present"
+            responsibilities={[
+              "Working mostly with Javascript, Typescript, ReasonML, Node.js, AWS, React and React Native. "
+            ]}
+          />
           <JobExperience
             position="Software Engineer at Smarp"
             date="May 2018 - Nov 2018"
