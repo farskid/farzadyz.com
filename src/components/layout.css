@@ -12,3 +12,9 @@ h5,
 h6 {
   line-height: inherit;
 }
+
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+}

@@ -39,6 +39,7 @@ class Layout extends React.Component {
             <h1>{author}</h1>
             <nav style={{ marginBottom: rhythm(1) }}>
               <ul
+                className="hidden-print"
                 style={{
                   listStyle: "none",
                   padding: 0,
@@ -72,6 +73,7 @@ class Layout extends React.Component {
               }}
               target="_blank"
               href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalhost%3A8000%2F&amp;amplref_src=twsrc%5Etfw&amp;screen_name=farzad_yz&amp;tw_p=followbutton"
+              className="hidden-print"
             >
               Follow {data.site.siteMetadata.social.twitterHandle} on Twitter
             </OutboundLink>
