@@ -326,6 +326,12 @@ React/Redux. Because of better UX, being responsive for mobile users and increas
                 A minimalistic zero-config GraphQL server
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
+                <a href="https://statechart-driven-ui-development.netlify.com/">
+                  <strong>Talk: Statechart Driven UI Development</strong>
+                </a>{" "}
+                A talk about why UI development is hard and how Statecharts can help us with that
+              </span>
+              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
                 <a href="https://headless-react.netlify.com/">
                   <strong>Talk: Headless React</strong>
                 </a>{" "}
