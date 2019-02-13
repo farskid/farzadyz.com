@@ -326,6 +326,12 @@ React/Redux. Because of better UX, being responsive for mobile users and increas
                 A minimalistic zero-config GraphQL server
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
+                <a href="https://github.com/lhandel/react-native-card-flip">
+                  <strong>React native card flip</strong>
+                </a>{" "}
+                Card flip animation for React Native
+              </span>
+              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
                 <a href="https://statechart-driven-ui-development.netlify.com/">
                   <strong>Talk: Statechart Driven UI Development</strong>
                 </a>{" "}
