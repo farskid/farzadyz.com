@@ -338,6 +338,13 @@ React/Redux. Because of better UX, being responsive for mobile users and increas
                 A talk about why UI development is hard and how Statecharts can help us with that
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
+                <a href="https://redux-observable.netlify.com">
+                  <strong>Talk: Boost State containment with observables</strong>
+                  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </a>{" "}
+                A talk about RxJS, Redux observables and their benefits
+              </span>
+              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
                 <a href="https://headless-react.netlify.com/">
                   <strong>Talk: Headless React</strong>
                 </a>{" "}
