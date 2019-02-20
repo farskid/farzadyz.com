@@ -354,6 +354,7 @@ React/Redux. Because of better UX, being responsive for mobile users and increas
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
                 <a href="https://react-without-react.netlify.com">
                   <strong>Talk: React without React</strong>
+                  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NC5t1JR8oH8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </a>{" "}
                 A talk about Using React or any other UI library on development
                 and wipe them out on compile time in order to save bundle size
