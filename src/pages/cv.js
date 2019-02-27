@@ -335,12 +335,35 @@ React/Redux. Because of better UX, being responsive for mobile users and increas
                 <a href="https://statechart-driven-ui-development.netlify.com/">
                   <strong>Talk: Statechart Driven UI Development</strong>
                 </a>{" "}
-                A talk about why UI development is hard and how Statecharts can help us with that
+                A talk about why UI development is hard and how Statecharts can
+                help us with that
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
                 <a href="https://redux-observable.netlify.com">
-                  <strong>Talk: Boost State containment with observables</strong>
-                  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <strong>
+                    Talk: Boost State containment with observables
+                  </strong>
+                  <a
+                    className="visible-print"
+                    href="https://redux-observable.netlify.com"
+                  >
+                    Link to slides
+                  </a>
+                  <a
+                    className="visible-print"
+                    href="https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555"
+                  >
+                    Link to the Talk Video
+                  </a>
+                  <iframe
+                    className="hidden-print"
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
                 </a>{" "}
                 A talk about RxJS, Redux observables and their benefits
               </span>
@@ -354,7 +377,27 @@ React/Redux. Because of better UX, being responsive for mobile users and increas
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
                 <a href="https://react-without-react.netlify.com">
                   <strong>Talk: React without React</strong>
-                  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NC5t1JR8oH8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <a
+                    className="visible-print"
+                    href="https://react-without-react.netlify.com"
+                  >
+                    Link to slides
+                  </a>
+                  <a
+                    className="visible-print"
+                    href="https://www.youtube-nocookie.com/embed/NC5t1JR8oH8"
+                  >
+                    Link to the Talk Video
+                  </a>
+                  <iframe
+                    className="hidden-print"
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/NC5t1JR8oH8"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
                 </a>{" "}
                 A talk about Using React or any other UI library on development
                 and wipe them out on compile time in order to save bundle size
