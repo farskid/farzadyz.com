@@ -343,26 +343,36 @@ React/Redux. Because of better UX, being responsive for mobile users and increas
                   <strong>
                     Talk: Boost State containment with observables
                   </strong>
-                  <a
+                  <span
                     className="visible-print"
-                    href="https://redux-observable.netlify.com"
+                    onClick={() =>
+                      window.open(
+                        "https://redux-observable.netlify.com",
+                        "_blank"
+                      )
+                    }
                   >
                     Link to slides
-                  </a>
-                  <a
+                  </span>
+                  <span
                     className="visible-print"
-                    href="https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555"
+                    onClick={() =>
+                      window.open(
+                        "https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555",
+                        "_blank"
+                      )
+                    }
                   >
                     Link to the Talk Video
-                  </a>
+                  </span>
                   <iframe
                     className="hidden-print"
                     width="560"
                     height="315"
                     src="https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555"
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowFullScreen
                   />
                 </a>{" "}
                 A talk about RxJS, Redux observables and their benefits
@@ -377,26 +387,36 @@ React/Redux. Because of better UX, being responsive for mobile users and increas
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
                 <a href="https://react-without-react.netlify.com">
                   <strong>Talk: React without React</strong>
-                  <a
+                  <span
                     className="visible-print"
-                    href="https://react-without-react.netlify.com"
+                    onClick={() =>
+                      window.open(
+                        "https://react-without-react.netlify.com",
+                        "_blank"
+                      )
+                    }
                   >
                     Link to slides
-                  </a>
-                  <a
+                  </span>
+                  <span
                     className="visible-print"
-                    href="https://www.youtube-nocookie.com/embed/NC5t1JR8oH8"
+                    onClick={() =>
+                      window.open(
+                        "https://www.youtube-nocookie.com/embed/NC5t1JR8oH8",
+                        "_balnk"
+                      )
+                    }
                   >
                     Link to the Talk Video
-                  </a>
+                  </span>
                   <iframe
                     className="hidden-print"
                     width="560"
                     height="315"
                     src="https://www.youtube-nocookie.com/embed/NC5t1JR8oH8"
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowFullScreen
                   />
                 </a>{" "}
                 A talk about Using React or any other UI library on development
