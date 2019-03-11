@@ -32,3 +32,9 @@ h6 {
     height: auto;
   }
 }
+
+/* Navbar */
+.navbarActiveLink {
+  color: #000;
+  font-weight: 900;
+}

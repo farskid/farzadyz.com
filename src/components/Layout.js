@@ -49,16 +49,29 @@ class Layout extends React.Component {
                 }}
               >
                 <li style={styles.navbarItem}>
-                  <Link to="/">About</Link>
+                  <Link to="/" activeClassName="navbarActiveLink">
+                    About
+                  </Link>
                 </li>
                 <li style={styles.navbarItem}>
-                  <Link to="/cv">CV</Link>
+                  <Link to="/cv" activeClassName="navbarActiveLink">
+                    CV
+                  </Link>
                 </li>
                 <li style={styles.navbarItem}>
-                  <Link to="/blog">Blog</Link>
+                  <Link to="/talks" activeClassName="navbarActiveLink">
+                    Talks
+                  </Link>
                 </li>
                 <li style={styles.navbarItem}>
-                  <Link to="/tweets">Heroic Tweets</Link>
+                  <Link to="/blog" activeClassName="navbarActiveLink">
+                    Blog
+                  </Link>
+                </li>
+                <li style={styles.navbarItem}>
+                  <Link to="/tweets" activeClassName="navbarActiveLink">
+                    Heroic Tweets
+                  </Link>
                 </li>
               </ul>
             </nav>
