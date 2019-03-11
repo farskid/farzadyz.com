@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Farzad YZ personal website`,
     author: `Farzad YZ`,
-    description: `I'm a Software engineer living in Finland.I'm interested in Javascript,Typescript,React,React Native,GraphQL,ReasonML and,Golang. I'm usually facinated by Abstract Tooling,State management patterns,Automation and,Architectural patterns.`,
+    description: `I'm a Software Engineer living in Finland. I'm interested in Javascript,Typescript,React,React Native,Nodejs,Restful services,Serverless,Redux,GraphQL,ReasonML and,Golang. I'm usually fascinated by Abstract Tooling, State management patterns, Automation and, Architectural patterns.`,
     siteUrl: process.env.SITE_URL || "http://localhost:8000",
     social: {
       twitterHandle: "@farzad_yz",
