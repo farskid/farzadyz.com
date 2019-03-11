@@ -58,6 +58,10 @@ function Bio() {
               <Highlighted>Typescript</Highlighted>,{" "}
               <Highlighted>React</Highlighted>,{" "}
               <Highlighted>React Native</Highlighted>,{" "}
+              <Highlighted>Nodejs</Highlighted>,{" "}
+              <Highlighted>Restful Services</Highlighted>,{" "}
+              <Highlighted>Serverless</Highlighted>,{" "}
+              <Highlighted>Redux</Highlighted>,{" "}
               <Highlighted>GraphQL</Highlighted>,{" "}
               <Highlighted>ReasonML</Highlighted> and{" "}
               <Highlighted>Golang.</Highlighted> I'm usually fascinated by{" "}
