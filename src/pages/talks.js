@@ -34,14 +34,28 @@ class Talk extends React.Component {
           <a
             href={url}
             target="_blank"
-            style={{ marginBottom: embed ? rhythm(1) : 0, display: "block" }}
+            style={{
+              marginBottom: embed ? rhythm(1) : 0,
+              display: "block"
+            }}
           >
             {title}
           </a>
         </h3>
         <p>{description}</p>
         {embed ? (
+          <a
+            href={embed}
+            target="_blank"
+            className="visible-mobile"
+            style={{ marginBottom: rhythm(1), display: "block" }}
+          >
+            Watch the talk on Youtube
+          </a>
+        ) : null}
+        {embed ? (
           <div
+            className="hidden-mobile hidden-print"
             style={{
               height: 0,
               paddingBottom: "56.25%",
@@ -52,7 +66,6 @@ class Talk extends React.Component {
             ref={node => (this.iframeWrapper = node)}
           >
             <iframe
-              className="hidden-print"
               src={embed}
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
