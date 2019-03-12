@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
-
 import Layout from "../components/Layout";
 import { rhythm } from "../utils/typography";
 import { SiteHeader } from "../components/SiteHeader";
 import { buttons } from "../constants";
+import "./cv.css";
 
 function Section({ title, texts = [], children }) {
   return (
@@ -15,7 +15,6 @@ function Section({ title, texts = [], children }) {
         <p key={index}>{t}</p>
       ))}
       {children}
-      {/* <hr /> */}
     </section>
   );
 }
@@ -102,6 +101,20 @@ class CV extends React.Component {
             </SiteHeader.Button>
           </div>
         </SiteHeader>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <button
+            style={{
+              color: buttons.black,
+              borderColor: buttons.black,
+              padding: `${rhythm(1 / 3)} ${rhythm(1 / 2)}`,
+              fontSize: rhythm(2 / 3)
+            }}
+            className="hidden-print download-button"
+            onClick={window.print}
+          >
+            Download My CV
+          </button>
+        </div>
         <Section title="My Tech">
           <p>
             Software Engineering, Javascript, Typescript, React, React Native,
