@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import { rhythm } from "../utils/typography";
 import { SiteHeader } from "../components/SiteHeader";
 import { buttons } from "../constants";
+import { TalksList } from "./talks";
 import "./cv.css";
 
 function Section({ title, texts = [], children }) {
@@ -247,6 +248,9 @@ class CV extends React.Component {
             ]}
           />
         </Section>
+        <Section title="Talks">
+          <TalksList talks={require("../talks/index.json")} />
+        </Section>
         <Section
           title="Contributions"
           texts={[
@@ -294,117 +298,6 @@ class CV extends React.Component {
                 Card flip animation for React Native
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://statechart-driven-ui-development.netlify.com/">
-                  <strong>Talk: Statechart Driven UI Development</strong>
-                </a>{" "}
-                A talk about why UI development is hard and how Statecharts can
-                help us with that
-              </span>
-              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://redux-observable.netlify.com">
-                  <strong>
-                    Talk: Boost State containment with observables
-                  </strong>
-                  <span
-                    className="visible-print"
-                    onClick={() =>
-                      window.open(
-                        "https://redux-observable.netlify.com",
-                        "_blank"
-                      )
-                    }
-                  >
-                    Link to slides
-                  </span>
-                  <span
-                    className="visible-print"
-                    onClick={() =>
-                      window.open(
-                        "https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555",
-                        "_blank"
-                      )
-                    }
-                  >
-                    Link to the Talk Video
-                  </span>
-                  <iframe
-                    className="hidden-print"
-                    width="560"
-                    height="315"
-                    src="https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </a>{" "}
-                A talk about RxJS, Redux observables and their benefits
-              </span>
-              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://headless-react.netlify.com/">
-                  <strong>Talk: Headless React</strong>
-                </a>{" "}
-                A talk about Headless React components to boost reusability and
-                composability of UI components
-              </span>
-              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://react-without-react.netlify.com">
-                  <strong>Talk: React without React</strong>
-                  <span
-                    className="visible-print"
-                    onClick={() =>
-                      window.open(
-                        "https://react-without-react.netlify.com",
-                        "_blank"
-                      )
-                    }
-                  >
-                    Link to slides
-                  </span>
-                  <span
-                    className="visible-print"
-                    onClick={() =>
-                      window.open(
-                        "https://www.youtube-nocookie.com/embed/NC5t1JR8oH8",
-                        "_balnk"
-                      )
-                    }
-                  >
-                    Link to the Talk Video
-                  </span>
-                  <iframe
-                    className="hidden-print"
-                    width="560"
-                    height="315"
-                    src="https://www.youtube-nocookie.com/embed/NC5t1JR8oH8"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </a>{" "}
-                A talk about Using React or any other UI library on development
-                and wipe them out on compile time in order to save bundle size
-                and a boost in performance on runtime
-              </span>
-              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://www.youtube.com/watch?v=LujtSjJ6MhY">
-                  <strong>Talk on Youtube show SoftwareTalks</strong>
-                </a>{" "}
-                A talk about TDD
-              </span>
-              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://www.youtube.com/watch?v=fMZUy3oRBw8&amp;t=703s">
-                  <strong>Talk on Youtube show SoftwareTalks</strong>
-                </a>{" "}
-                A talk about <em>State of Frontend development</em>
-              </span>
-              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="http://coderconf.org/files/farzad-yousefzadeh.mp3">
-                  <strong>Talk on CoderConf</strong>
-                </a>{" "}
-                A talk about{" "}
-                <em>State of The life of a software developer in Finland</em>
-              </span>
-              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
                 <a href="https://pullrequest.ir">
                   <strong>Co-created open source Persian technical blog</strong>
                 </a>{" "}
@@ -413,7 +306,7 @@ class CV extends React.Component {
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
                 <a href={social.stackoverflow}>
                   <strong>
-                    Active member on Stackoverflow with 1500+ reputation
+                    Active member on Stackoverflow with 1600+ reputation
                   </strong>
                 </a>
               </span>

@@ -97,7 +97,24 @@ class Talk extends React.Component {
   }
 }
 
-export default class TweetsIndex extends React.Component {
+export const TalksList = ({ talks }) => {
+  return Object.keys(talks)
+    .reverse()
+    .map((key, index) => {
+      const talk = talks[key];
+      return (
+        <Talk
+          key={index}
+          title={talk.title}
+          url={talk.url}
+          embed={talk.embed}
+          description={talk.description}
+        />
+      );
+    });
+};
+
+export default class Talks extends React.Component {
   render() {
     const { data } = this.props;
     const {
@@ -138,20 +155,7 @@ export default class TweetsIndex extends React.Component {
             </SiteHeader.Button>
           </div>
         </SiteHeader>
-        {Object.keys(talks)
-          .reverse()
-          .map((key, index) => {
-            const talk = talks[key];
-            return (
-              <Talk
-                key={index}
-                title={talk.title}
-                url={talk.url}
-                embed={talk.embed}
-                description={talk.description}
-              />
-            );
-          })}
+        <TalksList talks={talks} />
       </Layout>
     );
   }
