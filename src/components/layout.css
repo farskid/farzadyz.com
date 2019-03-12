@@ -17,6 +17,13 @@ h6 {
   display: none !important;
 }
 
+.hidden-mobile {
+  display: block !important;
+}
+.visible-mobile {
+  display: none !important;
+}
+
 @media print {
   .hidden-print {
     display: none !important;
@@ -27,6 +34,12 @@ h6 {
 }
 
 @media screen and (max-width: 480px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+  .visible-mobile {
+    display: block !important;
+  }
   iframe {
     max-width: 100%;
     height: auto;
