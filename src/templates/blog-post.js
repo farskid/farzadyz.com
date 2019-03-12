@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-
-import Bio from "../components/Bio";
 import Layout from "../components/Layout";
 import SEO from "../components/Seo";
 import { rhythm, scale } from "../utils/typography";
+import { SiteHeader } from "../components/SiteHeader";
+import { buttons } from "../constants";
 import { BlogShareBar } from "../components/BlogShareBar";
 import "./blogPost.css";
 
@@ -21,21 +21,54 @@ class BlogPostTemplate extends React.Component {
     } = this.props;
     const post = markdownRemark;
     const siteTitle = siteMetadata.title;
+    const siteDescription = siteMetadata.description;
+    const author = siteMetadata.author;
+    const social = siteMetadata.social;
     const { previous, next } = pageContext;
 
     return (
       <Layout
-        location={location}
         title={siteTitle}
-        author={siteMetadata.author}
-        avatar={avatar}
-        hasNavbar={true}
+        description={siteDescription}
+        CustomSEO={() => (
+          <SEO
+            title={post.frontmatter.title}
+            description={post.excerpt}
+            keywords={post.frontmatter.tags.split(" ")}
+          />
+        )}
       >
-        <SEO
-          title={post.frontmatter.title}
-          description={post.excerpt}
-          keywords={post.frontmatter.tags.split(" ")}
-        />
+        <SiteHeader siteMetadata={siteMetadata} author={author} avatar={avatar}>
+          <SiteHeader.Avatar
+            avatar={avatar.childImageSharp.fixed}
+            author={author}
+          />
+          <h1>{author}</h1>
+          <nav style={{ marginBottom: rhythm(1) }}>
+            <SiteHeader.Navbar />
+          </nav>
+          <div>
+            <SiteHeader.Button
+              href="mailto:farskid@gmail.com?subject=We'd like to hire you as a consultant"
+              color={buttons.black}
+            >
+              Hire Me as a Consultant
+            </SiteHeader.Button>
+            <SiteHeader.Button
+              href="mailto:farskid@gmail.com?subject=We'd like to hire you to give a talk for us"
+              color={buttons.green}
+            >
+              Hire Me to give a Talk
+            </SiteHeader.Button>
+            <SiteHeader.Button
+              href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalhost%3A8000%2F&amp;amplref_src=twsrc%5Etfw&amp;screen_name=farzad_yz&amp;tw_p=followbutton"
+              external={true}
+              color={buttons.blue}
+            >
+              Follow {social.twitterHandle} on Twitter
+            </SiteHeader.Button>
+          </div>
+        </SiteHeader>
         <BlogShareBar
           title={post.frontmatter.title}
           tags={post.frontmatter.tags}
@@ -58,23 +91,30 @@ class BlogPostTemplate extends React.Component {
         <ul
           style={{
             display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
+            flexDirection: "column",
             listStyle: `none`,
             padding: 0,
             margin: 0
           }}
         >
           {previous && (
-            <li style={{ flex: 1 }}>
-              <Link to={previous.fields.slug} rel="prev">
+            <li>
+              <Link
+                to={previous.fields.slug}
+                rel="prev"
+                style={{ display: "block" }}
+              >
                 ← {previous.frontmatter.title}
               </Link>
             </li>
           )}
           {next && (
-            <li style={{ flex: 1 }}>
-              <Link to={next.fields.slug} rel="next">
+            <li>
+              <Link
+                to={next.fields.slug}
+                rel="next"
+                style={{ display: "block" }}
+              >
                 {next.frontmatter.title} →
               </Link>
             </li>
@@ -100,6 +140,9 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        social {
+          twitterHandle
+        }
       }
     }
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
