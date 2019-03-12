@@ -3,8 +3,9 @@ import { graphql } from "gatsby";
 import Helmet from "react-helmet";
 
 import Layout from "../components/Layout";
-import SEO from "../components/Seo";
 import { rhythm } from "../utils/typography";
+import { SiteHeader } from "../components/SiteHeader";
+import { buttons } from "../constants";
 
 function Section({ title, texts = [], children }) {
   return (
@@ -44,38 +45,14 @@ function JobExperience({ position, date, responsibilities }) {
 class CV extends React.Component {
   render() {
     const { data } = this.props;
-    const { title, description, social } = data.site.siteMetadata;
+    const {
+      site: { siteMetadata },
+      avatar
+    } = data;
+    const { title, description, social, author } = siteMetadata;
 
     return (
-      <Layout
-        location={this.props.location}
-        title={title}
-        avatar={data.avatar}
-        author={data.site.siteMetadata.author}
-        hasNavbar={true}
-      >
-        <SEO
-          title={title}
-          description={description}
-          keywords={[
-            `farzad yz`,
-            `javascript`,
-            `react`,
-            `redux`,
-            `typescript`,
-            `nodejs`,
-            `reasonml`,
-            `elm`,
-            `graphql`,
-            `golang`,
-            `automation`,
-            `architecture`,
-            `dx`,
-            `tooling`,
-            `state management`,
-            `react native`
-          ]}
-        />
+      <Layout title={title} description={description}>
         <Helmet>
           <style type="text/css">
             {`
@@ -94,6 +71,37 @@ class CV extends React.Component {
               `}
           </style>
         </Helmet>
+        <SiteHeader siteMetadata={siteMetadata} author={author} avatar={avatar}>
+          <SiteHeader.Avatar
+            avatar={avatar.childImageSharp.fixed}
+            author={author}
+          />
+          <h1>{author}</h1>
+          <nav style={{ marginBottom: rhythm(1) }}>
+            <SiteHeader.Navbar />
+          </nav>
+          <div>
+            <SiteHeader.Button
+              href="mailto:farskid@gmail.com?subject=We'd like to hire you as a consultant"
+              color={buttons.black}
+            >
+              Hire Me as a Consultant
+            </SiteHeader.Button>
+            <SiteHeader.Button
+              href="mailto:farskid@gmail.com?subject=We'd like to hire you to give a talk for us"
+              color={buttons.green}
+            >
+              Hire Me to give a Talk
+            </SiteHeader.Button>
+            <SiteHeader.Button
+              href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalhost%3A8000%2F&amp;amplref_src=twsrc%5Etfw&amp;screen_name=farzad_yz&amp;tw_p=followbutton"
+              external={true}
+              color={buttons.blue}
+            >
+              Follow {social.twitterHandle} on Twitter
+            </SiteHeader.Button>
+          </div>
+        </SiteHeader>
         <Section title="My Tech">
           <p>
             Software Engineering, Javascript, Typescript, React, React Native,
@@ -214,7 +222,7 @@ class CV extends React.Component {
           />
           <JobExperience
             position="Web Developer at Bertina Co"
-            date="31 Dec 2014 - 6 Sep 2016"
+            date="Dec 2014 - Sep 2016"
             responsibilities={[
               "Developed Employees Portal using AngularJS, a service to manage employees, monitor their activities, request for vacations, etc",
               "Developed Minisite, a service to provide minimal, responsive personal portals with many themes and live management service using AngularJS, jQuery, SCSS",
@@ -420,6 +428,7 @@ export const pageQuery = graphql`
         title
         author
         social {
+          twitterHandle
           twitter
           github
           linkedin

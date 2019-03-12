@@ -1,0 +1,11 @@
+.site-header-button {
+  margin: 5px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 480px) {
+  .site-header-button {
+    display: block;
+    margin: 5px 0;
+  }
+}
