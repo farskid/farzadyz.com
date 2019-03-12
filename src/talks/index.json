@@ -1,0 +1,39 @@
+{
+  "coderconf": {
+    "title": "The life of a software developer in Finland",
+    "description": "A talk about State of The life of a software developer in Finland",
+    "url": "http://coderconf.org/files/farzad-yousefzadeh.mp3"
+  },
+  "softwareTalks-FE": {
+    "title": "The state of Frontend development (Software Talks)",
+    "description": "A talk about State of Frontend development on Youtube show SoftwareTalks",
+    "url": "https://www.youtube.com/watch?v=fMZUy3oRBw8&t=703s"
+  },
+  "softwareTalks-TDD": {
+    "title": "Test Driven Development (Software Talks)",
+    "description": "A talk about TDD on Youtube show SoftwareTalks",
+    "url": "https://www.youtube.com/watch?v=LujtSjJ6MhY"
+  },
+  "techweeklies-react-without-react": {
+    "title": "React without React",
+    "description": "A talk about Using React or any other UI library on development and wipe them out on compile time in order to save bundle size and a boost in performance on runtime",
+    "url": "https://react-without-react.netlify.com/",
+    "embed": "https://www.youtube-nocookie.com/embed/NC5t1JR8oH8"
+  },
+  "headless-react": {
+    "title": "Headless React",
+    "description": "A talk about developing Headless React components in order to boost reusability and composability of UI components",
+    "url": "https://headless-react.netlify.com/"
+  },
+  "redux-observable": {
+    "title": "Boost state containment with Redux Observables",
+    "description": "A talk about RxJS, Redux observables and their benefits",
+    "url": "https://redux-observable.netlify.com/",
+    "embed": "https://www.youtube-nocookie.com/embed/88LAiFAlH7w?start=6555"
+  },
+  "statecharts": {
+    "title": "Statecharts driven UI development",
+    "description": "A talk about why UI development is hard and how Statecharts can help us with that",
+    "url": "https://statechart-driven-ui-development.netlify.com/"
+  }
+}
