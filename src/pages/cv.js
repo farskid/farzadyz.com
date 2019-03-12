@@ -110,7 +110,7 @@ class CV extends React.Component {
               fontSize: rhythm(2 / 3)
             }}
             className="hidden-print download-button"
-            onClick={window.print}
+            onClick={() => window.print()}
           >
             Download My CV
           </button>
