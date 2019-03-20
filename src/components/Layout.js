@@ -2,6 +2,7 @@ import React from "react";
 import "./layout.css";
 import { rhythm } from "../utils/typography";
 import SEO from "../components/Seo";
+import { Footer } from "./Footer";
 
 class Layout extends React.Component {
   render() {
@@ -56,6 +57,7 @@ class Layout extends React.Component {
           />
         )}
         {children}
+        <Footer />
       </div>
     );
   }
