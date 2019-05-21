@@ -250,55 +250,99 @@ class CV extends React.Component {
           texts={[
             <span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://github.com/paypal/accessible-html5-video-player">
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/davidkpiano/xstate"
+                >
+                  <strong>
+                    XState: Statecharts implementation in Javascript
+                  </strong>
+                </a>
+              </span>
+              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/farskid/a11y"
+                >
+                  <strong>Automated accessibility tests</strong>
+                </a>
+              </span>
+              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/paypal/accessible-html5-video-player"
+                >
                   <strong>Paypal universal video player</strong>
                 </a>
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://github.com/renatorib/react-powerplug">
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/renatorib/react-powerplug"
+                >
                   <strong>React power-plug</strong>
                 </a>{" "}
                 Headless statefull declarative react components to manage side
                 effects
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://github.com/rofrischmann/alveron">
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/rofrischmann/alveron"
+                >
                   <strong>Alveron (old: React woodworm)</strong>
                 </a>{" "}
                 Elm &amp; Reason inspired state management for React
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://carbon.now.sh">
+                <a rel="nofollow" target="_blank" href="https://carbon.now.sh">
                   <strong>Carbon</strong>
                 </a>{" "}
                 Online code screenshots tooling
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://github.com/nozzle/react-static">
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/nozzle/react-static"
+                >
                   <strong>React Static</strong>
                 </a>{" "}
                 A progressive static site generator for React
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://github.com/glennreyes/graphpack">
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/glennreyes/graphpack"
+                >
                   <strong>GraphPack</strong>
                 </a>{" "}
                 A minimalistic zero-config GraphQL server
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://github.com/lhandel/react-native-card-flip">
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/lhandel/react-native-card-flip"
+                >
                   <strong>React native card flip</strong>
                 </a>{" "}
                 Card flip animation for React Native
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href="https://pullrequest.ir">
+                <a rel="nofollow" target="_blank" href="https://pullrequest.ir">
                   <strong>Co-created open source Persian technical blog</strong>
                 </a>{" "}
                 <em>PullRequest.ir</em>
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
-                <a href={social.stackoverflow}>
+                <a rel="nofollow" target="_blank" href={social.stackoverflow}>
                   <strong>
                     Active member on Stackoverflow with 1600+ reputation
                   </strong>

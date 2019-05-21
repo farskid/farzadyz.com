@@ -26,6 +26,7 @@ class Talk extends React.Component {
           <a
             href={url}
             target="_blank"
+            rel="nofollow"
             style={{
               marginBottom: embed ? rhythm(1) : 0,
               display: "block"
