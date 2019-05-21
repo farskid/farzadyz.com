@@ -39,7 +39,11 @@ function Bio() {
           >
             <h1>Howdy! My name is {author}</h1>
             <p>
-              I'm a Software engineer living in{" "}
+              I'm a Software engineer working at{" "}
+              <a rel="nofollow" href="https://futurice.com">
+                <strong>Futurice</strong>
+              </a>{" "}
+              and living in{" "}
               <span
                 style={{
                   fontSize: 40,
@@ -59,16 +63,15 @@ function Bio() {
               <Highlighted>React</Highlighted>,{" "}
               <Highlighted>React Native</Highlighted>,{" "}
               <Highlighted>Nodejs</Highlighted>,{" "}
-              <Highlighted>Restful Services</Highlighted>,{" "}
               <Highlighted>Serverless</Highlighted>,{" "}
-              <Highlighted>Redux</Highlighted>,{" "}
               <Highlighted>GraphQL</Highlighted>,{" "}
-              <Highlighted>ReasonML</Highlighted> and{" "}
-              <Highlighted>Golang.</Highlighted> I'm usually fascinated by{" "}
-              <Highlighted>Abstract Tooling</Highlighted>,{" "}
-              <Highlighted>State management patterns</Highlighted>,{" "}
-              <Highlighted>Automation</Highlighted> and{" "}
-              <Highlighted>Architectural patterns</Highlighted>.
+              <Highlighted>ReasonML</Highlighted>. Fascinated by{" "}
+              <Highlighted>DX Tooling</Highlighted>,
+              <Highlighted>Automation</Highlighted>.
+              <Highlighted>Public technical speaker</Highlighted>. Passionate
+              about <Highlighted>UI Engineering</Highlighted>,{" "}
+              <Highlighted>Statecharts</Highlighted> and{" "}
+              <Highlighted>Reactivity</Highlighted>.
             </p>
             <p>
               My hobbies consist of Walking, Listening to music for a long time,
