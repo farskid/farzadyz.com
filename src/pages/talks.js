@@ -5,6 +5,7 @@ import talks from "../talks/index.json";
 import { rhythm } from "../utils/typography";
 import { SiteHeader } from "../components/SiteHeader";
 import { buttons } from "../constants";
+import "./talks.css";
 
 class Talk extends React.Component {
   state = { pending: true, iframeHeight: 0 };
@@ -20,16 +21,7 @@ class Talk extends React.Component {
     const { pending, iframeHeight } = this.state;
     const { title, url, embed, description } = this.props;
     return (
-      <section
-        style={{
-          marginBottom: rhythm(2),
-          marginTop: rhythm(2),
-          border: "1px solid #eee",
-          padding: `${rhythm(1)} ${rhythm(1)} 0`,
-          borderRadius: rhythm(0.25),
-          boxShadow: "rgb(238, 238, 238) 0px 0px 20px 2px"
-        }}
-      >
+      <section className="talk-head">
         <h3>
           <a
             href={url}

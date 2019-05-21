@@ -31,11 +31,7 @@ function NavButton({ external = false, href, children, color, style = {} }) {
 }
 
 function SiteHeader({ children }) {
-  return (
-    <header style={{ textAlign: "center", marginBottom: rhythm(4) }}>
-      {children}
-    </header>
-  );
+  return <header className="site-header">{children}</header>;
 }
 
 // navbar
