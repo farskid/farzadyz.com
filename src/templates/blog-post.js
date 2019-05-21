@@ -55,12 +55,6 @@ class BlogPostTemplate extends React.Component {
               Hire Me as a Consultant
             </SiteHeader.Button>
             <SiteHeader.Button
-              href="mailto:farskid@gmail.com?subject=We'd like to hire you to give a talk for us"
-              color={buttons.green}
-            >
-              Hire Me to give a Talk
-            </SiteHeader.Button>
-            <SiteHeader.Button
               href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalhost%3A8000%2F&amp;amplref_src=twsrc%5Etfw&amp;screen_name=farzad_yz&amp;tw_p=followbutton"
               external={true}
               color={buttons.blue}
