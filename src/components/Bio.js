@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import Image from "gatsby-image";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
@@ -66,10 +66,12 @@ function Bio() {
               <Highlighted>Serverless</Highlighted>,{" "}
               <Highlighted>GraphQL</Highlighted>,{" "}
               <Highlighted>ReasonML</Highlighted>. Fascinated by{" "}
-              <Highlighted>DX Tooling</Highlighted>,
-              <Highlighted>Automation</Highlighted>.
-              <Highlighted>Public technical speaker</Highlighted>. Passionate
-              about <Highlighted>UI Engineering</Highlighted>,{" "}
+              <Highlighted>DX Tooling</Highlighted> and{" "}
+              <Highlighted>Automation</Highlighted>.{" "}
+              <Highlighted>
+                <Link to="/talks">Public technical speaker</Link>
+              </Highlighted>
+              . Passionate about <Highlighted>UI Engineering</Highlighted>,{" "}
               <Highlighted>Statecharts</Highlighted> and{" "}
               <Highlighted>Reactivity</Highlighted>.
             </p>

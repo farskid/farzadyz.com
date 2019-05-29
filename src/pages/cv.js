@@ -113,7 +113,8 @@ class CV extends React.Component {
         <Section title="My Tech">
           <p>
             Software Engineering, Javascript, Typescript, React, React Native,
-            NodeJS, Restful services, serverless, Redux, GraphQL and ReasonML.
+            NodeJS, Restful services, serverless, Redux, FSM and Statecharts.
+            GraphQL, Elm and ReasonML are into my Radar.
           </p>
         </Section>
         <Section
@@ -125,10 +126,10 @@ class CV extends React.Component {
             </>,
             <>
               <strong>Web Development Technologies:</strong> React, React
-              Native, Redux, Nodejs, Express, AWS cloud services, Restful
-              services, GraphQL, Gatsby, Angularjs, Firebase, Jest, Babel,
-              Webpack, Styled Components, Sass/Scss, Rxjs, CI systems, Docker,
-              Redis, RabbitMQ
+              Native, Redux, Mobx, Xstate, Nodejs, Express, AWS cloud services,
+              Restful services, GraphQL, Gatsby, Angularjs, Firebase, Jest,
+              Babel, Webpack, Styled Components, Sass/Scss, Rxjs, CI systems,
+              Docker, Redis, RabbitMQ
             </>,
             <>
               <strong>Mobile Development:</strong> React Native (Android and
@@ -143,14 +144,14 @@ class CV extends React.Component {
               Patterns, Pair Programming, Agile
             </>,
             <>
-              <strong>Soft skills:</strong> Very Good at communication, Public
-              tech speaker at events, meetups and conferences, Team player, Open
-              Source , Technical Blogger
+              <strong>Soft skills:</strong> Very Good at communication,
+              International Technical Speaker, Team player, Open Sourcerer ,
+              Technical Blogger.
             </>,
             <>
               Currently looking into ​Distributed Systems, Microservices,
-              Serverless, Software Architectures, Functional Reactive
-              Programming
+              Serverless, Software Architectures and Functional Reactive
+              Programming.
             </>
           ]}
           children={null}
@@ -258,6 +259,24 @@ class CV extends React.Component {
                   <strong>
                     XState: Statecharts implementation in Javascript
                   </strong>
+                </a>
+              </span>
+              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/statecharts/xstate-viz"
+                >
+                  <strong>Xstate Visualizer</strong>
+                </a>
+              </span>
+              <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/rgommezz/react-native-offline"
+                >
+                  <strong>React Native Offline</strong>
                 </a>
               </span>
               <span style={{ display: "block", marginBottom: rhythm(0.5) }}>
