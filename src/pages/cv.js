@@ -95,6 +95,9 @@ class CV extends React.Component {
               Follow {social.twitterHandle} on Twitter
             </SiteHeader.Button>
           </div>
+          <p className="text-center visible-print">
+            <a href="mailto:farskid@gmail.com">Farskid@gmail.com</a>
+          </p>
         </SiteHeader>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <button
