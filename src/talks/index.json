@@ -41,5 +41,11 @@
     "description": "Often when we need to develop user interfaces, we model the interface behaviour based on a visual design or the platform we ship onto. However, since the behaviour of the component is the same, it would be beneficial to find a practical way to share this behaviour between different platforms, styling systems, state containers, data transmitters and any other sort of integrations.In this talk, I'll be showing a set of techniques to model a semi complicated React component, independent from the common integrations.",
     "url": "http://abstract-component-modeling.netlify.com",
     "embed": "https://www.youtube-nocookie.com/embed/AVb5dURO6q0"
+  },
+  "react-hooks-vs-reactive-statecharts": {
+    "title": "React Hooks vs Reactive Statecharts @ React Helsinki June, 2019",
+    "description": "A talk comparing React Hooks to Reactive statecharts in developing a service called HSLZone",
+    "url": "https://hooks-vs-reactive-statecharts.netlify.com",
+    "embed": "https://www.youtube-nocookie.com/embed/HXBemBZl-Lg?start=49600"
   }
 }
