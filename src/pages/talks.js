@@ -150,7 +150,7 @@ export default class Talks extends React.Component {
 
 export const TalksQuery = graphql`
   query TalksQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/farzadyz_new.jpg/" }) {
       childImageSharp {
         fixed(width: 100, height: 100) {
           ...GatsbyImageSharpFixed

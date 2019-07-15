@@ -382,7 +382,7 @@ export default CV;
 
 export const pageQuery = graphql`
   query CVQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/farzadyz_new.jpg/" }) {
       childImageSharp {
         fixed(width: 100, height: 100) {
           ...GatsbyImageSharpFixed
