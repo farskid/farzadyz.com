@@ -61,7 +61,7 @@ h6 {
   max-width: 36rem;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 30rem) {
   .layout-container {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
