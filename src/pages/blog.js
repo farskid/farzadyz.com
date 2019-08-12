@@ -44,16 +44,16 @@ class BlogIndex extends React.Component {
           </div>
         </SiteHeader>
         <main>
-          {posts.map(p => {
+          {posts.map((p, index) => {
             const {
               node: {
-                frontmatter: { title, id, date },
+                frontmatter: { title, date },
                 excerpt,
                 fields: { slug }
               }
             } = p;
             return (
-              <article key={id} style={{ marginBottom: rhythm(2) }}>
+              <article key={index} style={{ marginBottom: rhythm(2) }}>
                 <h2 style={{ marginBottom: rhythm(1 / 2) }}>
                   <Link to={slug} style={{ textDecoration: "none" }}>
                     {title}
