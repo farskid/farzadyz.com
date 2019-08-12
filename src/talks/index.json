@@ -47,5 +47,11 @@
     "description": "A talk comparing React Hooks to Reactive statecharts in developing a service called HSLZone",
     "url": "https://hooks-vs-reactive-statecharts.netlify.com",
     "embed": "https://www.youtube-nocookie.com/embed/HXBemBZl-Lg?start=49600"
+  },
+  "explicitness-and-consistency-in-UI": {
+    "title": "Explicitness and Consistency in UI  ",
+    "description": "A talk about hidden complexities of UI, proper domain modelling and how we underestimate this complexity.",
+    "url": "https://the-art-of-explicit-ui.netlify.com",
+    "embed": "https://www.youtube-nocookie.com/embed/miDQ5dDDOJk"
   }
 }
