@@ -104,13 +104,10 @@ In cases of _ComponentA_ and _ComponentB_ samples above, registration, removal a
 function useBackButton(handler) {
   // Frustration isolated! Yay! 🎉
   useEffect(() => {
-    BackHandler.addEventListener("hardwareBackPress", backButtonHandlerForA);
+    BackHandler.addEventListener("hardwareBackPress", handler);
 
     return () => {
-      BackHandler.removeEventListener(
-        "hardwareBackPress",
-        backButtonHandlerForA
-      );
+      BackHandler.removeEventListener("hardwareBackPress", handler);
     };
   }, []);
 }
