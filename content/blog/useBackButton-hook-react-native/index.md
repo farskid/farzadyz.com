@@ -45,7 +45,7 @@ function MyComponent() {
     return () => {
       BackHandler.removeEventListener("hardwareBackPress", backButtonHandler);
     };
-  }, []);
+  }, [backButtonHandler]);
 
   return <View>...</View>;
 }
@@ -69,7 +69,7 @@ function ComponentA() {
         backButtonHandlerForA
       );
     };
-  }, []);
+  }, [backButtonHandlerForA]);
 
   return <ViewA />;
 }
@@ -87,7 +87,7 @@ function ComponentB() {
         backButtonHandlerForB
       );
     };
-  }, []);
+  }, [backButtonHandlerForB]);
 
   return <ViewB />;
 }
@@ -109,11 +109,6 @@ function useBackButton(handler) {
     return () => {
       BackHandler.removeEventListener("hardwareBackPress", handler);
     };
-    /* now that the handler is an external dependency, once handler 
-      changes, we wanna be able to reflect that change and update the 
-      handler inside our hook too. so we need to pass handler as a 
-      dependency to our custom hook
-    */
   }, [handler]);
 }
 /* highlight-end */
