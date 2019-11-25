@@ -109,6 +109,11 @@ function useBackButton(handler) {
     return () => {
       BackHandler.removeEventListener("hardwareBackPress", handler);
     };
+    /* now that the handler is an external dependency, once handler 
+      changes, we wanna be able to reflect that change and update the 
+      handler inside our hook too. so we need to pass handler as a 
+      dependency to our custom hook
+    */
   }, []);
 }
 /* highlight-end */
