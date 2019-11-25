@@ -114,7 +114,7 @@ function useBackButton(handler) {
       handler inside our hook too. so we need to pass handler as a 
       dependency to our custom hook
     */
-  }, []);
+  }, [handler]);
 }
 /* highlight-end */
 
