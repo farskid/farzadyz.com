@@ -28,6 +28,8 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
+    "serialize-javascript": "^2.1.2",
+    "set-value": "^3.0.1",
     "twit": "^2.2.11",
     "typeface-ibm-plex-mono": "^0.0.61",
     "typeface-ibm-plex-sans": "^0.0.61",
