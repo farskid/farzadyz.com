@@ -4,6 +4,10 @@ code[class*="language-"] {
     "Ubuntu Mono", monospace;
 }
 
+code {
+  display: inline-block;
+}
+
 :not(pre) > code[class*="language-"] {
   padding: 3px 6px;
 }
