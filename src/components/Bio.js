@@ -40,8 +40,8 @@ function Bio() {
             <h1>Howdy! My name is {author}</h1>
             <p>
               I'm a Software engineer working at{" "}
-              <a rel="nofollow" href="https://futurice.com">
-                <strong>Futurice</strong>
+              <a rel="nofollow" href="https://epicgames.com">
+                <strong>Epic Games</strong>
               </a>{" "}
               and living in{" "}
               <span
