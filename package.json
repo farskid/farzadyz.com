@@ -2,7 +2,7 @@
   "name": "gatsby-starter-blog",
   "private": true,
   "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Farzad YZ <farskid@gmail.com>",
   "dependencies": {
     "classnames": "^2.2.6",
