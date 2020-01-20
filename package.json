@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Farzad YZ <farskid@gmail.com>",
   "dependencies": {
+    "classnames": "^2.2.6",
+    "css-element-queries": "^1.2.3",
     "gatsby": "^2.18.17",
     "gatsby-image": "^2.0.22",
     "gatsby-plugin-feed": "^2.0.8",
@@ -38,10 +40,14 @@
     "typography-theme-wordpress-2016": "^0.15.10"
   },
   "devDependencies": {
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.27",
     "chalk": "^2.4.1",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.11.1",
+    "identity-obj-proxy": "^3.0.0",
     "inquirer": "^6.2.1",
+    "jest": "^24.9.0",
     "prettier": "^1.14.2",
     "uuid": "^3.3.2"
   },
@@ -54,11 +60,11 @@
   "scripts": {
     "dev": "export SITE_URL=http://localhost:8000 && export ANALYTICS_TRACK_ID= && gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "test": "jest",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "export SITE_URL=http://localhost:8000 && ANALYTICS_TRACK_ID= && gatsby develop",
     "start": "npm run develop",
-    "build": "export SITE_URL=https://farzadyz.com && export ANALYTICS_TRACK_ID=\"UA-131280656-1\" && rm -rf .cache && gatsby build",
+    "build": "export SITE_URL=https://farzadyz.com && export ANALYTICS_TRACK_ID=\"UA-131280656-1\" && rm -rf .cache && yarn test && gatsby build",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
     "create-post": "node scripts/create-post.js"
   }
