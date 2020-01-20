@@ -6,105 +6,89 @@ import { rhythm } from "../utils/typography";
 import { SiteHeader } from "../components/SiteHeader";
 import { buttons } from "../constants";
 import "./talks.css";
+import { Preview } from "../components/Preview";
+import ElementQueries from "css-element-queries/src/ElementQueries";
+
+function separateEventFromTitle(titleAndEvent) {
+  const [title, event] = titleAndEvent.split("@");
+  return [title, event && `@`.concat(event)];
+}
 
 class Talk extends React.Component {
-  state = { pending: true, iframeHeight: 0 };
   componentDidMount() {
-    setTimeout(() => {
-      if (this.iframeWrapper && this.iframe) {
-        const h = this.iframeWrapper.clientHeight;
-        this.setState({ pending: false, iframeHeight: h });
-      }
-    }, 0);
+    ElementQueries.init();
   }
   render() {
-    const { pending, iframeHeight } = this.state;
-    const { title, url, embed, description } = this.props;
+    const {
+      title,
+      url,
+      slidesUrl,
+      videoUrl,
+      description,
+      preview,
+      type,
+      audioUrl
+    } = this.props;
+    const [originalTitle, event] = separateEventFromTitle(title);
     return (
       <section className="talk-head">
-        <h3>
+        <h3 className="talk-title">
+          <a href={url} target="_blank" rel="nofollow">
+            {originalTitle}
+            {event && <small className="talk-event">{event}</small>}
+          </a>
+        </h3>
+        {/* Audio link on mobile */}
+        {type === "podcast" && (
           <a
             href={url}
             target="_blank"
             rel="nofollow"
-            style={{
-              marginBottom: embed ? rhythm(1) : 0,
-              display: "block"
-            }}
-          >
-            {title}
-          </a>
-        </h3>
-        <p>{description}</p>
-        {embed ? (
-          <a
-            href={embed}
-            target="_blank"
             className="visible-mobile"
-            style={{ marginBottom: rhythm(1), display: "block" }}
           >
-            Watch the talk on Youtube
+            Listen to the <strong>podcast</strong> here
           </a>
-        ) : null}
-        {embed ? (
-          <div
-            className="hidden-mobile hidden-print"
-            style={{
-              height: 0,
-              paddingBottom: "56.25%",
-              backgroundColor: "#eee",
-              position: "relative",
-              margin: `0 -${rhythm(1)}`
-            }}
-            ref={node => (this.iframeWrapper = node)}
+        )}
+        {/* Audio Player */}
+        {type === "podcast" && (
+          <a
+            href={url}
+            target="_blank"
+            rel="nofollow"
+            className="hidden-mobile"
           >
-            <iframe
-              src={embed}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{
-                display: "block",
-                width: "100%",
-                height: iframeHeight,
-                borderRadius: rhythm(0.25)
-              }}
-              ref={node => (this.iframe = node)}
-            />
-            {pending ? (
-              <p
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)"
-                }}
-              >
-                Loading talk video
-              </p>
-            ) : null}
-          </div>
-        ) : null}
+            <audio src={audioUrl} controls className="audio" />
+          </a>
+        )}
+        <Preview videoUrl={videoUrl} slidesUrl={slidesUrl} title={title} />
+        {/* Preview image */}
+        {preview && (
+          <p style={{ margin: "1em 0" }}>
+            <img src={preview} />
+          </p>
+        )}
+        {/* Description text */}
+        <p style={{ margin: "1em 0", lineHeight: 2 }}>{description}</p>
       </section>
     );
   }
 }
 
 export const TalksList = ({ talks }) => {
-  return Object.keys(talks)
-    .reverse()
-    .map((key, index) => {
-      const talk = talks[key];
-      return (
-        <Talk
-          key={index}
-          title={talk.title}
-          url={talk.url}
-          embed={talk.embed}
-          description={talk.description}
-        />
-      );
-    });
+  return (
+    <div className="talks-container" style={{ position: "relative" }}>
+      {Object.keys(talks)
+        .reverse()
+        .map((key, index) => {
+          const talk = talks[key];
+          return (
+            <div className="talk-container" key={key}>
+              <Talk {...talk} />
+            </div>
+          );
+        })}
+    </div>
+  );
 };
 
 export default class Talks extends React.Component {
@@ -116,8 +100,8 @@ export default class Talks extends React.Component {
     } = data;
     const { title, description, author, social } = siteMetadata;
     return (
-      <Layout title={title} description={description}>
-        <SiteHeader siteMetadata={siteMetadata} author={author} avatar={avatar}>
+      <Layout title={title} description={description} isLimited={false}>
+        <SiteHeader>
           <SiteHeader.Avatar
             avatar={avatar.childImageSharp.fixed}
             author={author}
@@ -127,12 +111,6 @@ export default class Talks extends React.Component {
             <SiteHeader.Navbar />
           </nav>
           <div>
-            <SiteHeader.Button
-              href="mailto:farskid@gmail.com?subject=We'd like to hire you as a consultant"
-              color={buttons.black}
-            >
-              Hire Me as a Consultant
-            </SiteHeader.Button>
             <SiteHeader.Button
               href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalhost%3A8000%2F&amp;amplref_src=twsrc%5Etfw&amp;screen_name=farzad_yz&amp;tw_p=followbutton"
               external={true}
