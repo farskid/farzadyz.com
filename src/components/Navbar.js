@@ -3,6 +3,20 @@ import { Link } from "gatsby";
 import "./Navbar.css";
 
 export function Navbar(props) {
+  const [activeRoute, setActiveRoute] = React.useState(undefined);
+  React.useEffect(() => {
+    let { pathname } = window.location;
+    pathname = pathname.replace(/\//gi, "");
+    const routes = {
+      "": "home",
+      cv: "cv",
+      talks: "talks",
+      blog: "blog",
+      tweets: "tweets"
+    };
+
+    setActiveRoute(routes[pathname]);
+  }, []);
   return (
     <ul
       className="hidden-print"
@@ -15,28 +29,35 @@ export function Navbar(props) {
       }}
     >
       <li className="navbar-item">
-        <Link to="/" activeClassName="navbarActiveLink">
+        <Link
+          to="/"
+          className={activeRoute === "home" ? "navbarActiveLink" : undefined}
+        >
           About
         </Link>
       </li>
       <li className="navbar-item">
-        <Link to="/cv" activeClassName="navbarActiveLink">
+        <Link
+          to="/cv"
+          className={activeRoute === "cv" ? "navbarActiveLink" : undefined}
+        >
           CV
         </Link>
       </li>
       <li className="navbar-item">
-        <Link to="/talks" activeClassName="navbarActiveLink">
+        <Link
+          to="/talks"
+          className={activeRoute === "talks" ? "navbarActiveLink" : undefined}
+        >
           Talks
         </Link>
       </li>
       <li className="navbar-item">
-        <Link to="/blog" activeClassName="navbarActiveLink">
+        <Link
+          to="/blog"
+          className={activeRoute === "blog" ? "navbarActiveLink" : undefined}
+        >
           Blog
-        </Link>
-      </li>
-      <li className="navbar-item">
-        <Link to="/tweets" activeClassName="navbarActiveLink">
-          Heroic Tweets
         </Link>
       </li>
     </ul>

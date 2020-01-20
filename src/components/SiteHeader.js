@@ -5,7 +5,13 @@ import { OutboundLink } from "gatsby-plugin-google-analytics";
 import { rhythm } from "../utils/typography";
 import "./SiteHeader.css";
 
-function NavButton({ external = false, href, children, color, style = {} }) {
+function NavButton({
+  external = false,
+  href,
+  children,
+  color = null,
+  style = {}
+}) {
   const Tag = external ? OutboundLink : "a";
 
   return (

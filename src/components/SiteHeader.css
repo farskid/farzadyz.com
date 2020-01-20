@@ -1,6 +1,7 @@
 .site-header-button {
   margin: 5px;
   display: inline-block;
+  max-width: 250px;
 }
 
 .site-header {
@@ -11,7 +12,7 @@
 @media screen and (max-width: 480px) {
   .site-header-button {
     display: block;
-    margin: 5px 0;
+    margin: 5px auto;
   }
 
   .site-header {
