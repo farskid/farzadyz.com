@@ -6,10 +6,18 @@ import { Footer } from "./Footer";
 
 class Layout extends React.Component {
   render() {
-    const { children, title, description, CustomSEO } = this.props;
+    const {
+      children,
+      title,
+      description,
+      CustomSEO,
+      isLimited = true
+    } = this.props;
 
     return (
-      <div className="layout-container">
+      <div
+        className={isLimited ? "layout-container-limited" : "layout-container"}
+      >
         {!!CustomSEO ? (
           <CustomSEO />
         ) : (

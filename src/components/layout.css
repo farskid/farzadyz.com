@@ -53,17 +53,27 @@ h6 {
 }
 
 /* Layout */
-
-.layout-container {
+.layout-container-limited {
   margin-left: auto;
   margin-right: auto;
   padding: 2.25rem 1.125rem;
   max-width: 36rem;
 }
+.layout-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.25rem 1.125rem;
+  max-width: 75rem;
+}
 
 @media screen and (max-width: 30rem) {
-  .layout-container {
+  .layout-container,
+  .layout-container-limited {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    /* max-width: 100%; */
+  }
+  .layout-container-limited {
+    max-width: 100%;
   }
 }
