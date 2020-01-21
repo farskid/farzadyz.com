@@ -64,7 +64,7 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "export SITE_URL=http://localhost:8000 && ANALYTICS_TRACK_ID= && gatsby develop",
     "start": "npm run develop",
-    "build": "export SITE_URL=https://farzadyz.com && export ANALYTICS_TRACK_ID=\"UA-131280656-1\" && rm -rf .cache && yarn test && gatsby build",
+    "build": "export SITE_URL=https://farzadyz.com && export ANALYTICS_TRACK_ID=\"UA-131280656-1\" && rm -rf .cache && gatsby build",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
     "create-post": "node scripts/create-post.js"
   }

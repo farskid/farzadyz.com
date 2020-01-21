@@ -1,7 +1,7 @@
 // @ts-check
 import React from "react";
 import classnames from "classnames";
-import "./preview.css";
+import "./Preview.css";
 
 export function getActivePreview({ videoUrl, slidesUrl }) {
   let activePreview;
