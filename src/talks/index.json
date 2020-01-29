@@ -147,5 +147,12 @@
     "preview": "/podcast2.png",
     "type": "podcast",
     "audioUrl": "https://cdn.simplecast.com/audio/c323bd/c323bddb-1521-4c01-9f09-f3b876b9877e/2aacd283-c773-4bf2-b69a-b975049bd80a/7f0ecfb7_tc.mp3"
+  },
+  "20": {
+    "title": "So you think you know state management?",
+    "description": "This is a talk about how client side application's state is inherently relational and hierarchical. Current tooling in JS state management allows for flat model states and global actions availability which results in an increase in cyclomatic complexity. The flat shape of state also brings its own set of integration problems. these issues could be tackled using a modeling language that considers this relation, gives lifecycle to the parts of state and invalidates automatically, is deterministic and whitelists allowed transitions instead of blacklisting on runtime guards. ",
+    "url": "https://slides.com/farzadyz/you-think-you-know-state-management/embed?style=light",
+    "type": "talk",
+    "slidesUrl": "https://slides.com/farzadyz/you-think-you-know-state-management/"
   }
 }
