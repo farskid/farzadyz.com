@@ -1,0 +1,16 @@
+{
+  "siteTitle": "Personal website owned by Farzad Yousefzadeh",
+  "siteDescription": "I'm a Software Engineer living in Finland. I'm interested in Javascript,Typescript,React,React Native,Nodejs,Restful services,Serverless,Redux,GraphQL,ReasonML and,Golang. I'm usually fascinated by Abstract Tooling, State management patterns, Automation and, Architectural patterns.",
+  "siteKeywords": "farzad yz, javascript, typescript, react, react native, nodejs, restful services, serverless, redux, graphql, reasonml, elm, golang, automation, architecture, dx, tooling, state management, react native, statecharts, state machines, aws, cloud, api development, express, technical talks, conference talks, developer advocacy, dev rel",
+  "fullName": "Farzad Yousefzadeh",
+  "social": {
+    "twitterHandle": "@farzad_yz",
+    "twitter": "https://twitter.com/farzad_yz",
+    "stackoverflow": "https://stackoverflow.com/users/2784512/farzad-yz",
+    "github": "https://github.com/farskid",
+    "medium": "https://medium.com/@Farzad_YZ",
+    "devto": "https://dev.to/farskid",
+    "linkedin": "https://www.linkedin.com/in/farzadyz",
+    "mentorcruise": "https://mentorcruise.com/mentor/FarzadYousefZadeh/"
+  }
+}

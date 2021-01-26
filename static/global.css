@@ -1,0 +1,53 @@
+:root {
+  --blue: #66d9ef;
+  --yellow: #e6db74;
+  --bg-dark: #272822;
+}
+
+a {
+  color: inherit;
+  font-family: inherit;
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: inherit;
+}
+
+.visible-print {
+  display: none !important;
+}
+
+.hidden-mobile {
+  display: block !important;
+}
+.visible-mobile {
+  display: none !important;
+}
+
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+  .visible-print {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+  .visible-mobile {
+    display: block !important;
+  }
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+}
