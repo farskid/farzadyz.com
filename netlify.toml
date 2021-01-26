@@ -1,6 +1,2 @@
 [build]
-    publish="__sapper__/export"
     command="node scripts/compileContent.js && yarn export"
-
-[context.production]
-    
