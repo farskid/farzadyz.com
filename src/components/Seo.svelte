@@ -7,6 +7,7 @@
 </script>
 
 <svelte:head>
+  <title>{title}</title>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta

@@ -1,52 +1,16 @@
 <script>
   import SEO from "./Seo.svelte";
   import Footer from "./Footer.svelte";
-  import Navbar from "./Navbar.svelte";
   import SiteHeader from "./SiteHeader.svelte";
 
   export let isLimited = true;
   export let title;
   export let description;
+  export let keywords;
 </script>
 
 <div class={isLimited ? "layout-container-limited" : "layout-container"}>
-  <slot name="custom-seo">
-    <SEO
-      {title}
-      {description}
-      keywords={[
-        `farzad yz`,
-        `javascript`,
-        `typescript`,
-        `react`,
-        `react native`,
-        `nodejs`,
-        `restful services`,
-        `serverless`,
-        `redux`,
-        `graphql`,
-        `reasonml`,
-        `elm`,
-        `golang`,
-        `automation`,
-        `architecture`,
-        `dx`,
-        `tooling`,
-        `state management`,
-        `react native`,
-        `statecharts`,
-        `state machines`,
-        `aws`,
-        `cloud`,
-        `api development`,
-        `express`,
-        `technical talks`,
-        `conference talks`,
-        `developer advocacy`,
-        `dev rel`,
-      ]}
-    />
-  </slot>
+  <SEO {title} {description} {keywords} />
   <SiteHeader />
   <slot />
   <Footer />

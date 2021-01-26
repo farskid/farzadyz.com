@@ -103,6 +103,7 @@ async function prepareBlogPosts() {
     blogPosts.map((post, index) => {
       return {
         ...post,
+        keywords: post.keywords.split(" ").join(),
         nextSlug:
           blogPosts[index + 1]?.title && slugify(blogPosts[index + 1].title),
         prevSlug:

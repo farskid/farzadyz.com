@@ -123,6 +123,7 @@
     "title": "A hitchhiker's guide to Svelte JS @ HelsinkiJS Meetup 2019",
     "description": "It's been a while since SvelteJS was introduced as yet another Javascript solution to build fast and robust web applications. in this talk, we'll dive into what svelte is and try to fashion a high level understanding of its building blocks. if you don't know Svelte yet or you've heard of it but haven't had the chance to get to know it yet, fear not, I'm like you. let's do it together.",
     "url": "https://slides.com/farzadyz/a-hitchhikers-guide-to-sveltejs",
+    "type": "talk",
     "slidesUrl": "https://slides.com/farzadyz/a-hitchhikers-guide-to-sveltejs/embed?style=light"
   },
   {
@@ -149,7 +150,7 @@
     "audioUrl": "https://cdn.simplecast.com/audio/c323bd/c323bddb-1521-4c01-9f09-f3b876b9877e/2aacd283-c773-4bf2-b69a-b975049bd80a/7f0ecfb7_tc.mp3"
   },
   {
-    "title": "So you think you know state management?",
+    "title": "So you think you know state management? @ Turku frontend 2020",
     "description": "This is a talk about how client side application's state is inherently relational and hierarchical. Current tooling in JS state management allows for flat model states and global actions availability which results in an increase in cyclomatic complexity. The flat shape of state also brings its own set of integration problems. these issues could be tackled using a modeling language that considers this relation, gives lifecycle to the parts of state and invalidates automatically, is deterministic and whitelists allowed transitions instead of blacklisting on runtime guards. ",
     "type": "talk",
     "url": "https://slides.com/farzadyz/you-think-you-know-state-management/",

@@ -19,7 +19,7 @@
   });
 </script>
 
-<Layout title={metadata.siteTitle} description={metadata.siteDescription}>
+<Layout title="CV | {metadata.siteTitle}">
   <div class="download-bar">
     <button
       style="padding: {rhythm(1 / 3)} {rhythm(1 / 2)}; font-size: {rhythm(

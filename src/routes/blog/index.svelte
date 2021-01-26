@@ -9,44 +9,14 @@
 </script>
 
 <script>
-  import { onMount } from "svelte";
+  import metadata from "../../../content/data/metadata.json";
   import Date from "../../components/Date.svelte";
   import Layout from "../../components/Layout.svelte";
 
   export let posts;
-
-  let userLang;
-
-  onMount(() => {
-    // get user's specified language from browser
-    const getLanguage = () =>
-      navigator.userLanguage ||
-      (navigator.languages &&
-        navigator.languages.length &&
-        navigator.languages[0]) ||
-      navigator.language ||
-      navigator.browserLanguage ||
-      navigator.systemLanguage ||
-      "en";
-
-    userLang = getLanguage();
-  });
-
-  $: dateFormatter = (dateString) =>
-    userLang
-      ? !!Intl
-        ? new Intl.DateTimeFormat(userLang, {
-            year: "numeric",
-            month: "short",
-          }).format(new Date(dateString))
-        : dateString
-      : dateString;
 </script>
 
-<Layout
-  title="Blog | Farzad Yousefzadeh"
-  description="Technical Blog by Farzad Yousefzadeh"
->
+<Layout title="Blog | {metadata.siteTitle}">
   <ul class="posts-list">
     {#each posts as post}
       <!-- we're using the non-standard `rel=prefetch` attribute to

@@ -17,7 +17,6 @@
 <script>
   import BlogShareBar from "../../components/BlogShareBar.svelte";
   import Layout from "../../components/Layout.svelte";
-  import SEO from "../../components/Seo.svelte";
   import "prismjs/themes/prism-okaidia.css";
   import Date from "../../components/Date.svelte";
 
@@ -32,12 +31,7 @@
   }
 </script>
 
-<Layout title={post.title} description={post.description}>
-  <SEO
-    title={post.title}
-    description={post.description}
-    keywords={post.keywords}
-  />
+<Layout title={post.title} description={post.excerpt} keywords={post.keywords}>
   <BlogShareBar blogPostData={post} />
   <h1>{post.title}</h1>
   <p class="post-date"><small><Date dateString={post.publishedAt} /></small></p>
@@ -85,8 +79,6 @@
 
   /* Code */
   .post :global(pre, code) {
-    font-family: "IBM Plex Mono", "Consolas", "Monaco", "Andale Mono",
-      "Ubuntu Mono", monospace;
     background: var(--bg-dark);
     margin: 0.5em 0;
     padding: 1em;

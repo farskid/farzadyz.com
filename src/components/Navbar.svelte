@@ -10,42 +10,55 @@
       cv: "cv",
       talks: "talks",
       blog: "blog",
-      tweets: "tweets",
+      mentorship: "mentorship",
     };
 
     // Work for nested routes such as /blog/:slug
     activeRoute =
       routes[Object.keys(routes).find((key) => pathname.startsWith(key))];
   });
+
+  const links = [
+    {
+      title: "About",
+      link: "",
+      routeName: "home",
+    },
+    {
+      title: "CV",
+      link: "/cv",
+      routeName: "cv",
+    },
+    {
+      title: "Talks",
+      link: "/talks",
+      routeName: "talks",
+    },
+    {
+      title: "Blog",
+      link: "/blog",
+      routeName: "blog",
+    },
+    {
+      title: "Mentorship",
+      link: "/mentorship",
+      routeName: "mentorship",
+    },
+  ];
 </script>
 
 <nav>
   <ul class="hidden-print">
-    <li class="navbar-item">
-      <a
-        href="/"
-        class={activeRoute === "home" ? "navbarActiveLink" : undefined}>About</a
-      >
-    </li>
-    <li class="navbar-item">
-      <a
-        href="/cv"
-        class={activeRoute === "cv" ? "navbarActiveLink" : undefined}>CV</a
-      >
-    </li>
-    <li class="navbar-item">
-      <a
-        href="/talks"
-        class={activeRoute === "talks" ? "navbarActiveLink" : undefined}
-        >Talks</a
-      >
-    </li>
-    <li class="navbar-item">
-      <a
-        href="/blog"
-        class={activeRoute === "blog" ? "navbarActiveLink" : undefined}>Blog</a
-      >
-    </li>
+    {#each links as link}
+      <li class="navbar-item">
+        <a
+          href={link.link}
+          class={activeRoute === link.routeName
+            ? "navbarActiveLink"
+            : undefined}>{link.title}</a
+        >
+      </li>
+    {/each}
   </ul>
 </nav>
 
