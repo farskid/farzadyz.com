@@ -85,14 +85,15 @@ async function prepareBlogPosts() {
       validateKeyOrder: false,
     });
     const mdWithoutFrontmatter = md.replace(/^---[\s\S]*---/, "");
-    const html = mdParser.render(mdWithoutFrontmatter);
+    let html = mdParser.render(mdWithoutFrontmatter);
+    html = lazyIframe(lazyIframe(html));
     if (!fmt.errors.length) {
       const postData = {
         ...fmt.data,
         slug: slugify(fmt.data.title),
         // md,
         excerpt: generatePostExcerpt(html),
-        html: lazyIframe(lazyImage(html)),
+        html,
       };
       blogPosts.push(postData);
     } else {

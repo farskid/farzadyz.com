@@ -4,8 +4,8 @@
   "version": "2.0.0",
   "scripts": {
     "dev": "sapper dev",
-    "build": "yarn clean && sapper build",
-    "export": "yarn clean && sapper export",
+    "build": "sapper build",
+    "export": "sapper export",
     "start": "node __sapper__/build",
     "start:export": "serve __sapper__/export",
     "clean": "rm -rf __sapper__"

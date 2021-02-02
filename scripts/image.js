@@ -7,8 +7,6 @@ module.exports = function lazyImage(html) {
   const { document } = parseHTML(html);
   const images = document.querySelectorAll("img");
 
-  console.log(images);
-
   if (images.length) {
     for (let img of images) {
       img.setAttribute("loading", "lazy");
