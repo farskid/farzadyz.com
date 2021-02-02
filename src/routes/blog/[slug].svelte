@@ -35,6 +35,7 @@
   <BlogShareBar blogPostData={post} />
   <h1>{post.title}</h1>
   <p class="post-date"><small><Date dateString={post.publishedAt} /></small></p>
+  <hr />
   <div class="post">
     {@html post.html}
   </div>
@@ -109,13 +110,10 @@
     background-color: var(--yellow);
     color: #272822;
     margin: 0 0.25rem;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   /* Content */
-  .post-date {
-    margin-top: -1.5rem;
-  }
   .post :global(h2, h3) {
     margin-top: 3rem;
   }
@@ -127,6 +125,10 @@
     padding: 0.5rem;
     padding-left: 1.5rem;
     font-style: italic;
+  }
+
+  .post :global(img) {
+    max-width: 100%;
   }
 
   .post :global(a) {

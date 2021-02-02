@@ -8,13 +8,17 @@
 
 	%sapper.base%
 
+	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="global.css">
 	<link rel="manifest" href="manifest.json" crossorigin="use-credentials">
 	<link rel="icon" type="image/png" href="favicon.png">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link
+	<link rel="preload" as="style"
+		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&display=swap" />
+	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&display=swap"
-		rel="stylesheet">
+		media="print" onload="this.media='all'" />
+
 
 	<!-- Sapper creates a <script> tag containing `src/client.js`
 	     and anything else it needs to hydrate the app and

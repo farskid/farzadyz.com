@@ -31,9 +31,7 @@
             style="text-decoration: none;">{post.title}</a
           >
         </h2>
-        <p
-          style="margin-bottom: 0.75rem; display: block; color: rgb(119, 119, 119);"
-        ><Date dateString={post.publishedAt} /></p>
+        <p class="post-date"><Date dateString={post.publishedAt} /></p>
         <p>
           {@html post.excerpt}...
           <a class="read-more-link" href="blog/{post.slug}"
@@ -49,6 +47,10 @@
   .posts-list {
     margin: 0 0 1em 0;
     line-height: 1.5;
+  }
+
+  .post-date {
+    font-family: var(--font-heading);
   }
 
   .read-more-link {

@@ -133,9 +133,12 @@
               ></OutBoundLink
             >
           </h3>
-          <p class="appr-links" />
-          <p>
-            {#if podcast.audioUrl}<audio src={podcast.audioUrl} controls />{/if}
+          <p class="appr-links">
+            {#if podcast.audioUrl}<audio
+                preload="none"
+                src={podcast.audioUrl}
+                controls
+              />{/if}
           </p>
         </section>
       </li>{/each}
@@ -172,9 +175,10 @@
 
   .appr-event {
     display: block;
-    color: gray;
+    color: var(--text-secondary);
     font-size: 0.8em;
     font-weight: normal;
+    margin-top: 0.5rem;
   }
 
   .appr-links {
@@ -183,5 +187,10 @@
 
   .appr-links > :global(a + a) {
     margin-left: 0.5rem;
+  }
+
+  :global(.appearance audio) {
+    display: block;
+    width: 100%;
   }
 </style>

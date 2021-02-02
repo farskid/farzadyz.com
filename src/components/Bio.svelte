@@ -3,7 +3,7 @@
   import OutBoundLink from "./OutBoundLink.svelte";
 </script>
 
-<section style="margin-bottom: 2.5rem">
+<section>
   <h1>Howdy! My name is {metadata.fullName}</h1>
   <p>
     I'm a Software engineer working at{" "}

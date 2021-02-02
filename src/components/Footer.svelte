@@ -1,31 +1,24 @@
 <script>
-  import { rhythm } from "../utils/typography";
+  import OutBoundLink from "./OutBoundLink.svelte";
 </script>
 
 <footer class="footer">
   The materials of this website are licensed under
-  <a
-    target="_blank"
-    style={{ marginLeft: rhythm(0.25), display: "inline-block" }}
-    href="https://creativecommons.org/licenses/by-nc/2.0/">
-    The Creative Commons
-  </a>
+  <OutBoundLink href="https://creativecommons.org/licenses/by-nc/2.0/"
+    ><strong>The Creative Commons</strong></OutBoundLink
+  >
 </footer>
 
 <style>
   .footer {
     font-size: 0.8em;
     text-align: center;
-    margin: 6rem -1.125rem -2.25rem;
+    margin: 6rem auto -2.25rem;
     padding: 1.125rem 0px;
-    color: rgb(119, 119, 119);
-    font-weight: 600;
+    color: var(--text-secondary);
   }
 
-  @media screen and (max-width: 480px) {
-    .footer {
-      margin-right: -0.5rem;
-      margin-left: -0.5rem;
-    }
+  :global(.footer a) {
+    white-space: nowrap;
   }
 </style>

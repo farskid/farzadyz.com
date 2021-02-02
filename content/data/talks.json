@@ -1,5 +1,13 @@
 [
   {
+    "title": "Podcast Guest @ My JavaScript Story podcast",
+    "description": "A podcast episode about my journey as a web developer and how I got into Javascript",
+    "url": "https://devchat.tv/my-javascript-story/mjs-148-farzad-yousefzadehr/",
+    "preview": "https://devchat.tv/wp-content/uploads/2020/07/my-js-story-banner.png",
+    "type": "podcast",
+    "audioUrl": "https://media.devchat.tv/my-js-story/MJS_148_Farzad_Yousefzadeh.mp3?_=2"
+  },
+  {
     "title": "The life of a software developer in Finland @ CoderConf 2018",
     "description": "A talk about State of The life of a software developer in Finland",
     "url": "http://coderconf.org/files/farzad-yousefzadeh.mp3",

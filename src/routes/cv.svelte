@@ -6,6 +6,7 @@
   import Layout from "../components/Layout.svelte";
   import CVSection from "../components/CVSection.svelte";
   import JobExperience from "../components/JobExperience.svelte";
+  import OutBoundLink from "../components/OutBoundLink.svelte";
 
   let doPrint = () => {
     console.log("noop print");
@@ -173,151 +174,121 @@
   <CVSection title="Contributions">
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/davidkpiano/xstate">
+        <OutBoundLink href="https://github.com/davidkpiano/xstate">
           <strong> XState: Statecharts implementation in Javascript </strong>
-        </a>
+        </OutBoundLink>
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/statecharts/xstate-viz">
+        <OutBoundLink href="https://github.com/statecharts/xstate-viz">
           <strong>Xstate Visualizer</strong>
-        </a>
+        </OutBoundLink>
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/rgommezz/react-native-offline">
+        <OutBoundLink href="https://github.com/rgommezz/react-native-offline">
           <strong>React Native Offline</strong>
-        </a>
+        </OutBoundLink>
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/farskid/a11y">
+        <OutBoundLink href="https://github.com/farskid/a11y">
           <strong>Automated accessibility tests</strong>
-        </a>
+        </OutBoundLink>
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/paypal/accessible-html5-video-player">
+        <OutBoundLink
+          href="https://github.com/paypal/accessible-html5-video-player"
+        >
           <strong>Paypal universal video player</strong>
-        </a>
+        </OutBoundLink>
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/renatorib/react-powerplug">
+        <OutBoundLink href="https://github.com/renatorib/react-powerplug">
           <strong>React power-plug</strong>
-        </a>{" "}
+        </OutBoundLink>{" "}
         Headless statefull declarative react components to manage side effects
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/rofrischmann/alveron">
+        <OutBoundLink href="https://github.com/rofrischmann/alveron">
           <strong>Alveron (old: React woodworm)</strong>
-        </a>{" "}
+        </OutBoundLink>{" "}
         Elm &amp; Reason inspired state management for React
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a rel="nofollow" target="_blank" href="https://carbon.now.sh">
+        <OutBoundLink href="https://carbon.now.sh">
           <strong>Carbon</strong>
-        </a>{" "}
+        </OutBoundLink>{" "}
         Online code screenshots tooling
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/nozzle/react-static">
+        <OutBoundLink href="https://github.com/nozzle/react-static">
           <strong>React Static</strong>
-        </a>{" "}
+        </OutBoundLink>{" "}
         A progressive static site generator for React
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/glennreyes/graphpack">
+        <OutBoundLink href="https://github.com/glennreyes/graphpack">
           <strong>GraphPack</strong>
-        </a>{" "}
+        </OutBoundLink>{" "}
         A minimalistic zero-config GraphQL server
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a
-          rel="nofollow"
-          target="_blank"
-          href="https://github.com/lhandel/react-native-card-flip">
+        <OutBoundLink href="https://github.com/lhandel/react-native-card-flip">
           <strong>React native card flip</strong>
-        </a>{" "}
+        </OutBoundLink>{" "}
         Card flip animation for React Native
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a rel="nofollow" target="_blank" href="https://pullrequest.ir">
+        <OutBoundLink href="https://pullrequest.ir">
           <strong>Co-created open source Persian technical blog</strong>
-        </a>{" "}
+        </OutBoundLink>{" "}
         <em>PullRequest.ir</em>
       </span>
     </p>
     <p>
       <span class="contrib-block">
-        <a rel="nofollow" target="_blank" href={metadata.social.stackoverflow}>
+        <OutBoundLink href={metadata.social.stackoverflow}>
           <strong>
             Active member on Stackoverflow with 1600+ reputation
           </strong>
-        </a>
+        </OutBoundLink>
       </span>
     </p></CVSection
   >
 </Layout>
 
 <style>
-  :global(body) {
-    @media print {
-      @page {
-        size: auto;
-        margin: 0mm;
-      }
+  @media print {
+    @page {
+      size: auto;
+      margin: 0mm;
+    }
 
-      .job-experience {
-        box-shadow: none !important;
-        border: none !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-      }
+    :global(.job-experience) {
+      box-shadow: none !important;
+      border: none !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
   }
 

@@ -8,7 +8,7 @@
 
 <section class="job-experience" style="--rhythm: {rhythm(1)}">
   <h3>{position}</h3>
-  <h6>{date}</h6>
+  <h4>{date}</h4>
   {#if responsibilities.length}
     {#each responsibilities as r}
       <p>{r}</p>
@@ -17,3 +17,9 @@
     <slot />
   {/if}
 </section>
+
+<style>
+  h4 {
+    font-size: 0.75em;
+  }
+</style>

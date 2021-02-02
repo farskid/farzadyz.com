@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import OutBoundLink from "./OutBoundLink.svelte";
   let activeRoute;
 
   onMount(() => {
@@ -21,7 +22,7 @@
   const links = [
     {
       title: "About",
-      link: "",
+      link: "/",
       routeName: "home",
     },
     {
@@ -41,7 +42,8 @@
     },
     {
       title: "Mentorship",
-      link: "/mentorship",
+      link: "https://mentorcruise.com/mentor/FarzadYousefZadeh/",
+      external: true,
       routeName: "mentorship",
     },
   ];
@@ -51,12 +53,22 @@
   <ul class="hidden-print">
     {#each links as link}
       <li class="navbar-item">
-        <a
-          href={link.link}
-          class={activeRoute === link.routeName
-            ? "navbarActiveLink"
-            : undefined}>{link.title}</a
-        >
+        {#if link.external}
+          <OutBoundLink
+            href={link.link}
+            class={activeRoute === link.routeName
+              ? "navbarActiveLink"
+              : undefined}
+          >{link.title}</OutBoundLink
+          >
+        {:else}
+          <a
+            href={link.link}
+            class={activeRoute === link.routeName
+              ? "navbarActiveLink"
+              : undefined}>{link.title}</a
+          >
+        {/if}
       </li>
     {/each}
   </ul>
