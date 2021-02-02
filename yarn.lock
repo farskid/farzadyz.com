@@ -982,10 +982,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
-linkedom@^0.3.4:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/linkedom/-/linkedom-0.3.4.tgz#cd0dcc9c09191944b0fd7536b4b4eaad261edeac"
-  integrity sha512-YtvIracod00MXRTZqBW+/zIbX+SB0qHOBLKT4cjeBgEsVqZWAg2k0Pk4/Fq6JrhA2g5VKOGhM0XEy1iwS76bjg==
+linkedom@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/linkedom/-/linkedom-0.3.6.tgz#84b004bd8ce06298178ceb8babaf8e0103c1a9db"
+  integrity sha512-OmwKU53T939dJ2qD4rzWhmV6y/GS1/M9q/WBjpbJtZpD8i6uqJLi0dXVA1jqGIYdsn77c14YEprKZJF2VeIpbQ==
   dependencies:
     "@ungap/event" "^0.2.2"
     "@ungap/event-target" "^0.2.2"

@@ -14,7 +14,7 @@
     "node": ">=14.15.4"
   },
   "devDependencies": {
-    "linkedom": "^0.3.4",
+    "linkedom": "^0.3.6",
     "serve": "^11.3.2",
     "svelte": "^3.17.3"
   },
