@@ -24,6 +24,8 @@
 
 body {
   font-family: var(--font-normal);
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
 code,
@@ -38,7 +40,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  line-height: inherit;
+  line-height: 1.5; /* Since on body we set 1.8 */
 }
 
 a {

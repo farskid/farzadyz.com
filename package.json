@@ -4,15 +4,17 @@
   "version": "2.0.0",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build",
-    "export": "sapper export",
+    "build": "yarn clean && sapper build",
+    "export": "yarn clean && sapper export",
     "start": "node __sapper__/build",
-    "start:export": "serve __sapper__/export"
+    "start:export": "serve __sapper__/export",
+    "clean": "rm -rf __sapper__"
   },
   "engines": {
     "node": ">=14.15.4"
   },
   "devDependencies": {
+    "linkedom": "^0.3.4",
     "serve": "^11.3.2",
     "svelte": "^3.17.3"
   },

@@ -9,6 +9,8 @@ const prettierParser = require("prettier/parser-markdown");
 // const hljs = require("highlight.js");
 const Prism = require("prismjs");
 require("prismjs/components/prism-jsx");
+const lazyIframe = require("./iframe.js");
+const lazyImage = require("./image.js");
 
 const mdParser = new Remarkable({
   langPrefix: "language-",
@@ -90,7 +92,7 @@ async function prepareBlogPosts() {
         slug: slugify(fmt.data.title),
         // md,
         excerpt: generatePostExcerpt(html),
-        html,
+        html: lazyIframe(lazyImage(html)),
       };
       blogPosts.push(postData);
     } else {

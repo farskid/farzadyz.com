@@ -31,7 +31,7 @@
     max-width: 75rem;
   }
 
-  @media screen and (max-width: 30rem) {
+  @media screen and (max-width: 480px) {
     .layout-container,
     .layout-container-limited {
       padding-left: 0.5rem;
