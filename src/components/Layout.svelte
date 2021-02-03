@@ -6,7 +6,7 @@
   export let isLimited = true;
   export let title;
   export let description;
-  export let keywords;
+  export let keywords = [];
 </script>
 
 <div class={isLimited ? "layout-container-limited" : "layout-container"}>
