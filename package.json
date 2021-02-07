@@ -35,6 +35,7 @@
     "polka": "next",
     "prettier": "^2.2.1",
     "prismjs": "^1.23.0",
+    "reading-time": "^1.3.0",
     "remarkable": "^2.0.1",
     "remarkable-extlink": "^1.1.1",
     "rollup": "^2.38.0",

@@ -19,9 +19,12 @@
   import Layout from "../../components/Layout.svelte";
   import "prismjs/themes/prism-okaidia.css";
   import Date from "../../components/Date.svelte";
+  import calculateReadingTime from "reading-time";
 
   export let post;
   export let posts;
+
+  const readingTime = calculateReadingTime(post.html);
 
   $: prevPost = posts.find((p) => p.slug === post?.prevSlug);
   $: nextPost = posts.find((p) => p.slug === post?.nextSlug);
@@ -34,7 +37,12 @@
 <Layout title={post.title} description={post.excerpt} keywords={post.keywords}>
   <BlogShareBar blogPostData={post} />
   <h1>{post.title}</h1>
-  <p class="post-date"><small><Date dateString={post.publishedAt} /></small></p>
+  <p class="post-date">
+    <small>
+      <Date dateString={post.publishedAt} />
+      <span style="margin-left:1rem">{readingTime.text}</span>
+    </small>
+  </p>
   <hr />
   <div class="post">
     {@html post.html}
