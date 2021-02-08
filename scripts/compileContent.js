@@ -11,6 +11,7 @@ require("prismjs/components/prism-jsx");
 const lazyIframe = require("./iframe.js");
 const lazyImage = require("./image.js");
 const stackoverflowReputation = require("./stackoverflow");
+const shortenUrls = require("./urlShortener");
 
 const mdParser = new Remarkable({
   langPrefix: "language-",
@@ -86,7 +87,10 @@ async function prepareBlogPosts() {
     });
     const mdWithoutFrontmatter = md.replace(/^---[\s\S]*---/, "");
     let html = mdParser.render(mdWithoutFrontmatter);
+    // Lazy load img and iframe
     html = lazyImage(lazyIframe(html));
+    // Shorten all external links
+    html = await shortenUrls(html);
     if (!fmt.errors.length) {
       const postData = {
         ...fmt.data,

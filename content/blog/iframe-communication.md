@@ -34,7 +34,7 @@ And also listen to the message on the parent window:
 
 ```js
 window.addEventListener('iframe_message', function() {
-window.open('some url', '\_blank')
+  window.open('some url', '\_blank')
 }, false
 ```
 
