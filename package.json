@@ -3,10 +3,10 @@
   "description": "Personal website owned by Farzad Yousefzadeh",
   "version": "2.0.0",
   "scripts": {
-    "dev": "sapper dev",
+    "dev": "yarn build && sapper dev",
     "build": "yarn compile:content && sapper build",
     "compile:content": "node scripts/compileContent.js",
-    "export": "sapper export",
+    "export": "yarn build && sapper export",
     "start": "node __sapper__/build",
     "start:export": "serve __sapper__/export",
     "clean": "rm -rf __sapper__"

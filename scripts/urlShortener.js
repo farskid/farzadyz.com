@@ -3,9 +3,12 @@ const fetch = require("node-fetch");
 const linkedom = require("linkedom");
 
 const API_KEY = process.env.SHORT_URL_API_KEY;
+{
+console.log({API_KEY})
 
 async function shortenUrl(url) {
   // TODO: change to userDomain=1 when branded domain is verified
+
   let short = await fetch(
     `${API_URL}/?key=${API_KEY}&short=${url}&userDomain=0`
   );

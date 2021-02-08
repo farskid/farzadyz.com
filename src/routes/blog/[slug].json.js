@@ -2,7 +2,6 @@ import posts from "./_posts.js";
 
 const lookup = new Map();
 posts.forEach((post) => {
-  console.log("setting to lookup", post.slug);
   lookup.set(post.slug, JSON.stringify(post));
 });
 
@@ -10,8 +9,6 @@ export function get(req, res, next) {
   // the `slug` parameter is available because
   // this file is called [slug].json.js
   const { slug } = req.params;
-  console.log(slug, lookup.size);
-  console.log(slug);
 
   if (lookup.has(slug)) {
     res.writeHead(200, {

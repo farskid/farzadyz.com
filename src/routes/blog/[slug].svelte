@@ -23,8 +23,6 @@
   export let post;
   export let posts;
 
-  console.log(post);
-
   const readingTime = calculateReadingTime(post.html);
 
   $: prevPost = posts.find((p) => p.slug === post?.prevSlug);

@@ -24,8 +24,6 @@
       return u.toString();
     }
   })();
-
-  $: console.log(shareUrl);
 </script>
 
 <nav>
