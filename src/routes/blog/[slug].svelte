@@ -72,12 +72,15 @@
 </Layout>
 
 <style>
-  .post :global(pre, code, iframe) {
+  .post :global(pre),
+  .post :global(iframe),
+  .post :global(code) {
     border-radius: 0.3em;
   }
 
   /* Code */
-  .post :global(pre, code) {
+  .post :global(pre),
+  .post :global(code) {
     background: var(--dark);
     margin: 0.5em 0;
     padding: 1em;
@@ -90,7 +93,8 @@
     padding: 0;
   }
 
-  .post :global(code[class*="language-"], pre[class*="language-"]) {
+  .post :global(code[class*="language-"]),
+  .post :global(pre[class*="language-"]) {
     color: var(--light);
   }
 
@@ -115,7 +119,8 @@
   }
 
   /* Content */
-  .post :global(h2, h3) {
+  .post :global(h2),
+  .post :global(h3) {
     margin-top: 3rem;
   }
 
@@ -126,6 +131,11 @@
     padding: 0.5rem;
     padding-left: 1.5rem;
     font-style: italic;
+  }
+  @media screen and (max-width: 48rem) {
+    .post :global(blockquote) {
+      width: 100%;
+    }
   }
 
   .post :global(img) {
