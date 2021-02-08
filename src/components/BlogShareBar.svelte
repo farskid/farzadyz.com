@@ -1,6 +1,5 @@
 <script>
   import metadata from "../../content/data/metadata.json";
-  import { rhythm } from "../utils/typography";
   import OutboundLink from "./OutBoundLink.svelte";
 
   export let blogPostData = {
@@ -29,7 +28,7 @@
   $: console.log(shareUrl);
 </script>
 
-<nav style="margin-bottom:{rhythm(1)}">
+<nav>
   <a href="/blog">Check out all posts</a>
   <OutboundLink href={shareUrl} style="line-height: 50px;">
     <img

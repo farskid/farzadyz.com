@@ -1,25 +1,18 @@
 <script>
-  import { rhythm } from "../utils/typography";
-
   export let position;
   export let date;
-  export let responsibilities = [];
+  export let company;
 </script>
 
-<section class="job-experience" style="--rhythm: {rhythm(1)}">
-  <h3>{position}</h3>
-  <h4>{date}</h4>
-  {#if responsibilities.length}
-    {#each responsibilities as r}
-      <p>{r}</p>
-    {/each}
-  {:else}
-    <slot />
-  {/if}
+<section class="job-experience">
+  <h3>{position} at {company}</h3>
+  <p class="job-date"><strong>{date}</strong></p>
+  <slot />
 </section>
 
 <style>
-  h4 {
-    font-size: 0.75em;
+  .job-date {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
   }
 </style>

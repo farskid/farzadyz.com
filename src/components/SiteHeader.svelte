@@ -10,8 +10,8 @@
   <Navbar />
   <OutBoundLink
     href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalhost%3A8000%2F&amp;amplref_src=twsrc%5Etfw&amp;screen_name=farzad_yz&amp;tw_p=followbutton"
-    class="hidden-print site-header-button"
-  >Follow {metadata.social.twitterHandle} on Twitter</OutBoundLink
+    class="hidden-print button"
+    >Follow {metadata.social.twitterHandle} on Twitter</OutBoundLink
   >
 </header>
 
@@ -25,19 +25,6 @@
     background-size: cover;
     margin-right: auto;
     margin-left: auto;
-  }
-  :global(.site-header-button) {
-    margin: 5px;
-    display: inline-block;
-    max-width: 250px;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    font-size: 0.75rem;
-    white-space: nowrap;
-    text-transform: uppercase;
-    background-color: var(--bg-dark);
-    color: #fff;
   }
 
   .site-header {

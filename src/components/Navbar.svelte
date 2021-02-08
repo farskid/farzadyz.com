@@ -9,7 +9,7 @@
     const routes = {
       home: "home",
       cv: "cv",
-      talks: "talks",
+      appearances: "appearances",
       blog: "blog",
       mentorship: "mentorship",
     };
@@ -31,9 +31,9 @@
       routeName: "cv",
     },
     {
-      title: "Talks",
-      link: "/talks",
-      routeName: "talks",
+      title: "Appearances",
+      link: "/appearances",
+      routeName: "appearances",
     },
     {
       title: "Blog",
@@ -58,8 +58,7 @@
             href={link.link}
             class={activeRoute === link.routeName
               ? "navbarActiveLink"
-              : undefined}
-          >{link.title}</OutBoundLink
+              : undefined}>{link.title}</OutBoundLink
           >
         {:else}
           <a

@@ -1,7 +1,8 @@
 :root {
   --blue: #66d9ef;
   --yellow: #e6db74;
-  --bg-dark: #272822;
+  --dark: #272822;
+  --light: #ffffff;
 
   --text-primary: #000;
   --text-secondary: #2f2d2d;
@@ -56,6 +57,10 @@ ul {
 
 hr {
   height: 1px;
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  border-color: var(--dark);
+  border-style: dashed;
 }
 
 .visible-print {
@@ -89,4 +94,80 @@ hr {
     max-width: 100%;
     height: auto;
   }
+}
+
+/* Global CSS Components */
+.button {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid currentColor;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline-color: currentColor;
+}
+
+.button:not(.button-block) {
+  max-width: 15rem;
+}
+
+.button-block {
+  display: block;
+}
+
+@media screen and (max-width: 48rem) {
+  .button-block {
+    width: 100%;
+  }
+}
+
+.button:not(.button-outline) {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.button-outline {
+  color: var(--text-primary);
+  background-color: var(--light);
+}
+
+/* General utility classnames */
+
+/* Text */
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+/* Spacing */
+.spacing-h > * + * {
+  margin-left: 1rem;
+}
+.spacing-h.spacing-large > * + * {
+  margin-left: 2rem;
+}
+.spacing-h.spacing-small > * + * {
+  margin-left: 0.5rem;
+}
+.spacing-v > * + * {
+  margin-top: 1rem;
+}
+.spacing-v.spacing-large > * + * {
+  margin-top: 2rem;
+}
+/* List */
+.list-none {
+  list-style: none;
+}
+.list-inline > li {
+  display: inline-block;
 }

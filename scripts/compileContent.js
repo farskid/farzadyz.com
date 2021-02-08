@@ -5,12 +5,12 @@ const frontmatter = require("@github-docs/frontmatter");
 const slugify = require("slugify");
 const extlink = require("remarkable-extlink");
 const prettier = require("prettier");
-const prettierParser = require("prettier/parser-markdown");
 // const hljs = require("highlight.js");
 const Prism = require("prismjs");
 require("prismjs/components/prism-jsx");
 const lazyIframe = require("./iframe.js");
 const lazyImage = require("./image.js");
+const stackoverflowReputation = require("./stackoverflow");
 
 const mdParser = new Remarkable({
   langPrefix: "language-",
@@ -86,7 +86,7 @@ async function prepareBlogPosts() {
     });
     const mdWithoutFrontmatter = md.replace(/^---[\s\S]*---/, "");
     let html = mdParser.render(mdWithoutFrontmatter);
-    html = lazyIframe(lazyIframe(html));
+    html = lazyImage(lazyIframe(html));
     if (!fmt.errors.length) {
       const postData = {
         ...fmt.data,
@@ -133,6 +133,8 @@ async function persisBlogPosts(blogPosts) {
     const posts = await prepareBlogPosts();
     console.log("writing to blog/_posts.js");
     await persisBlogPosts(posts);
+    console.log("writing lastest stackoverflow reputations");
+    await stackoverflowReputation();
   } catch (err) {
     console.error(err);
   }

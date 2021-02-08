@@ -4,7 +4,8 @@
   "version": "2.0.0",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build",
+    "build": "yarn compile:content && sapper build",
+    "compile:content": "node scripts/compileContent.js",
     "export": "sapper export",
     "start": "node __sapper__/build",
     "start:export": "serve __sapper__/export",
@@ -32,6 +33,7 @@
     "fs-extra": "^9.1.0",
     "highlight.js": "^10.5.0",
     "linkedom": "^0.3.6",
+    "node-fetch": "^2.6.1",
     "polka": "next",
     "prettier": "^2.2.1",
     "prismjs": "^1.23.0",

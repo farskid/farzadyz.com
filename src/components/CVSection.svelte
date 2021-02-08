@@ -1,14 +1,18 @@
 <script>
-  import { rhythm } from "../utils/typography";
-
   export let title;
   export let textArray = [];
 </script>
 
-<section style="margin-top: {rhythm(2)}; margin-bottom: {rhythm(2)}">
+<section>
   <h2>{title}</h2>
   {#each textArray as t}
     <p>{t}</p>
   {/each}
   <slot />
 </section>
+
+<style>
+  h2 {
+    text-transform: capitalize;
+  }
+</style>

@@ -88,7 +88,7 @@
 
   /* Code */
   .post :global(pre, code) {
-    background: var(--bg-dark);
+    background: var(--dark);
     margin: 0.5em 0;
     padding: 1em;
     overflow: auto;

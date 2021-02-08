@@ -1,5 +1,5 @@
 {
-  "background_color": "#ffffff",
+  "background_color": "var(--light)fff",
   "theme_color": "#2f2d2d",
   "name": "farzadyz.com",
   "short_name": "farzadyz.com",
