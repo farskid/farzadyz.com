@@ -38,7 +38,7 @@
   <h1>{post.title}</h1>
   <p class="post-date">
     <small>
-      <Date dateString={post.publishedAt} />
+      <strong><Date dateString={post.publishedAt} /></strong>
       <span style="margin-left:1rem">{readingTime.text}</span>
     </small>
   </p>
@@ -72,6 +72,10 @@
 </Layout>
 
 <style>
+  .post-date {
+    font-family: var(--font-heading);
+  }
+
   .post :global(pre),
   .post :global(iframe),
   .post :global(code) {

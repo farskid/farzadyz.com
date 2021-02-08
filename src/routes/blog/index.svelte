@@ -31,7 +31,9 @@
             style="text-decoration: none;">{post.title}</a
           >
         </h2>
-        <p class="post-date"><Date dateString={post.publishedAt} /></p>
+        <p class="post-date">
+          <strong><Date dateString={post.publishedAt} /></strong>
+        </p>
         <p>
           {@html post.excerpt}...
           <a class="read-more-link" href="blog/{post.slug}"
@@ -51,6 +53,7 @@
 
   .post-date {
     font-family: var(--font-heading);
+    font-size: 0.75rem;
   }
 
   .read-more-link {
