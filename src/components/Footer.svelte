@@ -2,7 +2,7 @@
   import OutBoundLink from "./OutBoundLink.svelte";
 </script>
 
-<footer class="footer">
+<footer class="site-footer hidden-print">
   The materials of this website are licensed under
   <OutBoundLink href="https://creativecommons.org/licenses/by-nc/2.0/"
     ><strong>The Creative Commons</strong></OutBoundLink
@@ -10,7 +10,7 @@
 </footer>
 
 <style>
-  .footer {
+  .site-footer {
     font-size: 0.8em;
     text-align: center;
     margin: 6rem auto -2.25rem;
@@ -18,7 +18,7 @@
     color: var(--text-secondary);
   }
 
-  :global(.footer a) {
+  :global(.site-footer a) {
     white-space: nowrap;
   }
 </style>
