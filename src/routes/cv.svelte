@@ -41,14 +41,18 @@
 
   onMount(() => {
     doPrint = () => {
-      console.log("print called");
-      window.print();
+      try {
+        console.log("print called");
+        window.print();
+      } catch (err) {
+        console.log(err);
+      }
     };
   });
 </script>
 
 <Layout title="CV | {metadata.siteTitle}">
-  <section class="download-bar">
+  <section class="download-bar hidden-print">
     <p>
       Get my latest CV <span
         role="img"
@@ -56,10 +60,7 @@
         aria-label="is on the right link">👉</span
       >
     </p>
-    <button
-      class="hidden-print button button-outline button-block"
-      on:click={doPrint}
-    >
+    <button class="hidden-print button button-outline" on:click={doPrint}>
       Download My CV
     </button>
   </section>
@@ -159,6 +160,10 @@
     @page {
       size: auto;
       margin: 0mm;
+    }
+
+    :global(a) {
+      text-decoration: underline !important;
     }
 
     :global(.job-experience) {

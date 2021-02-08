@@ -146,6 +146,7 @@
         </h3>
         <p class="appr-links">
           {#if podcast.audioUrl}<audio
+              class="hidden-print"
               preload="none"
               src={podcast.audioUrl}
               controls
