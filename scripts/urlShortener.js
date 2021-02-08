@@ -2,7 +2,7 @@ const API_URL = "https://cutt.ly/api/api.php";
 const fetch = require("node-fetch");
 const linkedom = require("linkedom");
 
-const API_KEY = "d555991401ee4903561c0b488a87c57a14f30";
+const API_KEY = process.env.SHORT_URL_API_KEY;
 
 async function shortenUrl(url) {
   // TODO: change to userDomain=1 when branded domain is verified
