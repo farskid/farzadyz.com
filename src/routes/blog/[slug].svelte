@@ -17,7 +17,6 @@
 <script>
   import BlogShareBar from "../../components/BlogShareBar.svelte";
   import Layout from "../../components/Layout.svelte";
-  import "prismjs/themes/prism-okaidia.css";
   import Date from "../../components/Date.svelte";
   import calculateReadingTime from "reading-time";
 
@@ -73,15 +72,6 @@
 </Layout>
 
 <style>
-  /* Layout */
-  @media screen and (min-width: 768px) {
-    .post :global(pre, iframe) {
-      margin-left: -6rem !important;
-      margin-right: -6rem !important;
-      width: calc(100% + 12rem) !important;
-    }
-  }
-
   .post :global(pre, code, iframe) {
     border-radius: 0.3em;
   }
@@ -92,13 +82,16 @@
     margin: 0.5em 0;
     padding: 1em;
     overflow: auto;
-    border-radius: 0.3em;
     width: 100%;
     font-size: 1rem;
   }
 
   .post :global(code[class*="language-"]) {
     padding: 0;
+  }
+
+  .post :global(code[class*="language-"], pre[class*="language-"]) {
+    color: var(--light);
   }
 
   .post :global(code:not([class*="language-"])) {
@@ -116,7 +109,7 @@
     border-radius: 0.3em;
     padding: 3px 6px;
     background-color: var(--yellow);
-    color: #272822;
+    color: var(--text-primary);
     margin: 0 0.25rem;
     white-space: normal;
   }
@@ -140,7 +133,7 @@
   }
 
   .post :global(a) {
-    color: #000;
+    word-break: break-all;
   }
 
   /* Pagination */
@@ -155,5 +148,79 @@
   }
   .paginated-posts.single-child {
     display: block;
+  }
+
+  @media screen and (max-width: 48rem) {
+    .post :global(iframe),
+    .post :global(img),
+    .post :global(pre) {
+      width: calc(100% + 1rem);
+      margin-left: -0.5rem;
+      border-radius: 0;
+      max-width: none;
+    }
+  }
+  @media screen and (min-width: 48rem) {
+    .post :global(iframe),
+    .post :global(img),
+    .post :global(pre) {
+      margin-left: -6rem;
+      margin-right: -6rem;
+      width: calc(100% + 12rem);
+      max-width: none;
+    }
+  }
+
+  /* Syntax Highlighting */
+  :global(.token.comment, .token.prolog, .token.doctype, .token.cdata) {
+    color: #8292a2;
+  }
+
+  :global(.token.punctuation) {
+    color: #f8f8f2;
+  }
+
+  :global(.token.namespace) {
+    opacity: 0.7;
+  }
+
+  :global(.token.property, .token.tag, .token.constant, .token.symbol, .token.deleted) {
+    color: #f92672;
+  }
+
+  :global(.token.boolean, .token.number) {
+    color: #ae81ff;
+  }
+
+  :global(.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted) {
+    color: #a6e22e;
+  }
+
+  :global(.token.operator, .token.entity, .token.url, .language-css
+      .token.string, .style .token.string, .token.variable) {
+    color: #f8f8f2;
+  }
+
+  :global(.token.atrule, .token.attr-value, .token.function, .token.class-name) {
+    color: #e6db74;
+  }
+
+  :global(.token.keyword) {
+    color: #66d9ef;
+  }
+
+  :global(.token.regex, .token.important) {
+    color: #fd971f;
+  }
+
+  :global(.token.important, .token.bold) {
+    font-weight: bold;
+  }
+  :global(.token.italic) {
+    font-style: italic;
+  }
+
+  :global(.token.entity) {
+    cursor: help;
   }
 </style>
