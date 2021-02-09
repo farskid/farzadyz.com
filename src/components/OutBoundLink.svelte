@@ -1,4 +1,6 @@
 <script>
+  import splitbee from "@splitbee/web";
+
   export let href;
 
   let props;
@@ -10,7 +12,15 @@
 {/if}
 
 {#if href}
-  <a target="_blank" rel="nofollow noreferrer noopener" {href} {...props}>
+  <a
+    on:click={() => {
+      splitbee.track("external_link_click", { href });
+    }}
+    target="_blank"
+    rel="nofollow noreferrer noopener"
+    {href}
+    {...props}
+  >
     <slot />
   </a>
 {/if}

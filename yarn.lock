@@ -1071,9 +1071,9 @@
     yargs "^15.3.0"
 
 "@netlify/framework-info@^2.0.0":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@netlify/framework-info/-/framework-info-2.1.1.tgz#62774cc7af691dc8fdebe11f27a70230bd57a7b4"
-  integrity sha512-JblagtBYtOwuxZy94jXPNc3p+QOuyx+kZurfduswYbT8VWPlyuiL4AQFKaIJvdZS6O9G8uKEiFGsKFhRTx6vAA==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@netlify/framework-info/-/framework-info-2.2.0.tgz#6c8f223d1d1c7a7c30d39911413e1dde2877125b"
+  integrity sha512-iaze82UAVVNJ6uLHf8XhgH3vgl3q9OSuAYF/FDHMKM7VqRyQSOIsVJkF4FB62ms3fdKbUiWPm6NZXnSR6QRMHw==
   dependencies:
     ajv "^7.0.0"
     filter-obj "^2.0.1"
@@ -1170,7 +1170,33 @@
     "@netlify/traffic-mesh-agent-linux-x64" "^0.27.10"
     "@netlify/traffic-mesh-agent-win32-x64" "^0.27.10"
 
-"@netlify/zip-it-and-ship-it@^2.0.0", "@netlify/zip-it-and-ship-it@^2.1.3":
+"@netlify/zip-it-and-ship-it@^2.0.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@netlify/zip-it-and-ship-it/-/zip-it-and-ship-it-2.2.0.tgz#c081370e0c2270d3db6e8814e5b4bdce68526a95"
+  integrity sha512-DRiZVqlD/fFOAARPjsTwxAIUCZ+tnRgvdQGQbBqhqqdIo9ARjgYbPQj3zdSgBgOEjLMgx8jDv60iu/BGK1LQqg==
+  dependencies:
+    archiver "^4.0.0"
+    common-path-prefix "^2.0.0"
+    cp-file "^7.0.0"
+    elf-cam "^0.1.1"
+    end-of-stream "^1.4.4"
+    esbuild "^0.8.36"
+    find-up "^4.1.0"
+    glob "^7.1.6"
+    junk "^3.1.0"
+    locate-path "^5.0.0"
+    make-dir "^3.1.0"
+    p-map "^3.0.0"
+    path-exists "^4.0.0"
+    pkg-dir "^4.2.0"
+    precinct "^6.3.1"
+    require-package-name "^2.0.1"
+    resolve "^2.0.0-next.1"
+    semver "^7.3.2"
+    unixify "^1.0.0"
+    yargs "^15.4.1"
+
+"@netlify/zip-it-and-ship-it@^2.1.3":
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/@netlify/zip-it-and-ship-it/-/zip-it-and-ship-it-2.1.3.tgz#573fd7e0ff4f29a6023614a78972f83f138e995d"
   integrity sha512-nYHM4dnlua/aCe74ZPZcIlWAN1QbyGDaWbJi+Qkb0VSe4yX6PYvPNeymABggDbA9xFhk+nEA98wSu2A/beHPfQ==
@@ -1562,6 +1588,11 @@
   dependencies:
     escape-string-regexp "^2.0.0"
     lodash.deburr "^4.1.0"
+
+"@splitbee/web@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@splitbee/web/-/web-0.2.4.tgz#173ffab42a9c4d22874d82cd580d2c114480b93f"
+  integrity sha512-LMXnN5X/jen4ssBZ8ULXckQgJVvv8Ox2brcK7g2aLrok8ISzO76+DC0b6Cierk8oIXcx/+aflbVuBaKKFqyBCg==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
@@ -2026,9 +2057,9 @@ autolinker@^3.11.0:
     tslib "^1.9.3"
 
 aws-sdk@^2.689.0:
-  version "2.839.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.839.0.tgz#74e9697e5dcb2d116032363ad80f5b705759fafb"
-  integrity sha512-CFgiZ8IUpI1Qqs0ECheGO592lvGG6dYp7SsMJ5Xegd+aBAn6dimPTSmrnkPHPyzFhMYtBx1kE6SxVkl9MKOcWg==
+  version "2.840.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.840.0.tgz#f5529c9bd3bf0be7f8e855a23ff9c12b1705418f"
+  integrity sha512-ngesHJqb0PXYjJNnCsAX4yLkR6JFQJB+3eDGwh3mYRjcq9voix5RfbCFQT1lwWu7bcMBPCrRIA2lJkkTMYXq+A==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -3470,6 +3501,11 @@ error-stack-parser@^2.0.2, error-stack-parser@^2.0.3:
   integrity sha512-d51brTeqC+BHlwF0BhPtcYgF5nlzf9ZZ0ZIUQNZpc9ZB9qw5IJ2diTrBY9jlCJkTLITYPjmiX6OWCwH+fuyNgQ==
   dependencies:
     stackframe "^1.1.1"
+
+esbuild@^0.8.36:
+  version "0.8.43"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.8.43.tgz#19d79f8c6d1cc6dadd50942057a5aff906a1ecf2"
+  integrity sha512-ZVE2CpootS4jtnfV0bbtJdgRsHEXcMP0P7ZXGfTmNzzhBr2e5ag7Vp3ry0jmw8zduJz4iHzxg4m5jtPxWERz1w==
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -5980,7 +6016,7 @@ netlify-redirector@^0.2.0:
   resolved "https://registry.yarnpkg.com/netlify-redirector/-/netlify-redirector-0.2.1.tgz#efdb761ea2c52edb3ecb5f237db0e10861f2ff0e"
   integrity sha512-17vDR9p1Loanp+vd57y+b6WlKb5X+qb0LZ44oTYsKJbdonz4Md+Ybv1lzH1w1aKm5YWWXHR8LMpWyY9bjlAJKw==
 
-netlify@^6.0.0, netlify@^6.1.6:
+netlify@^6.0.0:
   version "6.1.6"
   resolved "https://registry.yarnpkg.com/netlify/-/netlify-6.1.6.tgz#c841438a802e04b5914b5d3af48d633ee2b0b0e8"
   integrity sha512-hjXoiqKHetP+OD/DmOLHeTW/AZvsitFCz5d1mOAivrnQXVKrKRS6XHbsLELiUuXv8hW1PrWnImFF0VdLPKo0wA==
