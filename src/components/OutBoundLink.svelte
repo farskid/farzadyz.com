@@ -4,7 +4,12 @@
   export let href;
 
   let props;
-  $: ({ href, ...props } = $$props);
+  $: ({ href, rel, ...props } = $$props);
+  $: {
+    if (rel) {
+      console.error("OutBoundLink MUST NOT have a custom rel", href);
+    }
+  }
 </script>
 
 {#if !href}
