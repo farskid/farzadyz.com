@@ -7,7 +7,7 @@
   <h1>Howdy! My name is {metadata.fullName}</h1>
   <p>
     I'm a Software engineer working at
-    <OutBoundLink rel="nofollow" href="https://epicgames.com">
+    <OutBoundLink href="https://epicgames.com">
       <strong>Epic Games</strong>
     </OutBoundLink>
     and living in
