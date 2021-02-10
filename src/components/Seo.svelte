@@ -26,24 +26,15 @@
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta
-    name="twitter:creator"
-    content={[metadata.fullName, metadata.social.twitterHandle].join("|")}
-  />
-  <meta
-    name="twitter:site"
-    content={[metadata.fullName, metadata.social.twitterHandle].join("|")}
-  />
+
   <meta name="description" content={description} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
+
   <meta name="keywords" content={keywords} />
-  <meta name="twitter:url" content={url} />
+
   <meta property="og:url" content={url} />
-  <meta name="twitter:image:src" content="/icons/android-chrome-512x512.png" />
+
   <meta property="og:image" content="/icons/android-chrome-512x512.png" />
   <meta property="og:image:width" content="512" />
   <meta property="og:image:height" content="512" />
@@ -51,4 +42,16 @@
   {#each seeAlsoLinks as link}
     <meta property="og:see_also" content={link} />
   {/each}
+
+  <!-- TW -->
+  <meta name="twitter:card" content="summary" />
+  <meta
+    name="twitter:creator"
+    content={[metadata.fullName, metadata.social.twitterHandle].join("|")}
+  />
+  <meta name="twitter:site" content={metadata.social.twitterHandle} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:url" content={url} />
+  <meta name="twitter:image:src" content="/icons/android-chrome-512x512.png" />
 </svelte:head>
