@@ -171,4 +171,5 @@ hr {
 }
 .list-inline > li {
   display: inline-block;
+  vertical-align: middle;
 }
