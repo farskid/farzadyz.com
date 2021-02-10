@@ -49,6 +49,7 @@
   .posts-list {
     margin: 0 0 1em 0;
     line-height: 1.5;
+    padding: 0;
   }
 
   .post-date {
