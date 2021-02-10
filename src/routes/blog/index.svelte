@@ -19,10 +19,6 @@
 <Layout title="Blog | {metadata.siteTitle}">
   <ul class="posts-list">
     {#each posts as post}
-      <!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
       <article style="margin-bottom: 3rem;">
         <h2 style="margin-bottom: 0.75rem;">
           <a

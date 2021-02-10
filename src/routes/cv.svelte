@@ -13,6 +13,7 @@
   import cvInfo from "../../content/data/cv.json";
   import { onMount } from "svelte";
   import { separateByAt } from "../utils";
+  import splitbee from "@splitbee/web";
 
   import Layout from "../components/Layout.svelte";
   import CVSection from "../components/CVSection.svelte";
@@ -60,7 +61,13 @@
         aria-label="is on the right link">👉</span
       >
     </p>
-    <button class="hidden-print button button-outline" on:click={doPrint}>
+    <button
+      class="hidden-print button button-outline"
+      on:click={doPrint}
+      on:click={() => {
+        splitbee.track("download_cv");
+      }}
+    >
       Download My CV
     </button>
   </section>

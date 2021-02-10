@@ -2,6 +2,7 @@
   import metadata from "../../content/data/metadata.json";
   import { pick } from "../utils";
   import OutBoundLink from "./OutBoundLink.svelte";
+  import splitbee from "@splitbee/web";
 
   export let talks;
   export let level = 2;
@@ -146,6 +147,11 @@
         </h3>
         <p class="appr-links">
           {#if podcast.audioUrl}<audio
+              on:click={() => {
+                splitbee.track("play_podcast", {
+                  podcast: podcast.originalTitle,
+                });
+              }}
               class="hidden-print"
               preload="none"
               src={podcast.audioUrl}
