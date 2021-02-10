@@ -19,6 +19,7 @@
   import Layout from "../../components/Layout.svelte";
   import Date from "../../components/Date.svelte";
   import calculateReadingTime from "reading-time";
+  import OutBoundLink from "../../components/OutBoundLink.svelte";
 
   export let post;
   export let posts;
@@ -34,7 +35,6 @@
 </script>
 
 <Layout title={post.title} description={post.excerpt} keywords={post.keywords}>
-  <BlogShareBar blogPostData={post} />
   <h1>{post.title}</h1>
   <p class="post-date">
     <small>
@@ -43,9 +43,13 @@
     </small>
   </p>
   <hr />
+  <BlogShareBar blogPostData={post} />
+  <hr />
   <div class="post">
     {@html post.html}
   </div>
+  <hr />
+  <BlogShareBar blogPostData={post} />
   <hr />
   <ul
     class="paginated-posts"

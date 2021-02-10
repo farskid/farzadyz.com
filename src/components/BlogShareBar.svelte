@@ -6,6 +6,7 @@
     slug: "",
     title: "",
     keywords: "",
+    editLink,
   };
 
   $: hashtags = blogPostData.keywords.split(" ").join(",");
@@ -28,15 +29,23 @@
 
 <nav>
   <a href="/blog">Check out all posts</a>
-  <OutboundLink href={shareUrl} style="line-height: 50px;">
-    <img
-      width={25}
-      height={25}
-      style="width: 25px; height: 25px; margin: 0; display: block;"
-      src="/twitter.svg"
-      alt="share on twitter"
-    />
-  </OutboundLink>
+
+  <ul class="share-list list-none list-inline spacing-h">
+    <li>
+      <OutboundLink href={blogPostData.editLink}>Edit on Github</OutboundLink>
+    </li>
+    <li>
+      <OutboundLink href={shareUrl} style="line-height: 50px;">
+        <img
+          width={25}
+          height={25}
+          style="width: 25px; height: 25px; margin: 0; display: block;"
+          src="/twitter.svg"
+          alt="share on twitter"
+        />
+      </OutboundLink>
+    </li>
+  </ul>
 </nav>
 
 <style>
@@ -45,5 +54,9 @@
     justify-content: space-between;
     height: 50px;
     align-items: center;
+  }
+
+  .share-list {
+    padding: 0;
   }
 </style>

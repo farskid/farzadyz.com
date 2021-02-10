@@ -5,7 +5,6 @@ const frontmatter = require("@github-docs/frontmatter");
 const slugify = require("slugify");
 const extlink = require("remarkable-extlink");
 const prettier = require("prettier");
-// const hljs = require("highlight.js");
 const Prism = require("prismjs");
 require("prismjs/components/prism-jsx");
 const lazyIframe = require("./iframe.js");
@@ -19,19 +18,6 @@ const mdParser = new Remarkable({
   highlight(str, lang) {
     return Prism.highlight(str, Prism.languages[lang]);
   },
-  // highlight: function (str, lang) {
-  //   if (lang && hljs.getLanguage(lang)) {
-  //     try {
-  //       return hljs.highlight(lang, str).value;
-  //     } catch (err) {}
-  //   }
-
-  //   try {
-  //     return hljs.highlightAuto(str).value;
-  //   } catch (err) {}
-
-  //   return ""; // use external default escaping
-  // },
 }).use(extlink, {
   host: "farzadyz.com",
 });
@@ -98,6 +84,7 @@ async function prepareBlogPosts() {
         // md,
         excerpt: generatePostExcerpt(html),
         html,
+        editLink: `https://github.com/farskid/farzadyz.com/edit/master/content/blog/${post}`,
       };
       blogPosts.push(postData);
     } else {
