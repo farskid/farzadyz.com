@@ -26,7 +26,7 @@
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="/icons/android-chrome-512x512.png" />
+  <meta name="twitter:card" content="summary" />
   <meta
     name="twitter:creator"
     content={[metadata.fullName, metadata.social.twitterHandle].join("|")}
