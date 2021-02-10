@@ -19,10 +19,23 @@
   import Layout from "../../components/Layout.svelte";
   import Date from "../../components/Date.svelte";
   import calculateReadingTime from "reading-time";
-  import OutBoundLink from "../../components/OutBoundLink.svelte";
+  import { onMount } from "svelte";
+  import splitbee from "@splitbee/web";
 
   export let post;
   export let posts;
+
+  onMount(() => {
+    // Add tracking to all rendered external links inside blog post content
+    document.querySelector(".post").addEventListener("click", (e) => {
+      const closestAnchorElem = e.target.closest("a");
+      if (!closestAnchorElem) return;
+      console.log(closestAnchorElem);
+      splitbee.track("external_link_click", {
+        href: closestAnchorElem.getAttribute("href"),
+      });
+    });
+  });
 
   const readingTime = calculateReadingTime(post.html);
 
