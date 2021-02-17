@@ -6,9 +6,10 @@
     "dev": "yarn build && sapper dev",
     "build": "yarn compile_content && sapper build",
     "compile_content": "node scripts/compileContent.js",
+    "watch_content": "nodemon scripts/compileContent.js",
     "sapper_export": "sapper export",
     "copy_redirects": "node scripts/redirects.js",
-    "export": "run-s build sapper_export copy_redirects",
+    "export": "NODE_ENV=production run-s build sapper_export copy_redirects",
     "start": "node __sapper__/build",
     "start_export": "serve __sapper__/export",
     "clean": "rm -rf __sapper__"
