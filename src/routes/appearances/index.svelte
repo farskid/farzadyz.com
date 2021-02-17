@@ -18,6 +18,7 @@
 </script>
 
 <Layout
+  variant="narrow"
   title="Appearances | {metadata.siteTitle}"
   description="List of conference talks, talks at meetups and the podcasts I've been to | {metadata.siteDescription}"
 >

@@ -52,7 +52,7 @@
   });
 </script>
 
-<Layout title="CV | {metadata.siteTitle}">
+<Layout title="CV | {metadata.siteTitle}" variant="narrow">
   <section class="download-bar hidden-print">
     <p>
       Get my latest CV <span
