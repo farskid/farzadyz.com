@@ -17,7 +17,6 @@
 <script>
   import BlogShareBar from "../../components/BlogShareBar.svelte";
   import Layout from "../../components/Layout.svelte";
-  import Date from "../../components/Date.svelte";
   import calculateReadingTime from "reading-time";
   import { onMount } from "svelte";
   import splitbee from "@splitbee/web";
@@ -59,9 +58,10 @@
     {post.title}
   </h1>
   <p class="post-date">
-    <small>
+    <small
+      >Last Updated:
       <strong>
-        <Date dateString={post.publishedAt} />
+        {post.lastModified}
       </strong>
       <span style="margin-left:1rem">{readingTime.text}</span>
     </small>

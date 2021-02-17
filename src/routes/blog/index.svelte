@@ -10,7 +10,6 @@
 
 <script>
   import metadata from "../../../content/data/metadata.json";
-  import Date from "../../components/Date.svelte";
   import Layout from "../../components/Layout.svelte";
 
   export let posts;
@@ -31,7 +30,7 @@
           >
         </h2>
         <p class="post-date">
-          <strong><Date dateString={post.publishedAt} /></strong>
+          Last Updated: <strong>{post.lastModified}</strong>
         </p>
         <p>
           {@html post.excerpt}...

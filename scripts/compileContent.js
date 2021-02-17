@@ -11,6 +11,7 @@ const lazyIframe = require("./iframe.js");
 const lazyImage = require("./image.js");
 const stackoverflowReputation = require("./stackoverflow");
 const shortenUrls = require("./urlShortener");
+const lastModified = require("./lastModified");
 
 const mdParser = new Remarkable({
   langPrefix: "language-",
@@ -81,6 +82,7 @@ async function prepareBlogPosts() {
       const postData = {
         ...fmt.data,
         slug: slugify(fmt.data.title),
+        lastModified: await lastModified(path.join(blogDir, post)),
         // md,
         excerpt: generatePostExcerpt(html),
         html,
