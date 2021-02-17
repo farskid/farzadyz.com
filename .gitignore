@@ -5,3 +5,4 @@ yarn-error.log
 /__sapper__/
 # Local Netlify folder
 .netlify
+src/routes/blog/_posts.js
