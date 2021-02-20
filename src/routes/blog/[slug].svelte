@@ -17,7 +17,6 @@
 <script>
   import BlogShareBar from "../../components/BlogShareBar.svelte";
   import Layout from "../../components/Layout.svelte";
-  import Date from "../../components/Date.svelte";
   import calculateReadingTime from "reading-time";
   import { onMount } from "svelte";
   import splitbee from "@splitbee/web";
@@ -30,7 +29,6 @@
     document.querySelector(".post").addEventListener("click", (e) => {
       const closestAnchorElem = e.target.closest("a");
       if (!closestAnchorElem) return;
-      console.log(closestAnchorElem);
       splitbee.track("external_link_click", {
         href: closestAnchorElem.getAttribute("href"),
       });
@@ -47,11 +45,24 @@
   }
 </script>
 
-<Layout title={post.title} description={post.excerpt} keywords={post.keywords}>
-  <h1>{post.title}</h1>
+<Layout
+  variant="normal"
+  title={post.title}
+  description={post.excerpt}
+  keywords={post.keywords}
+>
+  <h1>
+    {#if post.draft}
+      [DRAFT]:
+    {/if}
+    {post.title}
+  </h1>
   <p class="post-date">
-    <small>
-      <strong><Date dateString={post.publishedAt} /></strong>
+    <small
+      >Last Updated:
+      <strong>
+        {post.lastModified}
+      </strong>
       <span style="margin-left:1rem">{readingTime.text}</span>
     </small>
   </p>
@@ -91,6 +102,21 @@
 <style>
   .post-date {
     font-family: var(--font-heading);
+  }
+
+  .post :global(.iframe-container) {
+    height: 0;
+    padding-bottom: 56.25%;
+    width: 100%;
+    position: relative;
+  }
+
+  .post :global(.iframe-container iframe) {
+    position: absolute;
+    /* width: 100%; */
+    height: 100%;
+    left: 0;
+    top: 0;
   }
 
   .post :global(pre),
@@ -153,6 +179,7 @@
     padding-left: 1.5rem;
     font-style: italic;
   }
+
   @media screen and (max-width: 48rem) {
     .post :global(blockquote) {
       width: 100%;
@@ -177,6 +204,7 @@
     grid-template-rows: 1fr;
     gap: 0 1rem;
   }
+
   .paginated-posts.single-child {
     display: block;
   }
@@ -191,6 +219,7 @@
       max-width: none;
     }
   }
+
   @media screen and (min-width: 48rem) {
     .post :global(iframe),
     .post :global(img),
@@ -247,6 +276,7 @@
   :global(.token.important, .token.bold) {
     font-weight: bold;
   }
+
   :global(.token.italic) {
     font-style: italic;
   }

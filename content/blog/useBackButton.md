@@ -1,6 +1,5 @@
 ---
 title: useBackButton hook to handle back button behavior in React Native
-slug: useBackButton-custom-hook-to-handle-back-button-in-react-native
 publishedAt: 12 Aug 2019
 keywords: React React-Native React-hooks custom-hooks
 ---

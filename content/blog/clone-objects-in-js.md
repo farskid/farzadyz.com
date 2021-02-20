@@ -1,6 +1,5 @@
 ---
 title: 3 Ways to clone objects in Javascript
-slug: 3-ways-to-clone-objects-in-javascript
 publishedAt: 01 Jan 2017
 keywords: Javascript Objects clone
 ---

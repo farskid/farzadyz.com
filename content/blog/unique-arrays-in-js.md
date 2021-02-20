@@ -1,6 +1,5 @@
 ---
 title: Detecting unique arrays in Javascript
-slug: detect-unique-arrays-in-javascript
 publishedAt: 24 Dec 2019
 keywords: javascript algorithms arrays performance
 ---
@@ -113,7 +112,7 @@ To have a better understanding of these performance comparisons, take a look at 
 
 ### Side note for whoever is curious
 
-Approach 1 (using nested loops) is of quadratic complexity, meaning that it will result in O(n^2) Time complexity.
+Approach 1 (using nested loops) is of quadratic complexity, meaning that it will result in O(n^2^) Time complexity.
 
 Approach 2 (using single loop and cached values) is of linear complexity, meaning that it will result in O(n) Time complexity.
 

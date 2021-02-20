@@ -4,6 +4,10 @@
   import Bio from "../components/Bio.svelte";
 </script>
 
-<Layout title={metadata.siteTitle} description={metadata.siteDescription}>
+<Layout
+  variant="narrow"
+  title={metadata.siteTitle}
+  description={metadata.siteDescription}
+>
   <Bio />
 </Layout>

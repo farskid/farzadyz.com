@@ -10,13 +10,12 @@
 
 <script>
   import metadata from "../../../content/data/metadata.json";
-  import Date from "../../components/Date.svelte";
   import Layout from "../../components/Layout.svelte";
 
   export let posts;
 </script>
 
-<Layout title="Blog | {metadata.siteTitle}">
+<Layout variant="narrow" title="Blog | {metadata.siteTitle}">
   <ul class="posts-list">
     {#each posts as post}
       <article style="margin-bottom: 3rem;">
@@ -24,11 +23,14 @@
           <a
             rel="prefetch"
             href="blog/{post.slug}"
-            style="text-decoration: none;">{post.title}</a
+            style="text-decoration: none;"
+            >{#if post.draft}
+              [DRAFT]:
+            {/if}{post.title}</a
           >
         </h2>
         <p class="post-date">
-          <strong><Date dateString={post.publishedAt} /></strong>
+          Last Updated: <strong>{post.lastModified}</strong>
         </p>
         <p>
           {@html post.excerpt}...

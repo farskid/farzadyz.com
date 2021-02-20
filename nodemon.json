@@ -1,0 +1,4 @@
+{
+  "watch": ["content/", "scripts/"],
+  "ext": "md"
+}

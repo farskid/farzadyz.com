@@ -1,6 +1,5 @@
 ---
 title: Unit Testing Higher Order Components with Enzyme and Jest
-slug: unit-test-react-higher-order-components-with-jest-and-enzyme
 publishedAt: 03 Nov 2017
 keywords: React Javascript Jest Enzyme Unit-Test Higher-order-componenets
 ---

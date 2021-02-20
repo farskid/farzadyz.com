@@ -1,6 +1,5 @@
 ---
 title: Cross-Domain Iframe-parent communication
-slug: cross-domain-iframe-parent-communication
 publishedAt: 28 Dec 2016
 keywords: Javascript HTML iframe messaging
 ---
