@@ -1,3 +1,4 @@
+const log = require("./log");
 const fs = require("fs-extra");
 const path = require("path");
 const { Remarkable } = require("remarkable");
@@ -35,6 +36,9 @@ const blogPostFrontmatterSchema = {
       type: ["string", "array"],
       required: true,
     },
+    draft: {
+      required: false,
+    },
   },
 };
 
@@ -45,7 +49,9 @@ function formatWithPrettier(text) {
 }
 
 function generatePostExcerpt(html) {
-  return new RegExp(/<p>(.*?)<\/p>/).exec(html)[1];
+  const PATTERN = new RegExp(/<p>(.*?)<\/p>/);
+  const result = PATTERN.exec(html);
+  return result ? result[1] : null;
 }
 
 function sortPostsByPublishedDateDesc(posts) {
@@ -63,6 +69,7 @@ async function prepareBlogPosts() {
 
   const blogPosts = [];
   for (let post of posts) {
+    log.log(`Post: ${post}`);
     let md = await (
       await fs.promises.readFile(path.join(blogDir, post))
     ).toString();
@@ -72,6 +79,15 @@ async function prepareBlogPosts() {
       validateKeyNames: false,
       validateKeyOrder: false,
     });
+
+    // Skip drafts in production
+    if (fmt.draft && process.env.NODE_ENV === "production") {
+      log.info(
+        `Post ${post} is in draft, skipping it from publishing to production`
+      );
+      continue;
+    }
+
     const mdWithoutFrontmatter = md.replace(/^---[\s\S]*---/, "");
     let html = mdParser.render(mdWithoutFrontmatter);
     // Lazy load img and iframe
@@ -90,8 +106,7 @@ async function prepareBlogPosts() {
       };
       blogPosts.push(postData);
     } else {
-      console.log(fmt.errors);
-      console.error(`post ${post} has invalid frontmatter`);
+      log.error(`post ${post} has invalid frontmatter`);
     }
   }
 
@@ -122,13 +137,13 @@ async function persisBlogPosts(blogPosts) {
 
 (async function compile() {
   try {
-    console.log("preparing blog posts");
+    log.log("preparing blog posts");
     const posts = await prepareBlogPosts();
-    console.log("writing to blog/_posts.js");
+    log.log("writing to blog/_posts.js");
     await persisBlogPosts(posts);
-    console.log("writing lastest stackoverflow reputations");
+    log.log("writing lastest stackoverflow reputations");
     await stackoverflowReputation();
   } catch (err) {
-    console.error(err);
+    log.error(err);
   }
 })();
