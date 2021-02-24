@@ -1,7 +1,6 @@
-import metadata from "../../content/data/metadata.json";
-import posts from "./blog/_posts";
+const fs = require("fs-extra");
 
-function generateRSS(posts) {
+function generateRSS(metadata, posts) {
   const { siteURL, siteTitle, siteDescription } = metadata;
 
   return `<?xml version="1.0" encoding="UTF-8" ?>
@@ -34,12 +33,14 @@ function generateRSS(posts) {
 </rss>`;
 }
 
-export function get(_, res) {
-  res.writeHead(200, {
-    "Cache-Control": `max-age=0, s-max-age=${600}`, // 10 minutes
-    "Content-Type": "application/rss+xml",
-  });
-
-  const feed = generateRSS(posts);
-  res.end(feed);
-}
+module.exports = async function moveFeedToDir(metadata, posts) {
+  try {
+    console.log("Copying RSS feed to the publish directory");
+    await fs.writeFile(
+      "__sapper__/export/rss.xml",
+      generateRSS(metadata, posts)
+    );
+  } catch (err) {
+    console.error(err);
+  }
+};
