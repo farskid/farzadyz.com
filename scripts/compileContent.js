@@ -14,7 +14,7 @@ const lazyImage = require("./image.js");
 const stackoverflowReputation = require("./stackoverflow");
 const shortenUrls = require("./urlShortener");
 const lastModified = require("./lastModified");
-const rss = require("./rss");
+const { generateFeed } = require("./rss");
 
 const mdParser = new Remarkable({
   langPrefix: "language-",
@@ -143,10 +143,12 @@ async function persisBlogPosts(blogPosts) {
     const posts = await prepareBlogPosts();
     log.log("writing to blog/_posts.js");
     await persisBlogPosts(posts);
-    await rss(metadata, posts);
+    log.log("generate RSS feed");
+    await generateFeed(metadata, posts);
     log.log("writing lastest stackoverflow reputations");
     await stackoverflowReputation();
   } catch (err) {
     log.error(err);
+    process.exit(1);
   }
 })();

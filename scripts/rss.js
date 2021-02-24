@@ -33,14 +33,14 @@ function generateRSS(metadata, posts) {
 </rss>`;
 }
 
-module.exports = async function moveFeedToDir(metadata, posts) {
-  try {
-    console.log("Copying RSS feed to the publish directory");
-    await fs.writeFile(
-      "__sapper__/export/rss.xml",
-      generateRSS(metadata, posts)
-    );
-  } catch (err) {
-    console.error(err);
+module.exports.generateFeed = async function generateFeed(metadata, posts) {
+  console.log("Copying RSS feed to the publish directory");
+  if (!fs.existsSync("scripts/.tmp")) {
+    await fs.mkdir("scripts/.tmp");
   }
+  await fs.writeFile("scripts/.tmp/rss.xml", generateRSS(metadata, posts));
+};
+
+module.exports.afterExport = async function afterExport() {
+  await fs.move("scripts/.tmp/rss.xml", "__sapper__/export/rss.xml");
 };
