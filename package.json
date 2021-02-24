@@ -9,7 +9,8 @@
     "watch_content": "nodemon scripts/compileContent.js",
     "sapper_export": "sapper export",
     "copy_redirects": "node scripts/redirects.js",
-    "export": "NODE_ENV=production run-s build sapper_export copy_redirects",
+    "after_export": "node scripts/afterExport.js",
+    "export": "NODE_ENV=production run-s build sapper_export copy_redirects after_export",
     "start": "node __sapper__/build",
     "start_export": "serve __sapper__/export",
     "clean": "rm -rf __sapper__"
