@@ -22,7 +22,7 @@ function generateRSS(metadata, posts) {
         <item>
             <title>${post.title}</title>
       <link>${siteURL}/${post.slug}</link>
-      <guid isPermaLink="false">${siteURL}/${post.slug}</guid>
+      <guid isPermaLink="false">${siteURL}/blog/${post.slug}</guid>
             <description><![CDATA[${post.excerpt}]]></description>
             <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
         </item>
