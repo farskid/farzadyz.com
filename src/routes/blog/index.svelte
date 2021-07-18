@@ -11,6 +11,7 @@
 <script>
   import metadata from "../../../content/data/metadata.json";
   import Layout from "../../components/Layout.svelte";
+  import Date from "../../components/Date.svelte";
 
   export let posts;
 </script>
@@ -30,7 +31,14 @@
           >
         </h2>
         <p class="post-date">
-          Last Updated: <strong>{post.lastModified}</strong>
+          {#if post.lastModified}
+            Last updated: <strong
+              ><Date dateString={post.lastModified} /></strong
+            >
+          {:else}
+            Published at: <strong><Date dateString={post.publishedAt} /></strong
+            >
+          {/if}
         </p>
         <p>
           {@html post.excerpt}...

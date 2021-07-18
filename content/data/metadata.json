@@ -1,1 +1,18 @@
-{"siteTitle":"Personal website owned by Farzad Yousefzadeh","siteDescription":"Software engineer living in finland.JS,TS,React(Native),Nodejs,Serverless,DX Tooling,Automation,Public technical speaker,UI Engineering,Statecharts,Reactivity","siteKeywords":"farzad yz, javascript, typescript, react, react native, nodejs, restful services, serverless, redux, graphql, reasonml, elm, golang, automation, architecture, dx, tooling, state management, react native, statecharts, state machines, aws, cloud, api development, express, technical talks, conference talks, developer advocacy, dev rel","fullName":"Farzad Yousefzadeh","siteURL":"https://farzadyz.com","social":{"twitterHandle":"@farzad_yz","twitter":"https://twitter.com/farzad_yz","stackoverflow":"https://stackoverflow.com/users/2784512/farzad-yz","github":"https://github.com/farskid","medium":"https://medium.com/@Farzad_YZ","dev.to":"https://dev.to/farskid","linkedin":"https://www.linkedin.com/in/farzadyz","mentorcruise":"https://mentorcruise.com/mentor/FarzadYousefZadeh/"},"stackoverflowReputation":"2,079"}
+{
+  "siteTitle": "Farzad Yousefzadeh",
+  "siteDescription": "Software engineer living in finland.JS,TS,React(Native),Nodejs,Serverless,DX Tooling,Automation,Public technical speaker,UI Engineering,Statecharts,Reactivity",
+  "siteKeywords": "farzad yz, javascript, typescript, react, react native, nodejs, restful services, serverless, redux, graphql, reasonml, elm, golang, automation, architecture, dx, tooling, state management, react native, statecharts, state machines, aws, cloud, api development, express, technical talks, conference talks, developer advocacy, dev rel",
+  "fullName": "Farzad Yousefzadeh",
+  "siteURL": "https://farzadyz.com",
+  "social": {
+    "twitterHandle": "@farzad_yz",
+    "twitter": "https://twitter.com/farzad_yz",
+    "stackoverflow": "https://stackoverflow.com/users/2784512/farzad-yz",
+    "github": "https://github.com/farskid",
+    "medium": "https://medium.com/@Farzad_YZ",
+    "dev.to": "https://dev.to/farskid",
+    "linkedin": "https://www.linkedin.com/in/farzadyz",
+    "mentorcruise": "https://mentorcruise.com/mentor/FarzadYousefZadeh/"
+  },
+  "stackoverflowReputation": "2,149"
+}

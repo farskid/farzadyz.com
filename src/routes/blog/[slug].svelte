@@ -15,8 +15,10 @@
 </script>
 
 <script>
+  import metadata from "../../../content/data/metadata.json";
   import BlogShareBar from "../../components/BlogShareBar.svelte";
   import Layout from "../../components/Layout.svelte";
+  import Date from "../../components/Date.svelte";
   import calculateReadingTime from "reading-time";
   import { onMount } from "svelte";
   import splitbee from "@splitbee/web";
@@ -47,7 +49,7 @@
 
 <Layout
   variant="normal"
-  title={post.title}
+  title={[post.title, metadata.fullName].join(" by ")}
   description={post.excerpt}
   keywords={post.keywords}
 >
@@ -58,13 +60,22 @@
     {post.title}
   </h1>
   <p class="post-date">
-    <small
-      >Last Updated:
-      <strong>
-        {post.lastModified}
-      </strong>
-      <span style="margin-left:1rem">{readingTime.text}</span>
-    </small>
+    {#if post.lastModified}
+      <small
+        >Last updated:
+        <strong>
+          <Date dateString={post.lastModified} />
+        </strong>
+      </small>
+    {:else}
+      <small
+        >Published at:
+        <strong>
+          <Date dateString={post.publishedAt} />
+        </strong>
+      </small>
+    {/if}
+    <span style="margin-left:1rem">{readingTime.text}</span>
   </p>
   <hr />
   <BlogShareBar blogPostData={post} />
@@ -157,12 +168,21 @@
     line-height: 1.5;
     tab-size: 4;
     hyphens: none;
-    border-radius: 0.3em;
     padding: 3px 6px;
-    background-color: var(--yellow);
     color: var(--text-primary);
     margin: 0 0.25rem;
     white-space: normal;
+    /* Marker effect */
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 225, 0, 0.1),
+      rgba(255, 225, 0, 0.7) 4%,
+      rgba(255, 225, 0, 0.3)
+    );
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
   /* Content */
@@ -213,14 +233,12 @@
     .post :global(iframe),
     .post :global(img),
     .post :global(pre) {
-      width: calc(100% + 1rem);
-      margin-left: -0.5rem;
       border-radius: 0;
-      max-width: none;
+      max-width: 100%;
     }
   }
 
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: 60rem) {
     .post :global(iframe),
     .post :global(img),
     .post :global(pre) {

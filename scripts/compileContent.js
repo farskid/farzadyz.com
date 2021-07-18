@@ -13,7 +13,6 @@ const lazyIframe = require("./iframe.js");
 const lazyImage = require("./image.js");
 const stackoverflowReputation = require("./stackoverflow");
 const shortenUrls = require("./urlShortener");
-const lastModified = require("./lastModified");
 const { generateFeed } = require("./rss");
 
 const mdParser = new Remarkable({
@@ -95,12 +94,12 @@ async function prepareBlogPosts() {
     // Lazy load img and iframe
     html = lazyImage(lazyIframe(html));
     // Shorten all external links
-    html = await shortenUrls(html);
+    // html = await shortenUrls(html);
     if (!fmt.errors.length) {
       const postData = {
         ...fmt.data,
         slug: slugify(fmt.data.title),
-        lastModified: await lastModified(path.join(blogDir, post)),
+        lastModified: null,
         // md,
         excerpt: generatePostExcerpt(html),
         html,

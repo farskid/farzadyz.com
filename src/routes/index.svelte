@@ -8,6 +8,7 @@
   variant="narrow"
   title={metadata.siteTitle}
   description={metadata.siteDescription}
+  keywords={metadata.siteKeywords}
 >
   <Bio />
 </Layout>
