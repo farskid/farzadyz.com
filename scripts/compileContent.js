@@ -100,7 +100,7 @@ async function prepareBlogPosts() {
       const postData = {
         ...fmt.data,
         slug: slugify(fmt.data.title),
-        lastModified: await lastModified(path.join(blogDir, post)),
+        lastModified: null,
         // md,
         excerpt: generatePostExcerpt(html),
         html,
