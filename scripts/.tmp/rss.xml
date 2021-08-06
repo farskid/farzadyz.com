@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+    <atom:link href="https://farzadyz.com/rss.xml" rel="self" type="application/rss+xml" />
+    <title><![CDATA[Farzad Yousefzadeh]]></title>
+    <link>https://farzadyz.com</link>
+  <description><![CDATA[Software engineer living in finland.JS,TS,React(Native),Nodejs,Serverless,DX Tooling,Automation,Public technical speaker,UI Engineering,Statecharts,Reactivity]]></description>
+  <lastBuildDate>Fri, 06 Aug 2021 08:15:46 GMT</lastBuildDate>
+    <image>
+        <url>https://farzadyz.com/feri.jpg</url>
+        <title><![CDATA[Farzad Yousefzadeh]]></title>
+        <link>https://farzadyz.com</link>
+    </image>
+    
+        <item>
+            <title>Deferring in processing events in XState interpreter</title>
+      <link>https://farzadyz.com/Deferring-in-processing-events-in-XState-interpreter</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Deferring-in-processing-events-in-XState-interpreter</guid>
+            <description><![CDATA[Hello]]></description>
+            <pubDate>Thu, 05 Aug 2021 21:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>Statecharts modeling makes feature growth linear</title>
+      <link>https://farzadyz.com/Statecharts-modeling-makes-feature-growth-linear</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Statecharts-modeling-makes-feature-growth-linear</guid>
+            <description><![CDATA[Hello]]></description>
+            <pubDate>Sat, 17 Jul 2021 21:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>Model DOM event handlers using invoked callbacks</title>
+      <link>https://farzadyz.com/Model-DOM-event-handlers-using-invoked-callbacks</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Model-DOM-event-handlers-using-invoked-callbacks</guid>
+            <description><![CDATA[Hello]]></description>
+            <pubDate>Sat, 17 Jul 2021 21:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>Model a draggable element with statecharts</title>
+      <link>https://farzadyz.com/Model-a-draggable-element-with-statecharts</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Model-a-draggable-element-with-statecharts</guid>
+            <description><![CDATA[Hello]]></description>
+            <pubDate>Sat, 17 Jul 2021 21:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>Different problems in disguise</title>
+      <link>https://farzadyz.com/Different-problems-in-disguise</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Different-problems-in-disguise</guid>
+            <description><![CDATA[An article on how some problems might look different but could be solved using the same or similar statecharts modeling]]></description>
+            <pubDate>Sat, 17 Jul 2021 21:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>Model a carousel with statecharts</title>
+      <link>https://farzadyz.com/Model-a-carousel-with-statecharts</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Model-a-carousel-with-statecharts</guid>
+            <description><![CDATA[Hello]]></description>
+            <pubDate>Sat, 17 Jul 2021 21:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>Supercharge native fetch with timeout and cancelation</title>
+      <link>https://farzadyz.com/Supercharge-native-fetch-with-timeout-and-cancelation</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Supercharge-native-fetch-with-timeout-and-cancelation</guid>
+            <description><![CDATA[<code>fetch</code> is a convenient promise-based web API that lets you communicate with other resources through the network.]]></description>
+            <pubDate>Thu, 18 Feb 2021 22:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>Detecting unique arrays in Javascript</title>
+      <link>https://farzadyz.com/Detecting-unique-arrays-in-Javascript</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Detecting-unique-arrays-in-Javascript</guid>
+            <description><![CDATA[When Javascript arrays contain primitive values (strings, numbers, undefined, null, booleans and Symbols), there might be cases in which you&#39;re willing to detect if the array contains any duplicated elements. in other words, you would want to determine if elements in the array are unique.]]></description>
+            <pubDate>Mon, 23 Dec 2019 22:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>useBackButton hook to handle back button behavior in React Native</title>
+      <link>https://farzadyz.com/useBackButton-hook-to-handle-back-button-behavior-in-React-Native</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/useBackButton-hook-to-handle-back-button-behavior-in-React-Native</guid>
+            <description><![CDATA[<a href="https://reactjs.org/docs/hooks-intro.html" target="_blank" rel="nofollow noreferrer noopener">React hooks</a> help with carrying stateful logic and keeping their lifecycle separate from the view layer lifecycle. They&#39;ve been around since React v16.8 and since people have been avoiding class components in favor of hooks.]]></description>
+            <pubDate>Sun, 11 Aug 2019 21:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>Unit Testing Higher Order Components with Enzyme and Jest</title>
+      <link>https://farzadyz.com/Unit-Testing-Higher-Order-Components-with-Enzyme-and-Jest</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Unit-Testing-Higher-Order-Components-with-Enzyme-and-Jest</guid>
+            <description><![CDATA[Not all the components you write for your React application can be divided into Stateful and Stateless (dumb) categories. There is a 3rd advanced type of component in React called a higher-order component. A higher-order component is a function that takes a component as an argument and returns another component. Check out my other article to see how higher-order components are used in the real world.]]></description>
+            <pubDate>Thu, 02 Nov 2017 22:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>3 Ways to clone objects in Javascript</title>
+      <link>https://farzadyz.com/3-Ways-to-clone-objects-in-Javascript</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/3-Ways-to-clone-objects-in-Javascript</guid>
+            <description><![CDATA[The first way that could cross a developer’s mind is to deeply iterate through source object’s properties and copy them one by one on the target object. As it may seem good at the beginning, it is not a performance friendly solution and a potential bottleneck when it comes to large and deep objects.]]></description>
+            <pubDate>Sat, 31 Dec 2016 22:00:00 GMT</pubDate>
+        </item>
+    
+
+        <item>
+            <title>Cross-Domain Iframe-parent communication</title>
+      <link>https://farzadyz.com/Cross-Domain-Iframe-parent-communication</link>
+      <guid isPermaLink="false">https://farzadyz.com/blog/Cross-Domain-Iframe-parent-communication</guid>
+            <description><![CDATA[There are many cases iframe would be good solution to use. Although they are kind of dead to HTML and not a lot of developers use it, It could come up to you as a solution to a complicated problem some day.]]></description>
+            <pubDate>Tue, 27 Dec 2016 22:00:00 GMT</pubDate>
+        </item>
+    
+</channel>
+</rss>

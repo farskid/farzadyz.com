@@ -1,6 +1,6 @@
 {
   "siteTitle": "Farzad Yousefzadeh",
-  "siteDescription": "Software engineer living in finland.JS,TS,React(Native),Nodejs,Serverless,DX Tooling,Automation,Public technical speaker,UI Engineering,Statecharts,Reactivity",
+  "siteDescription": "Software engineer living in Finland. JS,TS,React(Native),Nodejs,DX Tooling,Automation,Public technical speaker,UI Engineering,Statecharts,State Machines,XState",
   "siteKeywords": "farzad yz, javascript, typescript, react, react native, nodejs, restful services, serverless, redux, graphql, reasonml, elm, golang, automation, architecture, dx, tooling, state management, react native, statecharts, state machines, aws, cloud, api development, express, technical talks, conference talks, developer advocacy, dev rel",
   "fullName": "Farzad Yousefzadeh",
   "siteURL": "https://farzadyz.com",
@@ -13,6 +13,5 @@
     "dev.to": "https://dev.to/farskid",
     "linkedin": "https://www.linkedin.com/in/farzadyz",
     "mentorcruise": "https://mentorcruise.com/mentor/FarzadYousefZadeh/"
-  },
-  "stackoverflowReputation": "2,149"
+  }
 }

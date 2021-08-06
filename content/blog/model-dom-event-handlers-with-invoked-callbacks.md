@@ -1,0 +1,8 @@
+---
+title: Model DOM event handlers using invoked callbacks
+publishedAt: 18 Jul 2021
+keywords: modeling "state machines" statecharts javascript typescript
+draft: true
+---
+
+Hello

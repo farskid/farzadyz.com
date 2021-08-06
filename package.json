@@ -1,6 +1,6 @@
 {
   "name": "farzadyz.com",
-  "description": "Personal website owned by Farzad Yousefzadeh",
+  "description": "Farzad Yousefzadeh",
   "version": "2.0.0",
   "scripts": {
     "dev": "yarn build && sapper dev",
