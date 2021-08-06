@@ -11,8 +11,8 @@ async function getStackoverflowReputation() {
 
   const { document } = linkedom.parseHTML(html);
 
-  const reputationElement = document.querySelector('[title="reputation"]')
-    .firstElementChild.firstElementChild;
+  const reputationElement = document.querySelector(".profile-avatar")
+    .children[1].children[0].children[0].textContent;
 
   return reputationElement.innerText;
 }
