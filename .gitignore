@@ -39,3 +39,6 @@ lib/*.js
 # feed
 public/feeds
 .yarn
+
+# Local Netlify folder
+.netlify

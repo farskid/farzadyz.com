@@ -60,6 +60,7 @@
     "http-server": "^14.0.0",
     "import-jsx": "^4.0.0",
     "localtunnel": "^2.0.2",
+    "netlify-cli": "^8.0.16",
     "patch-package": "^6.4.7",
     "prettier": "^2.5.0",
     "prompts": "^2.4.2",
@@ -67,5 +68,6 @@
     "ts-jest": "^27.0.5",
     "ts-node": "^10.4.0",
     "typescript": "4.4.3"
-  }
+  },
+  "packageManager": "yarn@1.22.1"
 }
