@@ -3533,19 +3533,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/command@npm:^1, @oclif/command@npm:^1.6.0, @oclif/command@npm:^1.6.1, @oclif/command@npm:^1.8.7, @oclif/command@npm:^1.8.8":
-  version: 1.8.8
-  resolution: "@oclif/command@npm:1.8.8"
+"@oclif/command@npm:^1, @oclif/command@npm:^1.6.0, @oclif/command@npm:^1.6.1, @oclif/command@npm:^1.8.8, @oclif/command@npm:^1.8.9":
+  version: 1.8.9
+  resolution: "@oclif/command@npm:1.8.9"
   dependencies:
     "@oclif/config": ^1.18.2
     "@oclif/errors": ^1.3.5
     "@oclif/parser": ^3.8.6
-    "@oclif/plugin-help": ^3.2.12
+    "@oclif/plugin-help": ^3.2.13
     debug: ^4.1.1
     semver: ^7.3.2
   peerDependencies:
     "@oclif/config": ^1
-  checksum: 719ac29e650fbd78864981d8e90ae919d1889021c20a02539b939d43f92bb62b0c51b610853cd31b429476f2f4a7b0f434609cbbc25f51b491cbd380f5b5c97a
+  checksum: a70e58278d7437005321cf3c76307a759525c5e824e1db23f1c304d79ae22adf3997bbf8e6f950a92c59236dbe96ac52a7527d3f8e2249ffaca8072f3c3f572e
   languageName: node
   linkType: hard
 
@@ -3595,7 +3595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oclif/plugin-help@npm:^3.0.0, @oclif/plugin-help@npm:^3.2.12":
+"@oclif/plugin-help@npm:^3.0.0, @oclif/plugin-help@npm:^3.2.13":
   version: 3.2.13
   resolution: "@oclif/plugin-help@npm:3.2.13"
   dependencies:
@@ -6471,10 +6471,10 @@ __metadata:
   linkType: hard
 
 "cli-ux@npm:^5.5.1, cli-ux@npm:^5.6.5":
-  version: 5.6.5
-  resolution: "cli-ux@npm:5.6.5"
+  version: 5.6.6
+  resolution: "cli-ux@npm:5.6.6"
   dependencies:
-    "@oclif/command": ^1.8.7
+    "@oclif/command": ^1.8.9
     "@oclif/errors": ^1.3.5
     "@oclif/linewrap": ^1.0.0
     "@oclif/screen": ^1.0.4
@@ -6500,7 +6500,7 @@ __metadata:
     supports-color: ^8.1.0
     supports-hyperlinks: ^2.1.0
     tslib: ^2.0.0
-  checksum: 3dc0527f24e1200d8cdae608af0aedf020f92b1db54d0e402f8fba4516264aca223488a18857ab0d2d6861c754d469b295f409fe7bcbe669a1b35ca36a342207
+  checksum: 1a6e4e1c87c14f333d1a7d0440b667729a2b783bec0c67bd0390c9384158e6059edf5abc0d2ffa11b9361698262fbce07af2bac342e954f3756ad049653778fd
   languageName: node
   linkType: hard
 
@@ -7828,9 +7828,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.723, electron-to-chromium@npm:^1.3.896":
-  version: 1.4.11
-  resolution: "electron-to-chromium@npm:1.4.11"
-  checksum: 5dc6dafa8afd73ec451aced78570c75bd39abca6c7bb464664b886566db0a532f182a86aa3ec53948b5f4d15e3ed0dbeed7d7ddeb6fb18e73875f114aa1c9847
+  version: 1.4.12
+  resolution: "electron-to-chromium@npm:1.4.12"
+  checksum: 3a7571e9ca069d19251c11a4ed71953c16ff056c6ae77bc0a841d488c401613c9545189da8394f4da47d7a56ce081c5b78546fa1d1aaa76625a8e490defd8967
   languageName: node
   linkType: hard
 
@@ -13343,11 +13343,11 @@ __metadata:
   linkType: hard
 
 "minipass@npm:^3.0.0, minipass@npm:^3.1.0, minipass@npm:^3.1.1, minipass@npm:^3.1.3":
-  version: 3.1.5
-  resolution: "minipass@npm:3.1.5"
+  version: 3.1.6
+  resolution: "minipass@npm:3.1.6"
   dependencies:
     yallist: ^4.0.0
-  checksum: 8b410b9a5bd99ceb9d63c895891d1c30511791fdc7b717da4cf9403ca2419bc57af63b8485ffdaa421ef6cff56f63ae0b2f5135f8df502d21296e8c91460ebf9
+  checksum: 57a04041413a3531a65062452cb5175f93383ef245d6f4a2961d34386eb9aa8ac11ac7f16f791f5e8bbaf1dfb1ef01596870c88e8822215db57aa591a5bb0a77
   languageName: node
   linkType: hard
 
