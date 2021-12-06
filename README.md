@@ -25,6 +25,14 @@ A [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](h
    `$ yarn dev`
 2. Visit [http://localhost:3000/](http://localhost:3000/) to find your server running.
 
+## Deploy
+
+Deploy to a draft URL by running `yarn deploy`
+
+Deploy to prod by running `yarn deploy:prod`
+
+> Make sure you export the project before deploying
+
 ## Create a new blog post
 
 Blog posts are stored inside [content/posts](content/posts).
@@ -53,7 +61,6 @@ Use `yarn post:edit` to update an existing blog post’s updatedAt frontmatter f
 | title       | post title                                                      |
 | description | post description that shows on blog list view                   |
 | tags        | tags relevant to the blog post                                  |
-| author      | post author                                                     |
 | publishedAt | date the post was first published                               |
 | updatedAt   | date the post was last updated                                  |
 | originalURL | original post URL if post has been copied from another platform |
