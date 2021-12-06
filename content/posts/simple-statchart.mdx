@@ -1,0 +1,39 @@
+---
+title: Simple Statechart
+description: A simple statechart example
+tags:
+  - statechart
+publishedAt: "2021-07-18"
+draft: true
+---
+
+Statecharts are simplle, just kidding. they can be intimidating at first.
+Here is an example:
+
+```js viz test
+import { createMachine } from "xstate";
+
+const statechart = createMachine({
+  initial: "a",
+  id: "test",
+  states: {
+    a: {
+      on: {
+        GO: "b",
+      },
+      after: {
+        2000: "b",
+      },
+    },
+    b: {
+      on: {
+        GO: "a",
+      },
+    },
+    c: {},
+    d: {},
+  },
+});
+```
+
+You can visualize them!
