@@ -5,6 +5,7 @@ import { Seo } from "../src/Seo";
 import { Post } from "../src/types";
 import { Link, Box, Button, HStack, VStack } from "@chakra-ui/react";
 import { useMetadata } from "../src/MetadataContext";
+import NextLink from "next/link";
 
 const HomePage: NextPage<{ posts: Post[] }> = ({ posts }) => {
   const { default: metadata } = useMetadata();
@@ -51,9 +52,11 @@ const HomePage: NextPage<{ posts: Post[] }> = ({ posts }) => {
             </p>
             <p>
               <strong>
-                <Link href="/appearances#talks">
-                  <a>Public technical speaker</a>
-                </Link>
+                <NextLink href="/appearances#talks" passHref>
+                  <Link textDecoration="underline">
+                    Public technical speaker
+                  </Link>
+                </NextLink>
               </strong>
               . Passionate about <strong>UI Engineering</strong>,{" "}
               <strong>Statecharts</strong> and <strong>Reactivity</strong>.
