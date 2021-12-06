@@ -16,6 +16,8 @@ export const Layout: React.FC<{ posts: Post[] }> = ({ posts, children }) => (
     paddingRight="1em"
     paddingLeft="1em"
     gridGap="3em"
+    minHeight="100vh"
+    justifyContent="space-between"
     // borderInline="1px solid"
     // borderTop="20px solid"
     // borderBottom="100px solid"
