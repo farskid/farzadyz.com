@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "TTCommons";
+  src: url("/fonts/ttcommons.woff2") format("woff2");
+  font-weight: 450 600;
+}
+
+:root {
+  --site-colors-selection-bg: rgba(79, 8, 132, 0.16);
+  --site-colors-selection-color: var(--chakra-colors-gray-900);
+  --site-layout-max-width: 48rem;
+}
+
+::-moz-selection {
+  background: var(--site-colors-selection-bg);
+  color: var(--site-colors-selection-color);
+}
+::selection {
+  background: var(--site-colors-selection-bg);
+  color: var(--site-colors-selection-color);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+#__next {
+  min-height: 100%;
+}
+
+main {
+  /* bump up font size in main area */
+  font-size: 1.2em;
+}
+
+h1 {
+  font-size: var(--chakra-fontSizes-4xl);
+}
+
+#search input#search-input:focus + label[for="search-input"],
+#search:focus-within label[for="search-input"] {
+  /* visually hide label */
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+}
