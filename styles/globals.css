@@ -7,6 +7,7 @@
 :root {
   --site-colors-selection-bg: rgba(79, 8, 132, 0.16);
   --site-colors-selection-color: var(--chakra-colors-gray-900);
+  --site-layout-max-width: 48rem;
 }
 
 ::-moz-selection {

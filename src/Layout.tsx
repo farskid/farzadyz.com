@@ -8,7 +8,7 @@ export const Layout: React.FC<{ posts: Post[] }> = ({ posts, children }) => (
   <Box
     display="flex"
     flexDirection="column"
-    maxWidth="48rem"
+    maxWidth="var(--site-layout-max-width)"
     marginLeft="auto"
     marginRight="auto"
     paddingTop="2.25em"
