@@ -6,7 +6,6 @@ import {
   ListItem,
   Divider,
   Heading,
-  Stack,
   Wrap,
   WrapItem,
   HStack,
@@ -75,13 +74,17 @@ const talksToAppearances = (talks: Array<{ title: string; type: string }>) =>
       { talks: [], podcasts: [] }
     );
 
-const HeadingComponent: React.FC<{ level?: number }> = ({ level, children }) =>
+const HeadingComponent: React.FC<{ level?: number } & HeadingProps> = ({
+  level,
+  children,
+  ...props
+}) =>
   level === 2 ? (
-    <Heading fontSize="2xl">
+    <Heading {...props} fontSize="2xl">
       <strong>{children}</strong>
     </Heading>
   ) : (
-    <Heading as="h3" fontSize="l">
+    <Heading {...props} as="h3" fontSize="l">
       <strong>{children}</strong>
     </Heading>
   );
@@ -122,7 +125,7 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
       </VStack>
 
       <VStack alignItems="stretch" gridGap="4">
-        <HeadingComponent level={level}>
+        <HeadingComponent level={level} id="talks">
           Conference Talks and Meetups
         </HeadingComponent>
 
@@ -175,7 +178,9 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
       </VStack>
 
       <VStack alignItems="stretch" gridGap="4">
-        <HeadingComponent level={level}>Podcasts</HeadingComponent>
+        <HeadingComponent level={level} id="podcasts">
+          Podcasts
+        </HeadingComponent>
 
         <List listStyleType="none">
           {/* @ts-ignore */}
