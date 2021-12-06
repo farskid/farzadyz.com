@@ -10,6 +10,7 @@ import {
   HStack,
   Text,
   Divider,
+  Badge,
 } from "@chakra-ui/react";
 import { MDXComponents } from "../../src/MDXComponents";
 import { Seo } from "../../src/Seo";
@@ -73,6 +74,7 @@ const PostPage: React.FC<{
           maxW="3xl"
         >
           <Heading size="xl" as="h1" fontWeight="medium">
+            {post.draft && <Badge colorScheme="yellow">Draft</Badge>}{" "}
             <strong>{post.title}</strong>
           </Heading>
           <Text as="small">{formatDate(post.publishedAt)}</Text>
