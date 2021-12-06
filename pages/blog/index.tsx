@@ -3,9 +3,9 @@ import {
   List,
   ListItem,
   Heading,
-  HStack,
   Text,
   Link as ChakraLink,
+  Badge,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import fs from "fs";
@@ -14,17 +14,34 @@ import { getAllPosts } from "../../src/posts";
 import { Post } from "../../src/types";
 import Link from "next/link";
 import { Seo } from "../../src/Seo";
-import { useMetadata } from "../../src/MetadataContext";
 import { formatDate } from "../../src/utils";
 import { generateFeed } from "../../src/feed";
 
+function sortPostsByLatestAndDraftFirst(posts: Post[]) {
+  let draftPosts = [] as Post[],
+    publishedPosts = [] as Post[];
+
+  posts.forEach((post) => {
+    if (post.draft) {
+      draftPosts.push(post);
+    } else {
+      publishedPosts.push(post);
+    }
+  });
+
+  return draftPosts.concat(
+    publishedPosts.slice().sort((a, b) => {
+      const aDate = new Date((a as Post).publishedAt).getTime();
+      const bDate = new Date((b as Post).publishedAt).getTime();
+      return bDate - aDate;
+    })
+  );
+}
+
 const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
-  const {
-    default: { title },
-  } = useMetadata();
   return (
     <>
-      <Seo />
+      <Seo title={(defaultTitle) => `Blog | ${defaultTitle}`} />
       <Layout posts={posts}>
         <Box
           padding={{ base: "3", md: "12" }}
@@ -45,6 +62,7 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
                 <Link href={`/blog/${post.slug}`} passHref>
                   <ChakraLink padding="4" display="block">
                     <Heading fontSize="l">
+                      {post.draft && <Badge colorScheme="yellow">Draft</Badge>}{" "}
                       <strong>{post.title}</strong>
                     </Heading>
                     <Text as="small">{formatDate(post.publishedAt)}</Text>
@@ -69,7 +87,7 @@ export const getStaticProps = async () => {
   fs.writeFileSync("public/feeds/feed.json", feed.json1());
   fs.writeFileSync("public/feeds/atom.xml", feed.atom1());
 
-  return { props: { posts } };
+  return { props: { posts: sortPostsByLatestAndDraftFirst(posts) } };
 };
 
 export default Home;
