@@ -3,4 +3,3 @@ command = "yarn export"
 publish = "out"
 [build.environment]
 NODE_ENV = 'production'
-YARN_VERSION = '1.17'
