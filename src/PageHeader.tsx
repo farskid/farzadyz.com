@@ -1,63 +1,55 @@
 import {
   Box,
   Link as ChakraLink,
-  Stack,
   List,
-  Input,
-  Wrap,
   Text,
-  Heading,
-  ListItem,
-  useOutsideClick,
-  FormLabel,
+  // useOutsideClick,
 } from "@chakra-ui/react";
 import { Post } from "./types";
-import { RefObject, useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
-import FuzzySearch from "fuzzy-search";
-import Image from "next/image";
+// import { RefObject, useEffect, useMemo, useRef, useState } from "react";
+// import FuzzySearch from "fuzzy-search";
 import NextLink from "next/link";
 import { useMetadata } from "./MetadataContext";
 
-const useSearch = (
-  posts: Post[],
-  containerRef: RefObject<HTMLDivElement>
-): {
-  result: Post[];
-  searchValue: string;
-  setSearchValue(newValue: string): void;
-} => {
-  const searcherRef = useRef(
-    new FuzzySearch(posts, ["title", "description", "tags"], {
-      caseSensitive: false,
-    })
-  );
-  const [q, setQ] = useState("");
-  const foundPosts = useMemo(
-    () => (q ? searcherRef.current.search(q) : []),
-    [q]
-  );
-  useOutsideClick({
-    ref: containerRef,
-    handler: () => {
-      setQ("");
-    },
-  });
-  // Clear on ESC
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setQ("");
-      }
-    };
+// const useSearch = (
+//   posts: Post[],
+//   containerRef: RefObject<HTMLDivElement>
+// ): {
+//   result: Post[];
+//   searchValue: string;
+//   setSearchValue(newValue: string): void;
+// } => {
+//   const searcherRef = useRef(
+//     new FuzzySearch(posts, ["title", "description", "tags"], {
+//       caseSensitive: false,
+//     })
+//   );
+//   const [q, setQ] = useState("");
+//   const foundPosts = useMemo(
+//     () => (q ? searcherRef.current.search(q) : []),
+//     [q]
+//   );
+//   useOutsideClick({
+//     ref: containerRef,
+//     handler: () => {
+//       setQ("");
+//     },
+//   });
+//   // Clear on ESC
+//   useEffect(() => {
+//     const handler = (e: KeyboardEvent) => {
+//       if (e.key === "Escape") {
+//         setQ("");
+//       }
+//     };
 
-    window.addEventListener("keydown", handler);
-    return () => {
-      window.removeEventListener("keydown", handler);
-    };
-  }, []);
-  return { result: foundPosts, searchValue: q, setSearchValue: setQ };
-};
+//     window.addEventListener("keydown", handler);
+//     return () => {
+//       window.removeEventListener("keydown", handler);
+//     };
+//   }, []);
+//   return { result: foundPosts, searchValue: q, setSearchValue: setQ };
+// };
 
 const navLinks: Readonly<
   Array<{ title: string; href: string; isExternal?: boolean }>
@@ -73,12 +65,12 @@ const navLinks: Readonly<
   },
 ];
 
-export const PageHeader: React.FC<{ posts: Post[] }> = ({ posts }) => {
-  const searchResultsRef = useRef<HTMLDivElement>(null);
-  const { result, setSearchValue, searchValue } = useSearch(
-    posts,
-    searchResultsRef
-  );
+export const PageHeader: React.FC<{ posts: Post[] }> = () => {
+  // const searchResultsRef = useRef<HTMLDivElement>(null);
+  // const { result, setSearchValue, searchValue } = useSearch(
+  //   posts,
+  //   searchResultsRef
+  // );
   const { default: metadata } = useMetadata();
 
   return (
