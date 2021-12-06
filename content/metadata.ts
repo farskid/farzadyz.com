@@ -48,15 +48,16 @@ export const makeMetadata = ({
     type: article ? "article" : "website",
     locale: "en_US",
     site_name: DEFAULT_TITLE,
-    images: [
-      {
-        url: "https://stately.ai/blog/og-image.png", // needs to be absolute URL
-        width: 0,
-        height: 0,
-        alt: title,
-        type: "image/png", // change based on actual OG image type
-      },
-    ],
+    // TODO: use a cloud function to generate the image dynamically based on the page data
+    // images: [
+    //   {
+    //     url: "https://stately.ai/blog/og-image.png", // needs to be absolute URL
+    //     width: 0,
+    //     height: 0,
+    //     alt: title,
+    //     type: "image/png", // change based on actual OG image type
+    //   },
+    // ],
     article,
   },
   twitter: {
