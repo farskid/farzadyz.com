@@ -93,7 +93,7 @@ const CV: NextPage<{ posts: Post[] }> = ({ posts }) => {
 
   return (
     <>
-      <Seo />
+      <Seo title={(defaultTitle) => `CV | ${defaultTitle}`} />
       <Layout posts={posts}>
         <Box display="flex" flexDirection="column" gridGap="5">
           <Box>

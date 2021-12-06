@@ -11,33 +11,11 @@ import {
   HStack,
   VStack,
   Box,
+  HeadingProps,
 } from "@chakra-ui/react";
 import { useMetadata } from "./MetadataContext";
-import Image from "next/image";
 import React, { useMemo } from "react";
 import { PodcastIcon, TalkIcon } from "../src/Icons";
-import { Post } from "./types";
-
-function sortPostsByLatestAndDraftFirst(posts: Post[]) {
-  let draftPosts = [] as Post[],
-    publishedPosts = [] as Post[];
-
-  posts.forEach((post) => {
-    if (post.draft) {
-      draftPosts.push(post);
-    } else {
-      publishedPosts.push(post);
-    }
-  });
-
-  return draftPosts.concat(
-    publishedPosts.slice().sort((a, b) => {
-      const aDate = new Date((a as Post).publishedAt).getTime();
-      const bDate = new Date((b as Post).publishedAt).getTime();
-      return bDate - aDate;
-    })
-  );
-}
 
 function sortTalksByLatest<T extends { year: number }>(talks: T[]): T[] {
   const groupedByYear = talks.reduce((group, talk) => {
@@ -232,7 +210,8 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
         <List listStyleType="none">
           <ListItem className="appearance appearance-wide">
             <HStack alignItems="flex-start">
-              <Image
+              <img
+                loading="lazy"
                 src="https://static.packt-cdn.com/products/9781838641443/cover/smaller"
                 width="100"
                 height="124"

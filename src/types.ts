@@ -53,13 +53,22 @@ type OpenGraphArticle = NonNullable<
   NonNullable<NextSeoProps["openGraph"]>["article"]
 >;
 
-export type MetadataOverrides = Partial<{
-  title: string;
+interface MetadataOverridesSchema {
   description: string;
   url: string;
   article: OpenGraphArticle;
   originalURL: string;
-}>;
+}
+
+export type MetadataOverrides = Partial<
+  MetadataOverridesSchema & { title: string }
+>;
+
+export type SeoOverrides = Partial<
+  MetadataOverridesSchema & {
+    title: string | ((defaultTitle: string) => string);
+  }
+>;
 
 export type EmbedMode = "viz" | "panels" | "full";
 
