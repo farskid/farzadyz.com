@@ -78,7 +78,13 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
 };
 
 export const getStaticProps = async () => {
-  const posts = await getAllPosts();
+  let posts = await getAllPosts();
+  console.log(process.env.NODE_ENV);
+  if (process.env.NODE_ENV === "development") {
+    posts = sortPostsByLatestAndDraftFirst(posts);
+  } else {
+    posts = posts.filter((p) => !p.draft);
+  }
 
   const feed = await generateFeed(posts);
 
@@ -87,7 +93,7 @@ export const getStaticProps = async () => {
   fs.writeFileSync("public/feeds/feed.json", feed.json1());
   fs.writeFileSync("public/feeds/atom.xml", feed.atom1());
 
-  return { props: { posts: sortPostsByLatestAndDraftFirst(posts) } };
+  return { props: { posts } };
 };
 
 export default Home;
