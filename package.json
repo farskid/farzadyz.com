@@ -9,9 +9,9 @@
     "lint": "next lint",
     "format": "prettier --write src/*.{js,jsx,ts,tsx,md,css} styles/*.css pages/**/*.tsx lib/*.ts content/**/*.{ts,md,mdx}",
     "postinstall": "patch-package",
-    "test:meta": "yarn lt --port 3000",
+    "test:meta": "lt --port 3000",
     "export": "next build && next export",
-    "export:preview": "yarn http-server out",
+    "export:preview": "http-server out",
     "post:create": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node -T lib/create-new-post.ts",
     "post:edit": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node -T lib/edit-post.ts"
   },
@@ -68,6 +68,5 @@
     "ts-jest": "^27.0.5",
     "ts-node": "^10.4.0",
     "typescript": "4.4.3"
-  },
-  "packageManager": "yarn@1.22.1"
+  }
 }
