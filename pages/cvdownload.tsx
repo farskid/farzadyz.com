@@ -75,9 +75,9 @@ const DownloadPage: NextPage<{ md: string }> = ({ md }) => {
         const afterPrintHandler = () => {
           sendBack({ type: "print_done" });
         };
-        window.addEventListener("afterPrint", afterPrintHandler);
+        window.addEventListener("afterprint", afterPrintHandler);
         return () => {
-          window.removeEventListener("afterPrint", afterPrintHandler);
+          window.removeEventListener("afterprint", afterPrintHandler);
         };
       },
     },
@@ -109,6 +109,8 @@ const DownloadPage: NextPage<{ md: string }> = ({ md }) => {
       }),
     },
   });
+
+  console.log(state.value);
 
   return (
     <Box
