@@ -3,7 +3,12 @@ import { getAllPosts, POSTS_DIR } from "../src/posts";
 import { Post } from "../src/types";
 import fs from "fs";
 import path from "path";
-import { formatDate, makeFrontmatterFromPost, makeSetFromArray } from "./utils";
+import {
+  cleanFalsyFromArray,
+  formatDate,
+  makeFrontmatterFromPost,
+  makeSetFromArray,
+} from "./utils";
 import omit = require("lodash.omit");
 import { slugify } from "../src/utils";
 
@@ -27,9 +32,9 @@ const getAvailableTags = () =>
       return makeSetFromArray(tags.flat());
     });
 
-const createQuestions: (
-  tags: Post["tags"],
-) => prompts.PromptObject[] = (tags) => [
+const createQuestions: (tags: Post["tags"]) => prompts.PromptObject[] = (
+  tags
+) => [
   {
     type: "text",
     name: "title",
@@ -57,13 +62,21 @@ const createQuestions: (
     message: "Add new tags, comma separated",
     hint: "- Enter new tags separated by comma",
     separator: ",",
-    format: (value) => makeSetFromArray(value),
+    format: (value) => cleanFalsyFromArray(makeSetFromArray(value)), // No idea why it returns [''] by default
   },
   {
     type: "text",
     name: "originalURL",
     message: "Original URL",
     hint: "Original post URL if post has been copied from another platform",
+  },
+  {
+    type: "toggle",
+    name: "draft",
+    message: "Is this a draft post?",
+    initial: true,
+    active: "Yes",
+    inactive: "No",
   },
 ];
 

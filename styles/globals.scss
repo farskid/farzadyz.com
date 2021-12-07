@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "TTCommons";
+  src: url("/fonts/ttcommons.woff2") format("woff2");
+  font-weight: 450 600;
+}
+
+:root {
+  --site-colors-selection-bg: rgba(79, 8, 132, 0.16);
+  --site-colors-selection-color: var(--chakra-colors-gray-900);
+  --site-layout-max-width: 48rem;
+}
+
+::-moz-selection {
+  background: var(--site-colors-selection-bg);
+  color: var(--site-colors-selection-color);
+}
+::selection {
+  background: var(--site-colors-selection-bg);
+  color: var(--site-colors-selection-color);
+}
+
+html,
+body {
+  height: 100%;
+}
+#__next {
+  min-height: 100%;
+}
+
+main {
+  /* bump up font size in main area */
+  font-size: 1.2em;
+}
+
+h1 {
+  font-size: var(--chakra-fontSizes-4xl);
+}
+
+.print-only {
+  // display: none;
+
+  padding: 2rem;
+  line-height: 2;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.65rem;
+    margin-top: 1rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+    margin-top: 0.75rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 1rem;
+  }
+
+  a {
+    text-decoration: underline !important;
+    color: blue;
+  }
+
+  .job-experience {
+    border: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .job-list {
+    list-style: none;
+  }
+  .job-list li:first-child {
+    margin-top: 2rem;
+  }
+
+  img {
+    display: inline-flex;
+  }
+
+  hr {
+    margin: 2rem auto 2rem;
+    background: none;
+    border: none;
+    border-bottom: 1px dotted black;
+  }
+}
+@media print {
+  .print-only {
+    display: block;
+  }
+  #nprogress {
+    display: none;
+  }
+
+  @page {
+    size: auto;
+    margin: 0mm;
+  }
+}

@@ -1,47 +1,22 @@
 import { NextPage } from "next";
-import { Post } from "../src/types";
-import { Box, Heading, Link as ChakraLink } from "@chakra-ui/react";
-import { PageHeader } from "../src/PageHeader";
-import { PageFooter } from "../src/PageFooter";
+import { Box, Link as ChakraLink } from "@chakra-ui/react";
+import { Layout } from "../src/Layout";
+import { SadPanda } from "../src/Icons";
 
-const NotFound: NextPage<{ posts: Post[] }> = ({ posts }) => (
-  <Box
-    display="flex"
-    flexDirection="column"
-    height="100%"
-    maxWidth="1300"
-    marginLeft="auto"
-    marginRight="auto"
-  >
-    <PageHeader posts={posts} />
-    <Box
-      as="main"
-      display="flex"
-      flexDirection="column"
-      alignItems={{ base: "left", md: "center" }}
-      flex="1"
-    >
-      <Heading
-        as="h1"
-        padding="6"
-        marginTop={{ base: "0", md: "10" }}
-        marginBottom={{ base: "6", md: "12" }}
-        textAlign="left"
-        fontWeight="normal"
-        fontSize={{ base: "4xl", md: "5xl" }}
-      >
-        Page not found
-      </Heading>
-      <Box as="p" textAlign="left" padding="6">
+const NotFound: NextPage = () => (
+  <Layout>
+    <Box textAlign="center">
+      <Box display="flex" justifyContent="center">
+        <SadPanda />
+      </Box>
+      <Box as="p" padding="6">
         Sorry we can’t find that page.{" "}
-        <ChakraLink href="/" color="primary.300" textDecoration="underline">
+        <ChakraLink href="/" textDecoration="underline">
           Return to all blog posts
-        </ChakraLink>{" "}
-        or use the search box above.
+        </ChakraLink>
       </Box>
     </Box>
-    <PageFooter />
-  </Box>
+  </Layout>
 );
 
 export default NotFound;

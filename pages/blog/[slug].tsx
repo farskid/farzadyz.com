@@ -23,10 +23,9 @@ import { useMetadata } from "../../src/MetadataContext";
 import { TwitterIcon } from "../../src/Icons";
 
 const PostPage: React.FC<{
-  posts: Post[];
   post: Post;
   mdx: MDXRemoteSerializeResult;
-}> = ({ posts, post, mdx }) => {
+}> = ({ post, mdx }) => {
   const { makeMetadata } = useMetadata();
   const metadata = makeMetadata({
     title: post.title,
@@ -65,7 +64,7 @@ const PostPage: React.FC<{
           tags: post.tags,
         }}
       />
-      <Layout posts={posts}>
+      <Layout>
         <Box
           as="article"
           className="blog-post"
@@ -142,7 +141,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      posts,
       post,
       mdx: await serializePost(post),
     },

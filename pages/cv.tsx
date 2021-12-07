@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import { Layout } from "../src/Layout";
 import { getAllPosts } from "../src/posts";
 import { Seo } from "../src/Seo";
-import { Post } from "../src/types";
 import cvInfo from "../content/cv.json";
 import { Appearances } from "../src/Appearance";
 import {
@@ -18,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { useMemo } from "react";
 import { useMetadata } from "../src/MetadataContext";
+import NextLink from "next/link";
 
 function separateByAt(str: string) {
   return str.split("@");
@@ -45,7 +45,13 @@ const JobExperience: React.FC<{
   date: string;
   company: string;
 }> = ({ position, date, company, children }) => (
-  <Box as="section" display="flex" flexDirection="column" gridGap="3">
+  <Box
+    as="section"
+    display="flex"
+    flexDirection="column"
+    gridGap="3"
+    className="job-experience"
+  >
     <Heading as="h3" fontSize="l">
       <strong>
         {position} {company && `at ${company}`}
@@ -81,7 +87,7 @@ const CVSection: React.FC<{ title: string; textArray?: string[] }> = ({
   </Box>
 );
 
-const CV: NextPage<{ posts: Post[] }> = ({ posts }) => {
+const CV: NextPage = () => {
   const { skills, my_technologies, education } = cvInfo;
 
   const jobExperiences = useMemo(
@@ -94,24 +100,20 @@ const CV: NextPage<{ posts: Post[] }> = ({ posts }) => {
   return (
     <>
       <Seo title={(defaultTitle) => `CV | ${defaultTitle}`} />
-      <Layout posts={posts}>
+      <Layout>
         <Box display="flex" flexDirection="column" gridGap="5">
           <Box>
-            <Button
-              color="white"
-              bg="gray.900"
-              _hover={{ bg: "gray.700" }}
-              _focus={{ bg: "gray.700" }}
-              onClick={() => {
-                // TODO: use a MD to PDF service, have it as an API route and use it here
-                try {
-                  window.print();
-                } catch (err) {}
-                //   splitbee.track("download_cv");
-              }}
-            >
-              Download My Latest CV
-            </Button>
+            <NextLink passHref href="/cvdownload">
+              <Link
+                as={Button}
+                color="white"
+                bg="gray.900"
+                _hover={{ bg: "gray.700" }}
+                _focus={{ bg: "gray.700" }}
+              >
+                Download My Latest CV
+              </Link>
+            </NextLink>
           </Box>
 
           <Divider />
@@ -156,6 +158,7 @@ const CV: NextPage<{ posts: Post[] }> = ({ posts }) => {
               display="flex"
               flexDirection="column"
               gridGap="5"
+              className="job-list"
             >
               {jobExperiences.map((job, i) => (
                 <ListItem key={i}>

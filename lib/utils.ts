@@ -14,3 +14,5 @@ export const makeFrontmatterFromPost = (post: Post): string => {
 };
 
 export const makeSetFromArray = <T>(array: T[]) => Array.from(new Set(array));
+
+export const cleanFalsyFromArray = <T>(array: T[]) => array.filter(Boolean);

@@ -2,9 +2,8 @@ import React from "react";
 import { Box } from "@chakra-ui/react";
 import { PageHeader } from "./PageHeader";
 import { PageFooter } from "./PageFooter";
-import { Post } from "./types";
 
-export const Layout: React.FC<{ posts: Post[] }> = ({ posts, children }) => (
+export const Layout: React.FC = ({ children }) => (
   <Box
     display="flex"
     flexDirection="column"
@@ -16,11 +15,13 @@ export const Layout: React.FC<{ posts: Post[] }> = ({ posts, children }) => (
     paddingRight="1em"
     paddingLeft="1em"
     gridGap="3em"
+    minHeight="100vh"
+    justifyContent="space-between"
     // borderInline="1px solid"
     // borderTop="20px solid"
     // borderBottom="100px solid"
   >
-    <PageHeader posts={posts} />
+    <PageHeader />
     <Box as="main">{children}</Box>
     <PageFooter />
   </Box>
