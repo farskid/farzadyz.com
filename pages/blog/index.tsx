@@ -42,7 +42,7 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
   return (
     <>
       <Seo title={(defaultTitle) => `Blog | ${defaultTitle}`} />
-      <Layout posts={posts}>
+      <Layout>
         <Box
           padding={{ base: "3", md: "12" }}
           display="flex"
@@ -79,7 +79,7 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
 
 export const getStaticProps = async () => {
   let posts = await getAllPosts();
-  console.log(process.env.NODE_ENV);
+
   if (process.env.NODE_ENV === "development") {
     posts = sortPostsByLatestAndDraftFirst(posts);
   } else {

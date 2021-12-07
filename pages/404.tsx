@@ -1,11 +1,10 @@
 import { NextPage } from "next";
-import { Post } from "../src/types";
 import { Box, Link as ChakraLink } from "@chakra-ui/react";
 import { Layout } from "../src/Layout";
 import { SadPanda } from "../src/Icons";
 
-const NotFound: NextPage<{ posts: Post[] }> = ({ posts }) => (
-  <Layout posts={posts}>
+const NotFound: NextPage = () => (
+  <Layout>
     <Box textAlign="center">
       <Box display="flex" justifyContent="center">
         <SadPanda />
