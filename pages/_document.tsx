@@ -7,7 +7,7 @@ class MyDocument extends Document {
         <Head />
         <body>
           <Main />
-          {process.env.NODE_ENV !== "production" && <NextScript />}
+          <NextScript />
         </body>
       </Html>
     );
