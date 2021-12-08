@@ -2,17 +2,16 @@ import { NextPage } from "next";
 import { Layout } from "../src/Layout";
 import { getAllPosts } from "../src/posts";
 import { Seo } from "../src/Seo";
-import { Post } from "../src/types";
 import { Link, Box, Button, HStack, VStack } from "@chakra-ui/react";
 import { useMetadata } from "../src/MetadataContext";
 import NextLink from "next/link";
 
-const HomePage: NextPage<{ posts: Post[] }> = ({ posts }) => {
+const HomePage: NextPage = () => {
   const { default: metadata } = useMetadata();
   return (
     <>
       <Seo />
-      <Layout posts={posts}>
+      <Layout>
         <VStack gridGap="8">
           <HStack>
             <Button
