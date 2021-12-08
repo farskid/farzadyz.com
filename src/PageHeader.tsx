@@ -1,4 +1,5 @@
 import { Box, Link as ChakraLink, List, Text } from "@chakra-ui/react";
+import { useRouter } from "next/dist/client/router";
 import NextLink from "next/link";
 import { useMetadata } from "./MetadataContext";
 
@@ -16,8 +17,13 @@ const navLinks: Readonly<
   },
 ];
 
+export function isCurrentRoute(href: string, pathname: string): boolean {
+  return href === "/" ? href === pathname : pathname.includes(href);
+}
+
 export const PageHeader: React.FC = () => {
   const { default: metadata } = useMetadata();
+  const router = useRouter();
 
   return (
     <Box as="header" display="flex" flexDirection="column" alignItems="center">
@@ -58,7 +64,11 @@ export const PageHeader: React.FC = () => {
                   padding="2"
                   isExternal={link.isExternal}
                 >
-                  {link.title}
+                  {isCurrentRoute(link.href, router.pathname) ? (
+                    <strong>{link.title}</strong>
+                  ) : (
+                    link.title
+                  )}
                 </ChakraLink>
               </NextLink>
             )}
