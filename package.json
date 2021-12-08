@@ -7,7 +7,7 @@
     "build": "next build",
     "export": "next build && next export",
     "deploy": "netlify deploy",
-    "deploy:prod": "netlify deploy --prod",
+    "deploy:prod": "yarn export && netlify deploy --prod",
     "lint": "next lint",
     "format": "prettier --write src/*.{js,jsx,ts,tsx,md,css} styles/*.css pages/**/*.tsx lib/*.ts content/**/*.{ts,md,mdx}",
     "postinstall": "patch-package",
