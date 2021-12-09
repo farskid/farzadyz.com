@@ -6,6 +6,9 @@ import {
   Text,
   Link as ChakraLink,
   Badge,
+  Switch,
+  FormLabel,
+  FormControl,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import fs from "fs";
@@ -16,6 +19,7 @@ import Link from "next/link";
 import { Seo } from "../../src/Seo";
 import { formatDate } from "../../src/utils";
 import { generateFeed } from "../../src/feed";
+import { useMemo, useState } from "react";
 
 function sortPostsByLatestAndDraftFirst(posts: Post[]) {
   let draftPosts = [] as Post[],
@@ -39,6 +43,13 @@ function sortPostsByLatestAndDraftFirst(posts: Post[]) {
 }
 
 const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
+  const [draftsShown, setDraftsShown] = useState(true);
+  const postsList = useMemo(() => {
+    if (draftsShown) {
+      return posts;
+    }
+    return posts.filter((p) => !p.draft);
+  }, [posts, draftsShown]);
   return (
     <>
       <Seo title={(defaultTitle) => `Blog | ${defaultTitle}`} />
@@ -49,6 +60,22 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
           flexDirection="column"
           align="center"
         >
+          {process.env.NODE_ENV === "development" && (
+            <Box>
+              <FormControl display="flex" alignItems="center">
+                <FormLabel htmlFor="toggle-draft-posts" mb="0">
+                  Draft posts
+                </FormLabel>
+                <Switch
+                  defaultChecked={draftsShown}
+                  onChange={(e) => {
+                    setDraftsShown(e.target.checked);
+                  }}
+                  id="toggle-draft-posts"
+                />
+              </FormControl>
+            </Box>
+          )}
           <List
             spacing="4"
             maxW="3xl"
@@ -56,11 +83,11 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
             textAlign="left"
             listStyleType="none"
           >
-            {posts.map((post) => (
+            {postsList.map((post) => (
               <ListItem key={post.slug} marginTop="0">
                 {/* Formatting href makes server and client rendered hrefs consistent */}
                 <Link href={`/blog/${post.slug}`} passHref>
-                  <ChakraLink padding="4" display="block">
+                  <ChakraLink paddingBlock="4" display="block">
                     <Heading fontSize="l">
                       {post.draft && <Badge colorScheme="yellow">Draft</Badge>}{" "}
                       <strong>{post.title}</strong>
