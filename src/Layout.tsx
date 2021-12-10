@@ -1,13 +1,22 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, BoxProps } from "@chakra-ui/react";
 import { PageHeader } from "./PageHeader";
 import { PageFooter } from "./PageFooter";
 
-export const Layout: React.FC = ({ children }) => (
+interface LayoutProps extends BoxProps {
+  isExtended?: boolean;
+}
+
+export const Layout: React.FC<LayoutProps> = ({
+  children,
+  isExtended,
+  ...props
+}) => (
   <Box
+    {...props}
     display="flex"
     flexDirection="column"
-    maxWidth="var(--site-layout-max-width)"
+    maxWidth={isExtended ? "100%" : "var(--site-layout-max-width)"}
     marginLeft="auto"
     marginRight="auto"
     paddingTop="2.25em"

@@ -4,7 +4,12 @@ import NextLink from "next/link";
 import { useMetadata } from "./MetadataContext";
 
 const navLinks: Readonly<
-  Array<{ title: string; href: string; isExternal?: boolean }>
+  Array<{
+    title: string;
+    href: string;
+    isExternal?: boolean;
+    isDevOnly?: boolean;
+  }>
 > = [
   { title: "About", href: "/" },
   { title: "CV", href: "/cv" },
@@ -15,6 +20,11 @@ const navLinks: Readonly<
     href: "https://mentorcruise.com/mentor/FarzadYousefZadeh/",
     isExternal: true,
   },
+  {
+    title: "Dashboard",
+    href: "/dashboard",
+    isDevOnly: true,
+  },
 ];
 
 export function isCurrentRoute(href: string, pathname: string): boolean {
@@ -24,6 +34,10 @@ export function isCurrentRoute(href: string, pathname: string): boolean {
 export const PageHeader: React.FC = () => {
   const { default: metadata } = useMetadata();
   const router = useRouter();
+  const finalNavLinks =
+    process.env.NODE_ENV !== "development"
+      ? navLinks.filter((link) => !link.isDevOnly)
+      : navLinks;
 
   return (
     <Box as="header" display="flex" flexDirection="column" alignItems="center">
@@ -45,8 +59,9 @@ export const PageHeader: React.FC = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
+        flexWrap="wrap"
       >
-        {navLinks.map((link) => (
+        {finalNavLinks.map((link) => (
           <Box as="li" key={link.title}>
             {link.isExternal ? (
               <ChakraLink
