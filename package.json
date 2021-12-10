@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "clean_next": "rm -rf .next",
+    "dev": "yarn clean_next && next dev",
+    "build": "yarn clean_next && next build",
     "export": "next build && next export",
     "deploy": "netlify deploy",
     "deploy:prod": "yarn export && netlify deploy --prod",
