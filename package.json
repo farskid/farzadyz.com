@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "clean_next": "rm -rf .next",
-    "dev": "yarn clean_next && next dev",
+    "dev": "yarn clean_next && next-remote-watch content",
     "build": "yarn clean_next && next build",
     "export": "next build && next export",
     "deploy": "netlify deploy",
@@ -66,6 +66,7 @@
     "import-jsx": "^4.0.0",
     "localtunnel": "^2.0.2",
     "netlify-cli": "^8.0.16",
+    "next-remote-watch": "^1.0.0",
     "patch-package": "^6.4.7",
     "prettier": "^2.5.0",
     "prompts": "^2.4.2",
