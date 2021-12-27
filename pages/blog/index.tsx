@@ -33,13 +33,11 @@ function sortPostsByLatestAndDraftFirst(posts: Post[]) {
     }
   });
 
-  return draftPosts.concat(
-    publishedPosts.slice().sort((a, b) => {
-      const aDate = new Date((a as Post).publishedAt).getTime();
-      const bDate = new Date((b as Post).publishedAt).getTime();
-      return bDate - aDate;
-    })
-  );
+  return draftPosts.concat(publishedPosts).sort((a, b) => {
+    const aDate = new Date((a as Post).publishedAt).getTime();
+    const bDate = new Date((b as Post).publishedAt).getTime();
+    return bDate - aDate;
+  });
 }
 
 const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
@@ -50,6 +48,7 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
     }
     return posts.filter((p) => !p.draft);
   }, [posts, draftsShown]);
+  console.log(posts);
   return (
     <>
       <Seo title={(defaultTitle) => `Blog | ${defaultTitle}`} />
