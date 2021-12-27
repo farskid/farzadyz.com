@@ -1,0 +1,85 @@
+---
+title: A simpler approach to registering and clearing DOM event handlers
+description: >-
+  DOM event handlers work with a strange interface if you ask me. The fact that you need to
+  keep the reference to the event handler to be able to clear it is not practical especially if you're
+  trying to handle more than a single event handler.
+tags:
+  - DOM
+  - event handlers
+  - subscriptions
+  - javascript
+  - cancelation
+originalURL: ""
+draft: false
+author: Farzad Yousefzadeh
+excerpt: ""
+publishedAt: "2021-12-27"
+---
+
+DOM event handlers work with a strange interface if you ask me. The fact that you need to
+keep the reference to the event handler to be able to clear it is not practical, especially if you're
+trying to handle more than a single event handler. Imagine building a command palette or keyboard shortcuts into your application and having to
+keep a reference to a ton of handler variables. This is a recipe for uncontrolled growth. Sure, you can keep a key-value
+pair of events to their respective handlers, but that feels like reinventing browser internals.
+
+When you get to clearing event handlers, it gets event better! You'll have to pass the same exact arguments, only this time to `removeEventListener` to clean the handler. Take a look at this example:
+
+```js
+const clickHandler = () => {
+  console.log("clicked");
+};
+element.addEventListener("click", clickHandler);
+// You MUST pass the same reference to the handler because the event registry saves them by reference
+// If you lose the reference or pass the handler function directly to `addEventListener`, there would be no way to clear it
+element.removeEventListener("click", clickHandler);
+```
+
+It could be a tedious process to have to keep a reference to a handler function just to be able to clear it later on in the code, especially considering that subscriptions are usually a part of a bigger code. It's a path towards declaring too many variables or spamming a larger object.
+
+## But how can we make this simpler?
+
+A common pattern to make subscription clearance simpler is to return a function that, once called, clears the subscription automatically. This is a well known pattern used by many libraries. You've already seen this in React's `useEffect` where `useEffect` expects you to return a function for clearing subscriptions inside the effect. Or how [XState expects you to return a clearance function from invocations](https://xstate.js.org/docs/guides/communication.html#invoking-callbacks).
+
+To make clearing easier, we can write a tiny handy function that follows the same pattern.
+
+Let's start with DOM event listeners.
+
+```js
+// ...args: [event, handler, capture]
+function onEvent(element, ...args) {
+  element.addEventListener(...args);
+  return () => {
+    element.removeEventListener(...args);
+  };
+}
+```
+
+Here is how you can use the code above:
+
+```html
+<form>
+  <div>
+    <label for="name">Name</label>
+    <input id="name" name="name" />
+  </div>
+  <button>Submit</button>
+</form>
+
+<script>
+  const $form = document.querySelector("form");
+  const onSubmit = (e) => {
+    // post to server
+  };
+  const clearSubmit = onEvent($form, "submit", submitForm);
+
+  // When needed to clear it
+  clearSubmit();
+  // as apposed to $form.removeEventListener('form', submitForm)
+</script>
+```
+
+## How is this useful?
+
+First, it spares you a few lines of code for having to keep a reference to handlers.
+Secondly, you no longer need to know what event it was, what element it's attached to or how the event was registered (other arguments). _All you care about is calling a function that clears it_.
