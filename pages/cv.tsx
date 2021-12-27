@@ -205,7 +205,7 @@ const CV: NextPage = () => {
                   href={metadata.social.github.link}
                   whiteSpace="nowrap"
                 >
-                  Github Profile
+                  GitHub Profile
                 </Link>
               </Box>
             </VStack>

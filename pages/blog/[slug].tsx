@@ -71,6 +71,7 @@ const PostPage: React.FC<{
           textAlign="left"
           padding={{ base: "0", md: "4" }}
           maxW="3xl"
+          contentEditable={post.draft}
         >
           <Heading size="xl" as="h1" fontWeight="medium">
             {post.draft && <Badge colorScheme="yellow">Draft</Badge>}{" "}
@@ -97,7 +98,7 @@ const PostPage: React.FC<{
                 fontSize="md"
                 textDecoration="underline"
               >
-                Edit on Github
+                Edit on GitHub
               </ChakraLink>
               <ChakraLink
                 isExternal

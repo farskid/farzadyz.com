@@ -9,7 +9,7 @@ Fascinated by DX Tooling and Automation.
 
 [Public technical speaker](https://farzadyz.com/appearances#talks). Passionate about UI Engineering, Software modeling and Architecture.
 
-Find me on [Farzadyz.com](https:farzadyz.com) / [Twitter](https://twitter.com/farzad_yz) / [Github](https://github.com/farskid) / [Stackoverflow](https://stackoverflow.com/users/2784512/farzad-yz) / [Linkedin](https://www.linkedin.com/in/farzadyz) / [Medium](https://medium.com/@Farzad_YZ)
+Find me on [Farzadyz.com](https:farzadyz.com) / [Twitter](https://twitter.com/farzad_yz) / [GitHub](https://github.com/farskid) / [Stackoverflow](https://stackoverflow.com/users/2784512/farzad-yz) / [Linkedin](https://www.linkedin.com/in/farzadyz) / [Medium](https://medium.com/@Farzad_YZ)
 
 ## Main Tech
 
