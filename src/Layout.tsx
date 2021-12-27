@@ -22,7 +22,9 @@ export const Layout: React.FC = ({ children }) => (
     // borderBottom="100px solid"
   >
     <PageHeader />
-    <Box as="main">{children}</Box>
+    <Box as="main" flex="1">
+      {children}
+    </Box>
     <PageFooter />
   </Box>
 );
