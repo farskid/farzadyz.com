@@ -1,6 +1,6 @@
 [
   {
-    "title": "Podcast Guest @ My JavaScript Story podcast",
+    "title": "Guest @ My JavaScript Story podcast",
     "description": "A podcast episode about my journey as a web developer and how I got into Javascript",
     "url": "https://devchat.tv/my-javascript-story/mjs-148-farzad-yousefzadehr/",
     "preview": "https://devchat.tv/wp-content/uploads/2020/07/my-js-story-banner.png",
@@ -161,7 +161,7 @@
     "year": 2019
   },
   {
-    "title": "Podcast Guest @ Devchat (React Roundup) Podcast",
+    "title": "Guest @ Devchat (React Roundup) Podcast",
     "description": "A podcast episode and a friendly chat around my talk at React finland 2019 on using state machines to model UI behavior abstractly",
     "url": "https://devchat.tv/react-round-up/rru-079-state-machines-and-state-charts-with-farzad-yousef-zadeh/",
     "preview": "/podcast1.png",
@@ -170,7 +170,7 @@
     "year": 2019
   },
   {
-    "title": "Podcast Guest @ Webbidevaus Podcast",
+    "title": "Guest @ Webbidevaus Podcast",
     "description": "A podcast episode about React finland 2019 state management talk sections",
     "url": "https://webbidevaus.fi/43",
     "preview": "/podcast2.png",

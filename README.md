@@ -1,6 +1,6 @@
-# Official Stately.ai engineering blog
+# Farzadyz.com
 
-A [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[Monitor Analytics](https://app.splitbee.io/projects/farzadyz.com)
 
 - [Install](#install)
 - [Run locally](#run-locally)
@@ -10,7 +10,7 @@ A [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](h
 ## Install
 
 1. Clone the engineering blog repository to your machine:<br/>
-   `$ git clone git@github.com:statelyai/eng-blog.git`
+   `$ git clone git@github.com:farskid/farzadyz.com.git`
 2. Navigate into the engineering blog folder:<br/>
    `$ cd eng-blog`
 3. Install [yarn package manager](https://yarnpkg.com) globally if you don’t already have yarn installed on your machine:<br/>
@@ -64,6 +64,7 @@ Use `yarn post:edit` to update an existing blog post’s updatedAt frontmatter f
 | publishedAt | date the post was first published                               |
 | updatedAt   | date the post was last updated                                  |
 | originalURL | original post URL if post has been copied from another platform |
+| draft       | whether the post is published or draft                          |
 
 ### Test meta tags and Open Graph locally
 
@@ -85,7 +86,7 @@ There are a few shortcodes you can use to embed content in markdown.
 
 ### Tweets
 
-Use the tweet id for the `id` attribute. For example, in `https://twitter.com/statelyai/status/1461727317429043201`, `1461727317429043201` is the ID.
+Use the tweet id for the `id` attribute. For example, in `https://twitter.com/farskid/status/1461727317429043201`, `1461727317429043201` is the ID.
 
 ```
 <Tweet id="1461727317429043201" />
