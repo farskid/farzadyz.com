@@ -21,6 +21,14 @@ import { formatDate } from "../../src/utils";
 import { generateFeed } from "../../src/feed";
 import { useMemo, useState } from "react";
 
+function sortByPublishedDateDesc(posts: Post[]) {
+  return posts.sort((a, b) => {
+    const aDate = new Date((a as Post).publishedAt).getTime();
+    const bDate = new Date((b as Post).publishedAt).getTime();
+    return bDate - aDate;
+  });
+}
+
 function sortPostsByLatestAndDraftFirst(posts: Post[]) {
   let draftPosts = [] as Post[],
     publishedPosts = [] as Post[];
@@ -33,11 +41,9 @@ function sortPostsByLatestAndDraftFirst(posts: Post[]) {
     }
   });
 
-  return draftPosts.concat(publishedPosts).sort((a, b) => {
-    const aDate = new Date((a as Post).publishedAt).getTime();
-    const bDate = new Date((b as Post).publishedAt).getTime();
-    return bDate - aDate;
-  });
+  return sortByPublishedDateDesc(draftPosts).concat(
+    sortByPublishedDateDesc(publishedPosts)
+  );
 }
 
 const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
@@ -48,7 +54,6 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
     }
     return posts.filter((p) => !p.draft);
   }, [posts, draftsShown]);
-  console.log(posts);
   return (
     <>
       <Seo title={(defaultTitle) => `Blog | ${defaultTitle}`} />
