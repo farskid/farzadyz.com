@@ -18,6 +18,7 @@ import {
 import { useMemo } from "react";
 import { useMetadata } from "../src/MetadataContext";
 import NextLink from "next/link";
+import { trackCVDownload } from "../src/analytics";
 
 function separateByAt(str: string) {
   return str.split("@");
@@ -110,6 +111,9 @@ const CV: NextPage = () => {
                 bg="gray.900"
                 _hover={{ bg: "gray.700" }}
                 _focus={{ bg: "gray.700" }}
+                onClick={() => {
+                  trackCVDownload();
+                }}
               >
                 Download My Latest CV
               </Link>

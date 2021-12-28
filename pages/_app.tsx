@@ -10,6 +10,8 @@ import Router from "next/router";
 import NextHead from "next/head";
 import { MetadataProvider } from "../src/MetadataContext";
 import { makeMetadata } from "../content/metadata";
+import splitbee from "@splitbee/web";
+import { useEffect } from "react";
 
 /* NProgress */
 NProgress.configure({ showSpinner: false });
@@ -26,6 +28,19 @@ Router.events.on("routeChangeError", () => {
 /* /NProgress */
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    if (process.env.NODE_ENV === "production") {
+      console.log("Analytics initialized");
+      splitbee.init({
+        disableCookie: true,
+        scriptUrl: "https://cdn.splitbee.io/sb.js",
+        apiUrl: "https://hive.splitbee.io",
+        token: process.env.NEXT_PUBLIC_ANALYTICS_TOKEN,
+      });
+    } else {
+      console.log("Non-prod mode, skipping analytics");
+    }
+  }, []);
   return (
     <MetadataProvider
       value={{

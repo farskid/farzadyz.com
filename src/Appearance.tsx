@@ -16,6 +16,14 @@ import {
 import { useMetadata } from "./MetadataContext";
 import React, { useMemo } from "react";
 import { PodcastIcon, TalkIcon } from "../src/Icons";
+import {
+  track,
+  trackPodcastLink,
+  trackPodcastPlay,
+  trackTalkLink,
+  trackTalkSlides,
+  trackTalkVideo,
+} from "./analytics";
 
 function sortTalksByLatest<T extends { year: number }>(talks: T[]): T[] {
   const groupedByYear = talks.reduce((group, talk) => {
@@ -116,7 +124,13 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
                   <TalkIcon />
                   <VStack alignItems="stretch">
                     <Heading as="h4" fontSize="md">
-                      <Link isExternal href={talk.videoUrl || talk.slidesUrl}>
+                      <Link
+                        isExternal
+                        href={talk.videoUrl || talk.slidesUrl}
+                        onClick={() => {
+                          trackTalkLink(talk.title);
+                        }}
+                      >
                         <Text>
                           <strong>{talk.title}</strong>
                         </Text>
@@ -131,6 +145,9 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
                           isExternal
                           href={talk.slidesUrl}
                           textDecoration="underline"
+                          onClick={() => {
+                            trackTalkSlides(talk.title);
+                          }}
                         >
                           Slides
                         </Link>
@@ -140,6 +157,9 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
                           isExternal
                           href={talk.videoUrl}
                           textDecoration="underline"
+                          onClick={() => {
+                            trackTalkVideo(talk.title);
+                          }}
                         >
                           Video
                         </Link>
@@ -169,24 +189,27 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
                   <PodcastIcon />
                   <VStack alignItems="stretch" flex="1">
                     <Heading as="h4" fontSize="md">
-                      <Link isExternal href={podcast.audioUrl}>
+                      <Link
+                        isExternal
+                        href={podcast.audioUrl}
+                        onClick={() => {
+                          trackPodcastLink(podcast.event);
+                        }}
+                      >
                         <Text>
-                          <strong>{podcast.title}</strong>
+                          <strong>{podcast.title.concat(podcast.event)}</strong>
                         </Text>
                       </Link>
                     </Heading>
 
-                    <Text as="small">{podcast.event}</Text>
                     <Text>
                       {podcast.audioUrl && (
                         <Box
                           as="audio"
                           display="block"
                           width="100%"
-                          onClick={() => {
-                            // splitbee.track("play_podcast", {
-                            //   podcast: podcast.originalTitle,
-                            // });
+                          onPlay={() => {
+                            trackPodcastPlay(podcast.event);
                           }}
                           preload="none"
                           src={podcast.audioUrl}
@@ -232,6 +255,11 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
                     isExternal
                     textDecoration="underline"
                     href="https://www.goodreads.com/book/show/48611191-learn-react-hooks#other_reviews"
+                    onClick={() => {
+                      track(
+                        "https://www.goodreads.com/book/show/48611191-learn-react-hooks#other_reviews"
+                      );
+                    }}
                   >
                     <Text as="small">Goodreads</Text>
                   </Link>
@@ -239,6 +267,11 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
                     isExternal
                     textDecoration="underline"
                     href="https://www.packtpub.com/product/learn-react-hooks/9781838641443"
+                    onClick={() => {
+                      track(
+                        "https://www.packtpub.com/product/learn-react-hooks/9781838641443"
+                      );
+                    }}
                   >
                     <Text as="small">Packt</Text>
                   </Link>

@@ -5,6 +5,7 @@ import { Seo } from "../src/Seo";
 import { Link, Box, Button, HStack, VStack } from "@chakra-ui/react";
 import { useMetadata } from "../src/MetadataContext";
 import NextLink from "next/link";
+import { trackTwitterFollow } from "../src/analytics";
 
 const HomePage: NextPage = () => {
   const { default: metadata } = useMetadata();
@@ -26,6 +27,9 @@ const HomePage: NextPage = () => {
                 color: "white",
               }}
               _focus={{ bg: "gray.700" }}
+              onClick={() => {
+                trackTwitterFollow();
+              }}
             >
               Follow me on Twitter
             </Button>

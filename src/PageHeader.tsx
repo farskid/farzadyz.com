@@ -2,9 +2,15 @@ import { Box, Link as ChakraLink, List, Text } from "@chakra-ui/react";
 import { useRouter } from "next/dist/client/router";
 import NextLink from "next/link";
 import { useMetadata } from "./MetadataContext";
+import { track } from "../src/analytics";
 
 const navLinks: Readonly<
-  Array<{ title: string; href: string; isExternal?: boolean }>
+  Array<{
+    title: string;
+    href: string;
+    isExternal?: boolean;
+    trackable?: boolean;
+  }>
 > = [
   { title: "About", href: "/" },
   { title: "CV", href: "/cv" },
@@ -14,6 +20,7 @@ const navLinks: Readonly<
     title: "Mentorship",
     href: "https://mentorcruise.com/mentor/FarzadYousefZadeh/",
     isExternal: true,
+    trackable: true,
   },
 ];
 
@@ -54,6 +61,9 @@ export const PageHeader: React.FC = () => {
                 display="block"
                 padding="2"
                 isExternal={link.isExternal}
+                onClick={() => {
+                  track(link.href);
+                }}
               >
                 {link.title}
               </ChakraLink>
