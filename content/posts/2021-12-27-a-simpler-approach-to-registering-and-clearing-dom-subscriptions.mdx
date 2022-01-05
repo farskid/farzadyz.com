@@ -79,6 +79,26 @@ Here is how you can use the code above:
 </script>
 ```
 
+## Make it type-safe
+
+To use a type-safe version of our utility from above, we can borrow most of the typing from Typescript's DOM types.
+
+```ts
+function onEvent<E extends HTMLElement>(
+  element: E,
+  ...args: Parameters<HTMLElement["addEventListener"]>
+) {
+  element.addEventListener(...args);
+  return () => {
+    element.removeEventListener(...args);
+  };
+}
+```
+
+We use a generic type to keep our element type flexible as we don't know for sure what element it's going to be, but we limit to an element that extends `HTMLELement`.
+
+To make the rest of arguments type-safe, we can basically get the definition from `element.addEventListener` already, since we're just passing the arguments through.
+
 ## How is this useful?
 
 First, it spares you a few lines of code for having to keep a reference to handlers.
