@@ -1,4 +1,3 @@
-import talks from "../content/talks.json";
 import {
   Link,
   Text,
@@ -24,6 +23,7 @@ import {
   trackTalkSlides,
   trackTalkVideo,
 } from "./analytics";
+import { Podcast, Talk } from "./types";
 
 function sortTalksByLatest<T extends { year: number }>(talks: T[]): T[] {
   const groupedByYear = talks.reduce((group, talk) => {
@@ -36,7 +36,9 @@ function sortTalksByLatest<T extends { year: number }>(talks: T[]): T[] {
   return backToArray.sort((a, b) => (a.year > b.year ? -1 : 0));
 }
 
-const talksToAppearances = (talks: Array<{ title: string; type: string }>) =>
+const separateTalksAndPodcasts = (
+  talks: Array<{ title: string; type: string }>
+) =>
   Object.values(talks)
     .map((t) => {
       return {
@@ -75,11 +77,14 @@ const HeadingComponent: React.FC<{ level?: number } & HeadingProps> = ({
     </Heading>
   );
 
-export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
+export const Appearances: React.FC<{
+  level?: number;
+  appearances: Array<Talk | Podcast>;
+}> = ({ level = 2, appearances }) => {
   const { default: metadata } = useMetadata();
-  const appearances = useMemo(
-    () => talksToAppearances(sortTalksByLatest(talks)),
-    []
+  const preparedAppearances = useMemo(
+    () => separateTalksAndPodcasts(sortTalksByLatest(appearances)),
+    [appearances]
   );
   return (
     <VStack
@@ -117,7 +122,7 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
 
         <List listStyleType="none">
           {/* @ts-ignore */}
-          {appearances.talks.map((talk, i) => {
+          {preparedAppearances.talks.map((talk, i) => {
             return (
               <ListItem key={i} marginBottom="6">
                 <HStack alignItems="flex-start">
@@ -182,7 +187,7 @@ export const Appearances: React.FC<{ level?: number }> = ({ level = 2 }) => {
 
         <List listStyleType="none">
           {/* @ts-ignore */}
-          {appearances.podcasts.map((podcast, i) => {
+          {preparedAppearances.podcasts.map((podcast, i) => {
             return (
               <ListItem key={i} marginBottom="6">
                 <HStack alignItems="flex-start">

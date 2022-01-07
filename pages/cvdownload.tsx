@@ -6,6 +6,7 @@ import fs from "fs/promises";
 import { useRouter } from "next/router";
 import { createMachine, assign } from "xstate";
 import { useMachine } from "@xstate/react";
+import { createMarkdownParser } from "../src/utils";
 
 const autoCVMachine = createMachine({
   id: "autoCV",
@@ -95,13 +96,7 @@ const DownloadPage: NextPage<{ md: string }> = ({ md }) => {
         router.push("/cv");
       },
       renderMdToHTMLAndSave: assign(() => {
-        const parser = new Remarkable("full", {
-          html: true,
-          breaks: true,
-          linkfy: true,
-          linkTarget: "_blank",
-          typographer: true,
-        });
+        const parser = createMarkdownParser();
         const html = parser.render(md, {});
         return {
           html,

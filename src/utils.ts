@@ -1,6 +1,7 @@
 import React from "react";
 import dayjs from "dayjs";
 import { EmbedProps, Post } from "./types";
+import { Remarkable } from "remarkable";
 
 export function createRequiredContext<T>(displayName: string) {
   const context = React.createContext<T | null>(null);
@@ -74,4 +75,14 @@ export const makeEmbedUrl = (id: string, embedProps: EmbedProps): string => {
 
 export const formatDate = (dateString: string): string => {
   return dayjs(dateString).format("MMMM D, YYYY");
+};
+
+export const createMarkdownParser: () => Remarkable = () => {
+  return new Remarkable("full", {
+    html: true,
+    breaks: true,
+    linkify: true,
+    linkTarget: "_blank",
+    typographer: true,
+  });
 };

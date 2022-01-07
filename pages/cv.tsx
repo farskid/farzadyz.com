@@ -1,8 +1,6 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { Layout } from "../src/Layout";
-import { getAllPosts } from "../src/posts";
 import { Seo } from "../src/Seo";
-import cvInfo from "../content/cv.json";
 import { Appearances } from "../src/Appearance";
 import {
   Box,
@@ -15,10 +13,12 @@ import {
   Link,
   VStack,
 } from "@chakra-ui/react";
-import { useMemo } from "react";
 import { useMetadata } from "../src/MetadataContext";
 import NextLink from "next/link";
 import { trackCVDownload } from "../src/analytics";
+import { createMarkdownParser } from "../src/utils";
+import fs from "fs/promises";
+import { Podcast, Talk } from "../src/types";
 
 function separateByAt(str: string) {
   return str.split("@");
@@ -32,7 +32,7 @@ function prepareJobExperiences<T extends { title: string }>(
   experiences: T[]
 ): Array<T & { position: string; company: string }> {
   return experiences.map((job) => {
-    const [position, company] = separateByAt(job.title);
+    const [position, company = null] = separateByAt(job.title);
     return {
       position,
       company,
@@ -88,14 +88,11 @@ const CVSection: React.FC<{ title: string; textArray?: string[] }> = ({
   </Box>
 );
 
-const CV: NextPage = () => {
-  const { skills, my_technologies, education } = cvInfo;
-
-  const jobExperiences = useMemo(
-    () => prepareJobExperiences(cvInfo.jobExperiences),
-    []
-  );
-
+const CV: NextPage<{ cvInfo: any; appearances: Array<Talk | Podcast> }> = ({
+  cvInfo,
+  appearances,
+}) => {
+  const { my_technologies, skills, education, jobExperiences } = cvInfo;
   const { default: metadata } = useMetadata();
 
   return (
@@ -135,9 +132,14 @@ const CV: NextPage = () => {
                   <Heading as="h3" textTransform="capitalize" fontSize="l">
                     <strong>{keyToTitle(skill)}</strong>
                   </Heading>
-                  <Text style={{ marginTop: 0 }}>
-                    {skills[skill].join(" , ")}
-                  </Text>
+                  <section style={{ marginTop: 0 }}>
+                    {skills[skill].map((item, i) => (
+                      <Text
+                        key={i}
+                        dangerouslySetInnerHTML={{ __html: item }}
+                      />
+                    ))}
+                  </section>
                 </Box>
               ))}
             </Box>
@@ -179,7 +181,7 @@ const CV: NextPage = () => {
           </CVSection>
 
           <CVSection title="appearances">
-            <Appearances level={3} />
+            <Appearances appearances={appearances} level={3} />
           </CVSection>
           <Divider />
 
@@ -220,10 +222,34 @@ const CV: NextPage = () => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps: GetStaticProps = async () => {
+  const mdParser = createMarkdownParser();
+  const cvInfo = JSON.parse((await fs.readFile("content/cv.json")).toString());
+  const appearances = JSON.parse(
+    (await fs.readFile("content/appearances.json")).toString()
+  );
+
+  const skills = Object.entries(cvInfo.skills).reduce((skills, entry) => {
+    return {
+      ...skills,
+      [entry[0]]: entry[1].map((item) => mdParser.renderInline(item)),
+    };
+  }, {});
+
+  const jobExperiences = prepareJobExperiences(
+    (() => {
+      return cvInfo["Professional Experiences"];
+    })()
+  );
+
   return {
     props: {
-      posts: await getAllPosts(),
+      cvInfo: {
+        ...cvInfo,
+        skills,
+        jobExperiences,
+      },
+      appearances,
     },
   };
 };

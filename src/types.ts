@@ -90,3 +90,21 @@ export type GetNonNullableDeep<T, Path> = Path extends []
   : Path extends [infer Head, ...infer Tail]
   ? GetNonNullableDeep<NonNullable<Prop<T, Head>>, Tail>
   : never;
+
+export interface BaseAppearance {
+  title: string;
+  description: string;
+  url: string;
+  preview: string;
+  type: "podcast" | "talk";
+  year: number;
+}
+
+export interface Talk extends BaseAppearance {
+  videoUrl: string;
+  slidesUrl: string;
+}
+
+export interface Podcast extends BaseAppearance {
+  audioUrl: string;
+}
