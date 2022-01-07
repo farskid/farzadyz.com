@@ -18,7 +18,7 @@ import NextLink from "next/link";
 import { trackCVDownload } from "../src/analytics";
 import { createMarkdownParser } from "../src/utils";
 import fs from "fs/promises";
-import { Podcast, Talk } from "../src/types";
+import { CVInfo, Podcast, Talk } from "../src/types";
 
 function separateByAt(str: string) {
   return str.split("@");
@@ -88,7 +88,7 @@ const CVSection: React.FC<{ title: string; textArray?: string[] }> = ({
   </Box>
 );
 
-const CV: NextPage<{ cvInfo: any; appearances: Array<Talk | Podcast> }> = ({
+const CV: NextPage<{ cvInfo: CVInfo; appearances: Array<Talk | Podcast> }> = ({
   cvInfo,
   appearances,
 }) => {
@@ -222,9 +222,11 @@ const CV: NextPage<{ cvInfo: any; appearances: Array<Talk | Podcast> }> = ({
   );
 };
 
-export const getServerSideProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const mdParser = createMarkdownParser();
-  const cvInfo = JSON.parse((await fs.readFile("content/cv.json")).toString());
+  const cvInfo: CVInfo = JSON.parse(
+    (await fs.readFile("content/cv.json")).toString()
+  );
   const appearances = JSON.parse(
     (await fs.readFile("content/appearances.json")).toString()
   );

@@ -108,3 +108,29 @@ export interface Talk extends BaseAppearance {
 export interface Podcast extends BaseAppearance {
   audioUrl: string;
 }
+
+export interface CVInfo {
+  my_technologies: string[];
+  skills: {
+    languages: string[];
+    mobile_development: string[];
+    desktop: string[];
+    databases: string[];
+    others: string[];
+  };
+  education: string[];
+  "Professional Experiences": {
+    title: string;
+    type: "contract" | "full time";
+    description: string[];
+    date: string;
+  }[];
+  jobExperiences: {
+    title: string;
+    type: "contract" | "full time";
+    description: string[];
+    date: string;
+    position: string;
+    company: string;
+  }[];
+}

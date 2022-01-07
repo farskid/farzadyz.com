@@ -57,7 +57,6 @@ const DownloadPage: NextPage<{ md: string }> = ({ md }) => {
         const onSingleLoaded = () => {
           loadCount++;
           if (loadCount === imgCount) {
-            console.log("load done");
             sendBack({ type: "load_finished" });
           }
         };
@@ -104,8 +103,6 @@ const DownloadPage: NextPage<{ md: string }> = ({ md }) => {
       }),
     },
   });
-
-  console.log(state.value);
 
   return (
     <Box
