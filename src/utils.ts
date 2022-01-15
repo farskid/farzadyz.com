@@ -2,6 +2,7 @@ import React from "react";
 import dayjs from "dayjs";
 import { EmbedProps, Post } from "./types";
 import { Remarkable } from "remarkable";
+import { sortBy } from "lodash";
 
 export function createRequiredContext<T>(displayName: string) {
   const context = React.createContext<T | null>(null);
@@ -86,3 +87,32 @@ export const createMarkdownParser: () => Remarkable = () => {
     typographer: true,
   });
 };
+
+export function sortByPublishedDateDesc(posts: Post[]) {
+  return posts.sort((a, b) => {
+    const aDate = new Date((a as Post).publishedAt).getTime();
+    const bDate = new Date((b as Post).publishedAt).getTime();
+    return bDate - aDate;
+  });
+}
+
+export function sortPostsByLatest(posts: Post[], drafsFirst: boolean) {
+  let draftPosts = [] as Post[],
+    publishedPosts = [] as Post[];
+
+  posts.forEach((post) => {
+    if (post.draft) {
+      draftPosts.push(post);
+    } else {
+      publishedPosts.push(post);
+    }
+  });
+
+  const allPosts = drafsFirst
+    ? sortByPublishedDateDesc(draftPosts).concat(
+        sortByPublishedDateDesc(publishedPosts)
+      )
+    : sortByPublishedDateDesc(publishedPosts).concat(sortBy(draftPosts));
+
+  return allPosts;
+}

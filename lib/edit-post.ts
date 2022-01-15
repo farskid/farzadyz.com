@@ -6,6 +6,7 @@ import path from "path";
 import { formatDate, makeFrontmatterFromPost } from "./utils";
 import pick = require("lodash.pick");
 
+// Fixme: This creates a new file with no content
 function updatePostOnDisk(post: Post): void {
   fs.writeFileSync(
     path.join(POSTS_DIR, `${post.publishedAt}-${post.slug}.mdx`),
@@ -27,6 +28,7 @@ const createQuestions: (posts: Post[]) => prompts.PromptObject[] = (posts) => [
         value: title,
       })),
     hint: "- Space to select. Return to submit",
+    min: 1,
   },
 ];
 

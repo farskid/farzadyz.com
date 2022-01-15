@@ -7,7 +7,11 @@ import fs from "fs/promises";
 export const POSTS_DIR = path.join(process.cwd(), "content/posts");
 
 const getPostFrontMatter = async (fileName: string) => {
-  return matter(await fs.readFile(path.join(POSTS_DIR, fileName)));
+  const rawContent = await fs.readFile(path.join(POSTS_DIR, fileName));
+  return {
+    rawContent: rawContent.toString(),
+    matter: matter(rawContent),
+  };
 };
 
 export const getAllPosts = async (
@@ -22,17 +26,18 @@ export const getAllPosts = async (
     name.endsWith(".mdx")
   );
   for (let fileName of files) {
+    const { matter, rawContent } = await getPostFrontMatter(fileName);
     const {
       data: { title, ...frontMatter },
       excerpt,
       content,
-    } = await getPostFrontMatter(fileName);
+    } = matter;
     posts.push({
       ...frontMatter,
       title,
       slug: slugify(title),
       excerpt,
-      ...(withContent && { content }),
+      ...(withContent && { content, rawContent }),
       fileName,
     } as Post);
   }

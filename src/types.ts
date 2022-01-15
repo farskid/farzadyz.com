@@ -15,8 +15,9 @@ export interface PostFrontmatter {
 
 export interface Post extends PostFrontmatter {
   slug: string;
-  content: string;
+  content?: string;
   fileName: string;
+  rawContent?: string;
 }
 
 export type Social = Record<
@@ -134,3 +135,5 @@ export interface CVInfo {
     company: string;
   }[];
 }
+
+export type Env = "development" | "production" | "test";

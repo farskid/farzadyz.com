@@ -36,9 +36,12 @@ export const generateFeed = async (posts: Post[]): Promise<Feed> => {
 
   feed.addContributor({ name: "Farzad Yousefzadeh", link: "@farzad_yz" });
 
-  for (let post of posts) {
+  // This is the one line that takes long. avg 200ms per file
+  const htmls = await Promise.all(posts.map((post) => serializePost(post)));
+
+  for (let [index, post] of posts.entries()) {
     const postUrl = `${url}/${post.slug}`;
-    const mdx = await serializePost(post);
+    const mdx = htmls[index];
     const htmlContent = ReactDOMServer.renderToStaticMarkup(
       <ChakraProvider resetCSS theme={theme}>
         <MDXRemote {...mdx} components={MDXComponents} />

@@ -9,6 +9,8 @@ import {
   Switch,
   FormLabel,
   FormControl,
+  Button,
+  Flex,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import fs from "fs";
@@ -17,34 +19,10 @@ import { getAllPosts } from "../../src/posts";
 import { Post } from "../../src/types";
 import Link from "next/link";
 import { Seo } from "../../src/Seo";
-import { formatDate } from "../../src/utils";
+import { formatDate, sortPostsByLatest } from "../../src/utils";
 import { generateFeed } from "../../src/feed";
 import { useMemo, useState } from "react";
-
-function sortByPublishedDateDesc(posts: Post[]) {
-  return posts.sort((a, b) => {
-    const aDate = new Date((a as Post).publishedAt).getTime();
-    const bDate = new Date((b as Post).publishedAt).getTime();
-    return bDate - aDate;
-  });
-}
-
-function sortPostsByLatestAndDraftFirst(posts: Post[]) {
-  let draftPosts = [] as Post[],
-    publishedPosts = [] as Post[];
-
-  posts.forEach((post) => {
-    if (post.draft) {
-      draftPosts.push(post);
-    } else {
-      publishedPosts.push(post);
-    }
-  });
-
-  return sortByPublishedDateDesc(draftPosts).concat(
-    sortByPublishedDateDesc(publishedPosts)
-  );
-}
+import { isEnv } from "../../lib/utils";
 
 const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
   const [draftsShown, setDraftsShown] = useState(true);
@@ -58,13 +36,29 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
     <>
       <Seo title={(defaultTitle) => `Blog | ${defaultTitle}`} />
       <Layout>
+        <Flex justifyContent="center">
+          <Button
+            as={ChakraLink}
+            href="new"
+            color="white"
+            bg="gray.900"
+            _hover={{
+              bg: "gray.700",
+              textDecoration: "none",
+              color: "white",
+            }}
+            _focus={{ bg: "gray.700" }}
+          >
+            Add new post
+          </Button>
+        </Flex>
         <Box
           padding={{ base: "3", md: "12" }}
           display="flex"
           flexDirection="column"
           align="center"
         >
-          {process.env.NODE_ENV === "development" && (
+          {isEnv("development") && (
             <Box>
               <FormControl display="flex" alignItems="center">
                 <FormLabel htmlFor="toggle-draft-posts" mb="0">
@@ -111,18 +105,20 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
 export const getStaticProps = async () => {
   let posts = await getAllPosts();
 
-  if (process.env.NODE_ENV === "development") {
-    posts = sortPostsByLatestAndDraftFirst(posts);
+  if (isEnv("development")) {
+    posts = sortPostsByLatest(posts, true);
   } else {
     posts = posts.filter((p) => !p.draft);
   }
 
-  const feed = await generateFeed(posts);
+  if (isEnv("production")) {
+    const feed = await generateFeed(posts);
 
-  fs.mkdirSync("public/feeds/", { recursive: true });
-  fs.writeFileSync("public/feeds/rss.xml", feed.rss2());
-  fs.writeFileSync("public/feeds/feed.json", feed.json1());
-  fs.writeFileSync("public/feeds/atom.xml", feed.atom1());
+    fs.mkdirSync("public/feeds/", { recursive: true });
+    fs.writeFileSync("public/feeds/rss.xml", feed.rss2());
+    fs.writeFileSync("public/feeds/feed.json", feed.json1());
+    fs.writeFileSync("public/feeds/atom.xml", feed.atom1());
+  }
 
   return { props: { posts } };
 };

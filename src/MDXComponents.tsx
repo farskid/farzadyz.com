@@ -7,7 +7,6 @@ const Pre: React.FC = (props) => {
   const ref = useRef<HTMLPreElement>(null!);
 
   const codeBlockExpander = useCallback(() => {
-    console.log("expand");
     if (ref.current) {
       //
       const scrollW = ref.current.scrollWidth;

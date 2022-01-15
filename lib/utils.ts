@@ -1,5 +1,5 @@
 import matter from "gray-matter";
-import { Post } from "../src/types";
+import type { Env, Post } from "../src/types";
 
 export const formatDate = (date: Intl.DateTimeFormatPart[]): string => {
   return [
@@ -16,3 +16,5 @@ export const makeFrontmatterFromPost = (post: Post): string => {
 export const makeSetFromArray = <T>(array: T[]) => Array.from(new Set(array));
 
 export const cleanFalsyFromArray = <T>(array: T[]) => array.filter(Boolean);
+
+export const isEnv = (env: Env) => process.env.NODE_ENV === env;

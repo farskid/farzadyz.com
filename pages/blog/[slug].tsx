@@ -71,7 +71,11 @@ const PostPage: React.FC<{
           textAlign="left"
           padding={{ base: "0", md: "4" }}
           maxW="3xl"
-          contentEditable={post.draft}
+          contentEditable={
+            typeof window === "undefined" || window.self !== window.top
+              ? false
+              : process.env.NODE_ENV === "development" || post.draft
+          }
         >
           <Heading size="xl" as="h1" fontWeight="medium">
             {post.draft && <Badge colorScheme="yellow">Draft</Badge>}{" "}
@@ -137,7 +141,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const posts = await getAllPosts();
+  const posts = await getAllPosts({ withContent: true });
   const post = posts.find((post) => post.slug === ctx.params.slug);
 
   return {
