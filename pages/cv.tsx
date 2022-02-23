@@ -66,11 +66,10 @@ const JobExperience: React.FC<{
   </Box>
 );
 
-const CVSection: React.FC<{ title: string; textArray?: string[] }> = ({
-  title,
-  textArray = [],
-  children,
-}) => (
+const CVSection: React.FC<{
+  title: string;
+  textArray?: string[];
+}> = ({ title, textArray = [], children }) => (
   <Box
     as="section"
     display="flex"
@@ -88,10 +87,10 @@ const CVSection: React.FC<{ title: string; textArray?: string[] }> = ({
   </Box>
 );
 
-const CV: NextPage<{ cvInfo: CVInfo; appearances: Array<Talk | Podcast> }> = ({
-  cvInfo,
-  appearances,
-}) => {
+const CV: NextPage<{
+  cvInfo: CVInfo;
+  appearances: Array<Talk | Podcast>;
+}> = ({ cvInfo, appearances }) => {
   const { my_technologies, skills, education, jobExperiences } = cvInfo;
   const { default: metadata } = useMetadata();
 
@@ -173,7 +172,11 @@ const CV: NextPage<{ cvInfo: CVInfo; appearances: Array<Talk | Podcast> }> = ({
                     company={job.company}
                     date={job.date}
                   >
-                    {job.description}
+                    {job.description
+                      ?.map((desc) => desc.replace(/\.?$/g, "."))
+                      .map((desc, i) => (
+                        <Text key={i}>{desc}</Text>
+                      ))}
                   </JobExperience>
                 </ListItem>
               ))}
