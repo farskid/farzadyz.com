@@ -40,7 +40,7 @@ const HomePage: NextPage = () => {
               <Link
                 textDecoration="underline"
                 isExternal
-                href="https://epicgames.com"
+                href="https://stately.ai"
               >
                 <strong>Stately.ai</strong>
               </Link>{" "}
