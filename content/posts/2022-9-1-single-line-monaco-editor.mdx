@@ -1,0 +1,125 @@
+---
+title: Single line Monaco Editor
+description: >-
+  Render Monaco Editor as a single line text editor like a native HTML text input
+tags:
+  - monaco-editor
+originalURL: ""
+draft: true
+author: Farzad Yousefzadeh
+excerpt: ""
+publishedAt: 2022-9-2
+---
+
+Monaco editor is the full featured text editor that powers the engine of Visual Studio Code. It's a text editor for web. You can learn more about its capablites at [https://microsoft.github.io/monaco-editor/](https://microsoft.github.io/monaco-editor/).
+
+Monaco editor also has one of the best library APIs out there available at [https://microsoft.github.io/monaco-editor/api/index.html](https://microsoft.github.io/monaco-editor/api/index.html). Its API is super powerful. Most of the nitty gritty details of a text editor are handled by Monaco ut of the box but you can still achieve so much more using their public API. Examples of such things are syntax highlighting, hooking into the language service and provide additional intellisense, etc.
+
+I was working on a feature at work where I needed to render Monaco editor like a normal HTML text input visually where Monaco needed to keep its content on a single line, exactly like a simple text input.
+
+Unfortunately Monaco is designed for multi-line use cases because it makes sense for a text editor to expand to more than one line. However, we'll see how we can achieve the single line editor experience using its API.
+
+Normally there are examples of such cases online, either in the issues of their GitHub repository or on Stackoverflow but this one was tricky and I couldn't find a complete answer for it online, hence the existance of this article.
+
+## Handle the single line UI
+
+![https://i.imgur.com/0b9nHrB.jpeg](https://i.imgur.com/0b9nHrB.jpeg)
+
+We want to show the editor like a text input and turn off as many widgets and popups as we can. Thanks to their extensive options, we can do so by setting the editor options as below:
+
+```js
+const monacoOptions = {
+  renderLineHighlight: "none",
+  quickSuggestions: false,
+  glyphMargin: false,
+  lineDecorationsWidth: 0,
+  folding: false,
+  fixedOverflowWidgets: true,
+  acceptSuggestionOnEnter: "on",
+  hover: {
+    delay: 100,
+  },
+  roundedSelection: false,
+  contextmenu: false,
+  cursorStyle: "line-thin",
+  occurrencesHighlight: false,
+  links: false,
+  minimap: { enabled: false },
+  // see: https://github.com/microsoft/monaco-editor/issues/1746
+  wordBasedSuggestions: false,
+  // disable `Find`
+  find: {
+    addExtraSpaceOnTop: false,
+    autoFindInSelection: "never",
+    seedSearchStringFromSelection: "never",
+  },
+  fontSize: 14,
+  fontWeight: "normal",
+  wordWrap: "off",
+  lineNumbers: "off",
+  lineNumbersMinChars: 0,
+  overviewRulerLanes: 0,
+  overviewRulerBorder: false,
+  hideCursorInOverviewRuler: true,
+  scrollBeyondLastColumn: 0,
+  scrollbar: {
+    horizontal: "hidden",
+    vertical: "hidden",
+    // avoid can not scroll page when hover monaco
+    alwaysConsumeMouseWheel: false,
+  },
+};
+```
+
+Of course you'd need to fine tune options such as `fontSize` to your need but the rest of the options are pretty much the same for all single line editor experiences.
+
+Other than options above, you'd still need to either wrap your Monaco editor into a HTML element to set its width and height or set the editor layout settings manually using `editor.layout` API. You can check out the API [here](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.IEditor.html#layout).
+
+## Handle multi-lines
+
+Though applying the options above to your editor will get you a single line experience visually, if you interact with the editor, you'll see that pressing enter at the end of the first line will take to a new second line and the editor content scrolls.
+
+In a truly single line input, this never happens and we don't have such option in Monaco's editor options to turn off multi-lines, therefore, we'd need to use the editor API to reposition the cursor manually to the first line whenever it gets out of it.
+
+To achieve that, we need to subscribe to changes in the editor cursor position and check if the current line number is greater than 1. If it's greater than one, we need to bring the cursor back to the end of the first line and trim the editor value of any trailing line break charactres.
+
+```js
+editor.onDidChangeCursorPosition((e) => {
+  // Monaco tells us the line number after cursor position changed
+  if (e.position.lineNumber > 1) {
+    // Trim editor value
+    editor.setValue(editor.getValue().trim());
+    // Bring back the cursor to the end of the first line
+    editor.setPosition({
+      ...e.position,
+      // Setting column to Infinity would mean the end of the line
+      column: Infinity,
+      lineNumber: 1,
+    });
+  }
+});
+```
+
+## Using inside a form element
+
+When HTML text inputs are used inside a form, they behave in a way that pressing Enter when they're focused, submits the form.
+
+We'd expect our Single line Monaco editor to behave the same way. If it looks like a text input, it should behave like one too.
+
+Unfortunately, Monaco editor doesn't bubble keyboard events to the sorrounding context, so we'd need to use the editor API once again to achieve this.
+
+There's a concept of adding custom actions to the API that will run when a certain keybinding combination is pressed. You can check out [editor.addAction](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.IStandaloneCodeEditor.html#addAction) and the object that you should pass to it called the [action descriptor](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.IActionDescriptor.html).
+
+Listening to pressing Enter using the _addAction_ API looks like below:
+
+```js
+editor.addAction({
+  id: "submitInSingleMode",
+  label: "Submit in single mode",
+  // Monaco ships with out of the box enums for keycodes and modifiers
+  keybindings: [monaco.KeyCode.Enter],
+  run: () => {
+    // submit the form here however suits you
+  },
+});
+```
