@@ -12,7 +12,7 @@ import {
   Button,
   Flex,
 } from "@chakra-ui/react";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import fs from "fs";
 import { Layout } from "../../src/Layout";
 import { getAllPosts } from "../../src/posts";
@@ -21,17 +21,51 @@ import Link from "next/link";
 import { Seo } from "../../src/Seo";
 import { formatDate, sortPostsByLatest } from "../../src/utils";
 import { generateFeed } from "../../src/feed";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { isEnv } from "../../lib/utils";
+import React from "react";
+
+const useDraftUrl = ({ enabled }: { enabled: boolean }) => {
+  const [draftsShown, setDraftsShown] = useState(false);
+  useEffect(() => {
+    if (enabled) {
+      const q = new URLSearchParams(window.location.search);
+      setDraftsShown(q.get("drafts") === "0" ? false : true);
+    }
+  }, []);
+  useEffect(() => {
+    if (enabled) {
+      const url = new URL(window.location.href);
+      const q = draftsShown ? "1" : "0";
+      url.searchParams.set("drafts", q);
+      window.history.pushState("", "", url);
+    }
+  }, [draftsShown]);
+  return {
+    draftsShown,
+    showDrafts() {
+      setDraftsShown(true);
+    },
+    hideDrafts() {
+      setDraftsShown(false);
+    },
+    toggleDrafts() {
+      setDraftsShown((d) => !d);
+    },
+  };
+};
 
 const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
-  const [draftsShown, setDraftsShown] = useState(true);
+  const { draftsShown, showDrafts, hideDrafts } = useDraftUrl({
+    enabled: isEnv("development"),
+  });
   const postsList = useMemo(() => {
     if (draftsShown) {
       return posts;
     }
     return posts.filter((p) => !p.draft);
   }, [posts, draftsShown]);
+
   return (
     <>
       <Seo title={(defaultTitle) => `Blog | ${defaultTitle}`} />
@@ -56,7 +90,7 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
           padding={{ base: "3", md: "12" }}
           display="flex"
           flexDirection="column"
-          align="center"
+          justifyContent="center"
         >
           {isEnv("development") && (
             <Box>
@@ -65,9 +99,13 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
                   Draft posts
                 </FormLabel>
                 <Switch
-                  defaultChecked={draftsShown}
+                  isChecked={draftsShown}
                   onChange={(e) => {
-                    setDraftsShown(e.target.checked);
+                    if (e.target.checked) {
+                      showDrafts();
+                    } else {
+                      hideDrafts();
+                    }
                   }}
                   id="toggle-draft-posts"
                 />
@@ -102,7 +140,7 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   let posts = await getAllPosts();
 
   if (isEnv("development")) {

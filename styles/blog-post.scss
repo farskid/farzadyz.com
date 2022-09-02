@@ -80,6 +80,12 @@
   font-size: 0.9em;
 }
 
+.blog-post-content a > code {
+  background: none !important;
+  text-decoration: inherit;
+  padding-inline: 0 !important;
+}
+
 .blog-post-content code:not(pre > code) {
   background: var(--chakra-colors-gray-100);
   color: var(--chakra-colors-gray-900);
@@ -105,4 +111,8 @@
 
 .blog-post-content img {
   margin: 0 auto;
+}
+
+.blog-post-content a {
+  white-space: nowrap;
 }

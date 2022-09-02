@@ -5,21 +5,21 @@ description: >-
 tags:
   - monaco-editor
 originalURL: ""
-draft: true
+draft: false
 author: Farzad Yousefzadeh
 excerpt: ""
 publishedAt: 2022-9-2
 ---
 
-Monaco editor is the full featured text editor that powers the engine of Visual Studio Code. It's a text editor for web. You can learn more about its capablites at [https://microsoft.github.io/monaco-editor/](https://microsoft.github.io/monaco-editor/).
+Monaco editor is the full featured text editor that powers the engine of Visual Studio Code. It's a text editor for web. You can learn more about its capabilities at [Monaco editor's home page](https://microsoft.github.io/monaco-editor/).
 
-Monaco editor also has one of the best library APIs out there available at [https://microsoft.github.io/monaco-editor/api/index.html](https://microsoft.github.io/monaco-editor/api/index.html). Its API is super powerful. Most of the nitty gritty details of a text editor are handled by Monaco ut of the box but you can still achieve so much more using their public API. Examples of such things are syntax highlighting, hooking into the language service and provide additional intellisense, etc.
+Monaco editor also has one of the best library APIs out there available at [Monaco editor's API docs](https://microsoft.github.io/monaco-editor/api/index.html). Its API is super powerful. Most of the nitty gritty details of a text editor are handled by Monaco ut of the box but you can still achieve so much more using their public API. Examples of such things are syntax highlighting, hooking into the language service and provide additional intellisense, etc.
 
 I was working on a feature at work where I needed to render Monaco editor like a normal HTML text input visually where Monaco needed to keep its content on a single line, exactly like a simple text input.
 
 Unfortunately Monaco is designed for multi-line use cases because it makes sense for a text editor to expand to more than one line. However, we'll see how we can achieve the single line editor experience using its API.
 
-Normally there are examples of such cases online, either in the issues of their GitHub repository or on Stackoverflow but this one was tricky and I couldn't find a complete answer for it online, hence the existance of this article.
+Normally there are examples of such cases online, either in the issues of their GitHub repository or on StackOverflow but this one was tricky and I couldn't find a complete answer for it online, hence the existence of this article.
 
 ## Handle the single line UI
 
@@ -81,7 +81,7 @@ Though applying the options above to your editor will get you a single line expe
 
 In a truly single line input, this never happens and we don't have such option in Monaco's editor options to turn off multi-lines, therefore, we'd need to use the editor API to reposition the cursor manually to the first line whenever it gets out of it.
 
-To achieve that, we need to subscribe to changes in the editor cursor position and check if the current line number is greater than 1. If it's greater than one, we need to bring the cursor back to the end of the first line and trim the editor value of any trailing line break charactres.
+To achieve that, we need to subscribe to changes in the editor cursor position and check if the current line number is greater than 1. If it's greater than one, we need to bring the cursor back to the end of the first line and trim the editor value of any trailing line break characters.
 
 ```js
 editor.onDidChangeCursorPosition((e) => {
@@ -106,7 +106,7 @@ When HTML text inputs are used inside a form, they behave in a way that pressing
 
 We'd expect our Single line Monaco editor to behave the same way. If it looks like a text input, it should behave like one too.
 
-Unfortunately, Monaco editor doesn't bubble keyboard events to the sorrounding context, so we'd need to use the editor API once again to achieve this.
+Unfortunately, Monaco editor doesn't bubble keyboard events to the surrounding context, so we'd need to use the editor API once again to achieve this.
 
 There's a concept of adding custom actions to the API that will run when a certain keybinding combination is pressed. You can check out [editor.addAction](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.IStandaloneCodeEditor.html#addAction) and the object that you should pass to it called the [action descriptor](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.IActionDescriptor.html).
 

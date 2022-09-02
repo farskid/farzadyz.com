@@ -1,0 +1,91 @@
+---
+title: Pick a member of a union type in Typescript
+description: >-
+  Here is a little trick to use the Extract utility type in Typescript to pull out members of a union type by the type of a property of theirs
+tags:
+  - type system
+  - javascript
+  - typescript
+originalURL: ""
+draft: false
+author: Farzad Yousefzadeh
+excerpt: ""
+publishedAt: 2022-2-12
+---
+
+[Read about `Extract` on the official Typescript docs](https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union).
+
+When dealing with union types in Typescript, sometime you want to pick a member of that union type based one of its properties.
+
+Say you have a union type for all the possible events you can send to an application, let's call it `AppEvent`.
+
+```ts
+type AppEvent =
+  | { type: "Add_Item"; item: Item }
+  | { type: "Edit_Item"; id: string; updates: Partial<Item> };
+```
+
+And later you want to write a small function that needs to do something on a particular app event. If there was a way to pass the entire event to the function and borrowing its type from the predeclared **AppEvent** type, it'd save you some maintaining time later on.
+
+```ts
+function doSometingAboutEdit(editEvent: unknown) {
+  // blah blah
+}
+```
+
+The way to borrow the typings of `"Edit_Item"` event from `AppEvent` is to use the recently introduced utility called `Extract`. Extract let's you query for members of a union type based on a property type.
+
+Using `Extract`, you can easily type the `editEvent` parameter as:
+
+```ts
+function doSometingAboutEdit(
+  editEvent: Extract<AppEvent, { type: "Edit_Item" }>
+) {
+  // blah blah
+}
+```
+
+The great thing about the `Extract` is that it will give you the typing of that entire event object. Look at the type of object in the screenshot below:
+
+![parameter editEvent is of type object where its key is Edit_Item, its id is a string and its updates is partial of any](https://user-images.githubusercontent.com/8332043/153709890-c0bc4443-9704-4544-901f-2f6c2e7ca869.png)
+
+[Here is a link to the Typescript playground to see the above code in action](https://www.typescriptlang.org/play?jsx=0#code/C4TwDgpgBAksEFsoF4oEMB2IDcAoXokUAgmGAKIBuEGwKuUUAPlAN5SEQBcUARMQBMBAfTiJe2KAEt4CHmKQBfBszYdw3PuQEzRsidIE8AzsABOUjAHNJAVzAC08YzwAKaM8CloANgB4FAD4oRTxcADNbDABjLwB7DCgBOIBlOIQIL2tiACM422BtGQAKCB1C6loecgAPczRYv1IKSuAAGjZOHl4i4D1xRUCASjYVRgB6cagcnzQAC2nZudxFIA)
+
+## Querying multiple members
+
+`Extract` will give you a union type of all the original union members who satisfy the test of the query.
+
+From our example above, if we extend `AppEvent` to more members, we can see our little query gives back all the members who pass the test.
+
+```ts
+type AppEvent =
+  | { type: "Add_Item"; item: Item }
+  | { type: "Edit_Item"; id: string; updates: Partial<Item> }
+  | { type: "Delete_Item"; id: string };
+
+type QueryById = Extract<AppEvent, { id: string }>;
+/*
+| { type: "Edit_Item"; id: string; updates: Partial<Item> }
+| { type: "Delete_Item"; id: string };
+*/
+```
+
+You can think of Extract as `Array.prototype.filter` but for types.
+
+Here is a little code that might help you remember what extract does but don't take this as an accurate comparison.
+
+```ts
+const appEvent = [
+  { type: "Add_Item", item: {} },
+  { type: "Edit_Item", id: "", updates: {} },
+  { type: "Delete_Item", id: "" },
+];
+
+const queryById = appEvent.filter((event) => event.hasOwnProperty("id"));
+/*
+[
+  { type: "Edit_Item", id: "", updates: {} },
+  { type: "Delete_Item", id: "" }
+]
+*/
+```

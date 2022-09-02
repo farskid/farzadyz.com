@@ -6,11 +6,13 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { Post } from "./types";
 
-export function serializePost(post: Post): Promise<MDXRemoteSerializeResult> {
+export function serializePost(
+  post: Post
+): Promise<MDXRemoteSerializeResult> {
   return new Promise((resolve) => {
     try {
       resolve(
-        serialize(post.content, {
+        serialize(post.content!, {
           mdxOptions: {
             remarkPlugins: [[remarkPrism as any]],
             rehypePlugins: [

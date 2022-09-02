@@ -37,7 +37,7 @@ Has experience working in: product companies, as a consultant, well stablished c
 
 Has worked as an Individual contributor, Senior engineer, Lead engineer, Tech and Team leader.
 
-Excellent at clear communication, transparency, team work, peer support, driving initiatives, driving from ideation to completion, Scoping and technical breakdown, learning, teaching, social interactions
+Excellent at clear communication, transparency, team work, peer support, driving initiatives, driving from ideation to completion, scoping and technical breakdown, learning, teaching, social interactions
 
 ## Education
 
