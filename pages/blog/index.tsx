@@ -70,22 +70,24 @@ const Home: NextPage<{ posts: Post[] }> = ({ posts }) => {
     <>
       <Seo title={(defaultTitle) => `Blog | ${defaultTitle}`} />
       <Layout>
-        <Flex justifyContent="center">
-          <Button
-            as={ChakraLink}
-            href="new"
-            color="white"
-            bg="gray.900"
-            _hover={{
-              bg: "gray.700",
-              textDecoration: "none",
-              color: "white",
-            }}
-            _focus={{ bg: "gray.700" }}
-          >
-            Add new post
-          </Button>
-        </Flex>
+        {isEnv("development") && (
+          <Flex justifyContent="center">
+            <Button
+              as={ChakraLink}
+              href="new"
+              color="white"
+              bg="gray.900"
+              _hover={{
+                bg: "gray.700",
+                textDecoration: "none",
+                color: "white",
+              }}
+              _focus={{ bg: "gray.700" }}
+            >
+              Add new post
+            </Button>
+          </Flex>
+        )}
         <Box
           padding={{ base: "3", md: "12" }}
           display="flex"
