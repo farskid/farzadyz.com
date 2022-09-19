@@ -185,5 +185,19 @@
     "url": "https://slides.com/farzadyz/you-think-you-know-state-management/",
     "slidesUrl": "https://slides.com/farzadyz/you-think-you-know-state-management/embed?style=light",
     "year": 2020
+  },
+  {
+    "title": "Visual programming and executable models @ Web dev and sausages 2022",
+    "description": "Let's look at the traditional way of making software, the importance of diagramming and ideas to take diagrams to the next level where they can be used as the single source of truth for the software behavior generating rest of the software such as tests, documentation and the runtime.",
+    "type": "talk",
+    "slidesUrl": "https://statelyai.slides.com/farzadyz/visual-programming-executable-models",
+    "year": 2022
+  },
+  {
+    "title": "State machines meet component libraries @ React Finland 2022",
+    "description": "In this talk, we will experiment with using state machines for modeling components in a React based component library. We will use the Stately visual editor to model components visually and see how we can use Storybook and Model based testing concepts to deal with test generation and documentation based on acceptance criteria.",
+    "type": "talk",
+    "slidesUrl": "https://statelyai.slides.com/farzadyz/state-machines-component-lib",
+    "year": 2022
   }
 ]
