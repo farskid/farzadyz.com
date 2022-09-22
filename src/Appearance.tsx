@@ -23,7 +23,7 @@ import {
   trackTalkSlides,
   trackTalkVideo,
 } from "./analytics";
-import { Podcast, Talk } from "./types";
+import { Podcast, Show, Talk } from "./types";
 
 function sortTalksByLatest<T extends { year: number }>(talks: T[]): T[] {
   const groupedByYear = talks.reduce((group, talk) => {
@@ -57,9 +57,12 @@ const separateTalksAndPodcasts = (
         } else if (t.type === "podcast") {
           // @ts-ignore
           return { ...appr, podcasts: appr.podcasts.concat(t) };
+        } else if (t.type === "show") {
+          // @ts-ignore
+          return { ...appr, shows: appr.shows.concat(t) };
         }
       },
-      { talks: [], podcasts: [] }
+      { talks: [], podcasts: [], shows: [] }
     );
 
 const HeadingComponent: React.FC<{ level?: number } & HeadingProps> = ({
@@ -79,7 +82,7 @@ const HeadingComponent: React.FC<{ level?: number } & HeadingProps> = ({
 
 export const Appearances: React.FC<{
   level?: number;
-  appearances: Array<Talk | Podcast>;
+  appearances: Array<Talk | Podcast | Show>;
 }> = ({ level = 2, appearances }) => {
   const { default: metadata } = useMetadata();
   const preparedAppearances = useMemo(
@@ -142,7 +145,9 @@ export const Appearances: React.FC<{
                       </Link>
                     </Heading>
 
-                    <Text as="small">{talk.event}</Text>
+                    <Text as="small">
+                      {talk.event} {talk.year}
+                    </Text>
 
                     <HStack>
                       {talk.slidesUrl && (
@@ -170,6 +175,46 @@ export const Appearances: React.FC<{
                         </Link>
                       )}
                     </HStack>
+                  </VStack>
+                </HStack>
+              </ListItem>
+            );
+          })}
+        </List>
+
+        <Divider />
+      </VStack>
+
+      <VStack alignItems="stretch" gridGap="4">
+        <HeadingComponent level={level} id="talks">
+          Shows
+        </HeadingComponent>
+
+        <List listStyleType="none">
+          {/* @ts-ignore */}
+          {preparedAppearances.shows.map((show, i) => {
+            return (
+              <ListItem key={i} marginBottom="6">
+                <HStack alignItems="flex-start">
+                  <TalkIcon />
+                  <VStack alignItems="stretch">
+                    <Heading as="h4" fontSize="md">
+                      <Link
+                        isExternal
+                        href={show.url}
+                        onClick={() => {
+                          trackTalkLink(show.title);
+                        }}
+                      >
+                        <Text>
+                          <strong>{show.title}</strong>
+                        </Text>
+                      </Link>
+                    </Heading>
+
+                    <Text as="small">
+                      {show.event} {show.year}
+                    </Text>
                   </VStack>
                 </HStack>
               </ListItem>

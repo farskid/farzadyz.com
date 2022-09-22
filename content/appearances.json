@@ -9,7 +9,7 @@
     "year": 2020
   },
   {
-    "title": "The life of a software developer in Finland @ CoderConf 2018",
+    "title": "The life of a software developer in Finland @ CoderConf",
     "description": "A talk about State of The life of a software developer in Finland",
     "url": "http://coderconf.org/files/farzad-yousefzadeh.mp3",
     "videoUrl": "http://coderconf.org/files/farzad-yousefzadeh.mp3",
@@ -17,7 +17,7 @@
     "year": 2018
   },
   {
-    "title": "The state of Frontend development (Software Talks) @ Software Talks 2018",
+    "title": "The state of Frontend development (Software Talks) @ Software Talks",
     "description": "A talk about State of Frontend development on Youtube show SoftwareTalks",
     "url": "https://www.youtube.com/watch?v=fMZUy3oRBw8&t=703s",
     "videoUrl": "https://www.youtube-nocookie.com/embed/fMZUy3oRBw8",
@@ -25,7 +25,7 @@
     "year": 2018
   },
   {
-    "title": "Test Driven Development (Software Talks) @ Software Talks 2018",
+    "title": "Test Driven Development (Software Talks) @ Software Talks",
     "description": "A talk about TDD on Youtube show SoftwareTalks",
     "url": "https://www.youtube.com/watch?v=LujtSjJ6MhY",
     "videoUrl": "https://www.youtube-nocookie.com/embed/LujtSjJ6MhY",
@@ -33,7 +33,7 @@
     "year": 2018
   },
   {
-    "title": "React without React @ Futurice Tech weeklies 2018",
+    "title": "React without React @ Futurice Tech weeklies",
     "description": "A talk about Using React or any other UI library on development and wipe them out on compile time in order to save bundle size and a boost in performance on runtime",
     "url": "https://react-without-react.netlify.com/",
     "slidesUrl": "https://react-without-react.netlify.com/#0",
@@ -42,7 +42,7 @@
     "year": 2018
   },
   {
-    "title": "Headless React @ ReactJS Community 2018",
+    "title": "Headless React @ ReactJS Community",
     "description": "A talk about developing Headless React components in order to boost reusability and composability of UI components",
     "url": "https://headless-react.netlify.com/",
     "slidesUrl": "https://headless-react.netlify.com/#0",
@@ -50,7 +50,7 @@
     "year": 2018
   },
   {
-    "title": "Boost state containment with Redux Observables @ React Helsinki 2019",
+    "title": "Boost state containment with Redux Observables @ React Helsinki",
     "description": "A talk about RxJS, Redux observables and their benefits",
     "url": "https://redux-observable.netlify.com/",
     "slidesUrl": "https://redux-observable.netlify.com/",
@@ -59,7 +59,7 @@
     "year": 2019
   },
   {
-    "title": "Statecharts driven UI development @ ReactJS community 2019",
+    "title": "Statecharts driven UI development @ ReactJS community",
     "description": "A talk about why UI development is hard and how Statecharts can help us with that",
     "url": "https://statechart-driven-ui-development.netlify.com/",
     "slidesUrl": "https://statechart-driven-ui-development.netlify.com/",
@@ -67,7 +67,7 @@
     "year": 2019
   },
   {
-    "title": "Abstract component modeling in React @ React Finland 2019",
+    "title": "Abstract component modeling in React @ React Finland",
     "description": "Often when we need to develop user interfaces, we model the interface behaviour based on a visual design or the platform we ship onto. However, since the behaviour of the component is the same, it would be beneficial to find a practical way to share this behaviour between different platforms, styling systems, state containers, data transmitters and any other sort of integrations.In this talk, I'll be showing a set of techniques to model a semi complicated React component, independent from the common integrations.",
     "url": "http://abstract-component-modeling.netlify.com",
     "slidesUrl": "https://abstract-component-modeling.netlify.com/",
@@ -76,7 +76,7 @@
     "year": 2019
   },
   {
-    "title": "React Hooks vs Reactive Statecharts @ React Helsinki June, 2019",
+    "title": "React Hooks vs Reactive Statecharts @ React Helsinki June",
     "description": "A talk comparing React Hooks to Reactive statecharts in developing a service called HSLZone",
     "url": "https://hooks-vs-reactive-statecharts.netlify.com",
     "slidesUrl": "https://slides.com/farzadyz/react-hooks-vs-reactive-state-machines/embed?style=light",
@@ -85,7 +85,7 @@
     "year": 2019
   },
   {
-    "title": "React Hooks vs Reactive Statecharts @ TampereJS, 2019",
+    "title": "React Hooks vs Reactive Statecharts @ TampereJS",
     "description": "A talk comparing React Hooks to Reactive statecharts in developing a service called HSLZone",
     "url": "https://hooks-vs-reactive-statecharts.netlify.com",
     "slidesUrl": "https://slides.com/farzadyz/react-hooks-vs-reactive-state-machines/embed?style=light",
@@ -93,7 +93,7 @@
     "year": 2019
   },
   {
-    "title": "Explicitness and Consistency in UI @ Futurice Tech weeklies 2019",
+    "title": "Explicitness and Consistency in UI @ Futurice Tech weeklies",
     "description": "A talk about hidden complexities of UI, proper domain modelling and how we underestimate this complexity.",
     "url": "https://the-art-of-explicit-ui.netlify.com",
     "slidesUrl": "https://slides.com/farzadyz/the-art-of-explicit-user-interface/embed?style=light",
@@ -102,7 +102,7 @@
     "year": 2019
   },
   {
-    "title": "Introduction to modeling with Finite state machines @ GDG Helsinki 2019",
+    "title": "Introduction to modeling with Finite state machines @ GDG Helsinki",
     "description": "Finite state machines are a mathematical means of computation. In this talk, we’ll go through why using them  might help us simplify the challenges we face in day to day UI development and how they help us communicate better with people from different backgrounds in the same team. Although the talk will focus mostly on UI development, the concept is abstract and can apply to any problem solving process. Developers, Designers and even product related roles can take something out of this talk.",
     "url": "https://intro-to-modeling-with-fsm.netlify.com/",
     "slidesUrl": "https://slides.com/farzadyz/introduction-to-modeling-with-finite-state-machines/embed?style=light",
@@ -110,7 +110,7 @@
     "year": 2019
   },
   {
-    "title": "The art of explicit and consistent user interfaces @ 404Fest 2019",
+    "title": "The art of explicit and consistent user interfaces @ 404Fest",
     "description": "The user interface is challenging to the core. There are many UI components that carry a huge deal of complexity. Usually, we deal with complexity in UI without noticing it. As truly said, the devil is in the detail. We usually don't notice this until it's too late! That's why no matter how clean our UI and their API surface looks when the first attempt is out, many bugs pop out soon and adding new features gives us a hard time! As animals, we might not have a great tool (sarcasm towards our own brain) to think, consider and compute. we tend to forget. we can't consider everything. we are unable to foresee and predict software. we carry assumptions that aren't correct all the time. This might be a reason why our software starts as an explicit, great looking codebase until the moment reaches when this so-called software transitions from evergreen to ever failing and legacy. By thinking about the history of UI development and trying to explore different complexities, we might be able to find better ways to develop UI.",
     "url": "https://the-art-of-explicit-and-consistent-user-interfaces.netlify.com/",
     "slidesUrl": "https://slides.com/farzadyz/the-art-of-explicit-and-consistent-user-interfaces/embed?style=light",
@@ -118,7 +118,7 @@
     "year": 2019
   },
   {
-    "title": " Tackle React component complexity using Reactive Statecharts @ ReactJS Day Italy 2019",
+    "title": " Tackle React component complexity using Reactive Statecharts @ ReactJS Day Italy",
     "description": "There are many UI components that carry a huge deal of complexity. Usually, we deal with complexity in UI without noticing it. As truly said, the devil is in the detail. We usually don't notice this until it's too late! That's why no matter how clean our components and their API surface looks when the first attempt is out, many bugs pop out soon and adding new features gives us a hard time! In this talk, I will try to demonstrate how we underestimate the complexity in React UI components and propose an approach to simplify this effort by modeling the behavior of the component using Reactive Statecharts. I'll go through the thinking model of how to tackle this complexity in developing the component, how to think properly about the edge cases and how to model this explicitly using Reactive Statecharts.",
     "url": "https://tackle-react-complexity.netlify.com/",
     "slidesUrl": "https://slides.com/farzadyz/tackle-ui-complexity-using-reactive-statecharts/embed?style=light",
@@ -127,7 +127,7 @@
     "year": 2019
   },
   {
-    "title": "The art of explicit and consistent user interfaces v2 @ HolysJS Moscow 2019",
+    "title": "The art of explicit and consistent user interfaces v2 @ HolysJS Moscow",
     "description": "There are many reasons why developing user interface is hard. No matter which platform we target or the way we present our UI, the user interface is hard to develop due to different reasons. One of the hardest problems of UI development that has been shining more and more in recent years is the state management. In this talk, Farzad will show how using current tooling isn't the complete solution and how our current approaches lack a whole modeling layer in between and what are the most critical mistakes we make in modeling our user interfaces these days. He will demonstrate how this modeling problem can be enhanced using state machines and statecharts in particular.",
     "url": "https://in-pursuit-of-finite-states.netlify.com/#/",
     "slidesUrl": "https://slides.com/farzadyz/the-art-of-explicit-and-consistent-user-interfaces-v2/embed?style=light",
@@ -136,7 +136,7 @@
     "year": 2019
   },
   {
-    "title": "In Pursuit of Finite States @ SkyHacks Poland 2019",
+    "title": "In Pursuit of Finite States @ SkyHacks Poland",
     "description": "A talk about explicitly thinking about states of GUI components. Implicit vs Explicit state, finite vs infinite state, logic modeling and logic visualization.",
     "url": "https://in-pursuit-of-finite-states-v2.netlify.com/#/",
     "slidesUrl": "https://slides.com/farzadyz/in-pursuit-of-finite-states/embed?style=light",
@@ -145,7 +145,7 @@
     "year": 2019
   },
   {
-    "title": "A hitchhiker's guide to Svelte JS @ HelsinkiJS Meetup 2019",
+    "title": "A hitchhiker's guide to Svelte JS @ HelsinkiJS Meetup",
     "description": "It's been a while since SvelteJS was introduced as yet another Javascript solution to build fast and robust web applications. in this talk, we'll dive into what svelte is and try to fashion a high level understanding of its building blocks. if you don't know Svelte yet or you've heard of it but haven't had the chance to get to know it yet, fear not, I'm like you. let's do it together.",
     "url": "https://slides.com/farzadyz/a-hitchhikers-guide-to-sveltejs",
     "type": "talk",
@@ -156,8 +156,7 @@
     "title": "Experiments with State machines and Overmind @ Christian Alfoni",
     "description": "A friendly dev chat with Christian Alfoni about supporting Finite state machines in Overmind which is a tool Christian is working on actively",
     "url": "https://www.youtube-nocookie.com/embed/6Cr_SxOAmuc",
-    "videoUrl": "https://www.youtube-nocookie.com/embed/6Cr_SxOAmuc",
-    "type": "talk",
+    "type": "show",
     "year": 2019
   },
   {
@@ -179,7 +178,7 @@
     "year": 2019
   },
   {
-    "title": "So you think you know state management? @ Turku frontend 2020",
+    "title": "So you think you know state management? @ Turku frontend",
     "description": "This is a talk about how client side application's state is inherently relational and hierarchical. Current tooling in JS state management allows for flat model states and global actions availability which results in an increase in cyclomatic complexity. The flat shape of state also brings its own set of integration problems. these issues could be tackled using a modeling language that considers this relation, gives lifecycle to the parts of state and invalidates automatically, is deterministic and whitelists allowed transitions instead of blacklisting on runtime guards. ",
     "type": "talk",
     "url": "https://slides.com/farzadyz/you-think-you-know-state-management/",
@@ -187,7 +186,7 @@
     "year": 2020
   },
   {
-    "title": "The Actor Model, a new mental model for React @ React Finland 2021",
+    "title": "The Actor Model, a new mental model for React @ React Finland",
     "description": "This is a talk about how client side application's state is inherently relational and hierarchical. Current tooling in JS state management allows for flat model states and global actions availability which results in an increase in cyclomatic complexity. The flat shape of state also brings its own set of integration problems. these issues could be tackled using a modeling language that considers this relation, gives lifecycle to the parts of state and invalidates automatically, is deterministic and whitelists allowed transitions instead of blacklisting on runtime guards. ",
     "type": "talk",
     "videoUrl": "https://www.youtube-nocookie.com/embed/9k1ZHHJWt7k",
@@ -195,17 +194,24 @@
     "year": 2021
   },
   {
-    "title": "Visual programming and executable models @ Web dev and sausages 2022",
+    "title": "Visual programming and executable models @ Web dev and sausages",
     "description": "Let's look at the traditional way of making software, the importance of diagramming and ideas to take diagrams to the next level where they can be used as the single source of truth for the software behavior generating rest of the software such as tests, documentation and the runtime.",
     "type": "talk",
     "slidesUrl": "https://statelyai.slides.com/farzadyz/visual-programming-executable-models",
     "year": 2022
   },
   {
-    "title": "State machines meet component libraries @ React Finland 2022",
+    "title": "State machines meet component libraries @ React Finland",
     "description": "In this talk, we will experiment with using state machines for modeling components in a React based component library. We will use the Stately visual editor to model components visually and see how we can use Storybook and Model based testing concepts to deal with test generation and documentation based on acceptance criteria.",
     "type": "talk",
     "slidesUrl": "https://statelyai.slides.com/farzadyz/state-machines-component-lib",
+    "year": 2022
+  },
+  {
+    "title": "Let's explore Stately @ This is Tech Talks",
+    "description": "Explote Stately, Finite state machines and Statecharts",
+    "type": "show",
+    "url": "https://youtu.be/fsjLmbMhIs0",
     "year": 2022
   }
 ]

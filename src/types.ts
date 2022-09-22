@@ -110,6 +110,8 @@ export interface Podcast extends BaseAppearance {
   audioUrl: string;
 }
 
+export interface Show extends BaseAppearance {}
+
 export interface CVInfo {
   my_technologies: string[];
   skills: {
