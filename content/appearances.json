@@ -187,6 +187,14 @@
     "year": 2020
   },
   {
+    "title": "The Actor Model, a new mental model for React @ React Finland 2021",
+    "description": "This is a talk about how client side application's state is inherently relational and hierarchical. Current tooling in JS state management allows for flat model states and global actions availability which results in an increase in cyclomatic complexity. The flat shape of state also brings its own set of integration problems. these issues could be tackled using a modeling language that considers this relation, gives lifecycle to the parts of state and invalidates automatically, is deterministic and whitelists allowed transitions instead of blacklisting on runtime guards. ",
+    "type": "talk",
+    "videoUrl": "https://www.youtube-nocookie.com/embed/9k1ZHHJWt7k",
+    "slidesUrl": "https://statelyai.slides.com/farzadyz/actor-model-rf2021/embed?style=light",
+    "year": 2021
+  },
+  {
     "title": "Visual programming and executable models @ Web dev and sausages 2022",
     "description": "Let's look at the traditional way of making software, the importance of diagramming and ideas to take diagrams to the next level where they can be used as the single source of truth for the software behavior generating rest of the software such as tests, documentation and the runtime.",
     "type": "talk",
