@@ -1,6 +1,13 @@
-import { Tweet, YouTube } from "mdx-embed";
+import { YouTube, Tweet } from "mdx-embed";
 import { Viz } from "./Viz";
-import { Text, Heading, Box } from "@chakra-ui/react";
+import {
+  Text,
+  Heading,
+  Box,
+  Alert,
+  AlertIcon,
+  AlertProps,
+} from "@chakra-ui/react";
 import React, { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 
 const Pre: React.FC = (props) => {
@@ -53,6 +60,18 @@ export const MDXComponents = {
   h5: (props: any) => <Heading {...props} as="h5" />,
   h6: (props: any) => <Heading {...props} as="h6" />,
   ul: (props: any) => <ul {...props} style={{ paddingLeft: "1rem" }} />,
+  Warning: ({ children, ...props }: AlertProps) => (
+    <Alert
+      {...props}
+      status="warning"
+      border="2px solid"
+      borderColor="orange.300"
+      color="orange.700"
+    >
+      <AlertIcon />
+      {children}
+    </Alert>
+  ),
   // pre: (props: any) => <Pre {...props} />,
   Tweet: ({ id, ...props }: { id: string }) => (
     <Tweet

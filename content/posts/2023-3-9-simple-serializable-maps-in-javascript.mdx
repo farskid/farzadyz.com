@@ -1,0 +1,91 @@
+---
+title: Simple serializable maps in JavaScript
+description: >-
+  JavaScript map and set data structures are not serializable by default. It means they can
+  not be converted to JSON by using `JSON.stringify` on them out of the box. However,
+  serializing them by extending their built-in classes can be done by a few lines
+  of code.
+tags:
+  - maps
+  - sets
+  - serialization
+  - JavaScript
+originalURL: ""
+draft: true
+author: Farzad Yousefzadeh
+excerpt: ""
+publishedAt: 2023-3-9
+---
+
+JavaScript `Map` and `Set` data structures are not serializable by default. It means they can
+not be converted to JSON by using `JSON.stringify` on them out of the box.
+
+If we take a look at a simple example:
+
+```js
+const map = new Map();
+map.set("foo", "bar");
+
+console.log(JSON.stringify(map));
+// => {}
+```
+
+Despite the fact that `map` is not an empty object, it is serialized to an empty object.
+
+However, serializing maps by extending their built-in class can be done by a few lines of code.
+
+## Map
+
+```js
+class SerializableMap extends Map {
+  toJSON() {
+    return Object.fromEntries(this.entries());
+  }
+}
+```
+
+Now, we can use `SerializableMap` instead of `Map` and it will be serialized to JSON.
+
+```js
+const map = new SerializableMap();
+map.set("foo", "bar");
+
+console.log(JSON.stringify(map));
+// => {"foo":"bar"}
+```
+
+## Sets
+
+Similar issue is present on `Set`s. We can take the same approach and make sets serializable as well.
+
+```js
+class SerializableSet extends Set {
+  toJSON() {
+    return Array.from(this.values());
+  }
+}
+```
+
+And an example would be:
+
+```js
+const set = new SerializableSet();
+set.add("foo");
+set.add("bar");
+
+console.log(JSON.stringify(set));
+// => ["foo","bar"]
+```
+
+## Conclusion
+
+The above approach works as long as we use `SerializableMap` and `SerializableSet` instead of `Map` and `Set`. Some might take it to the next level and globally replace `Map` and `Set` with their respective serializable classes so every `new Map()` or `new Set()` automatically becomes serializable.
+
+<Warning>Warning: Use at your own risk!</Warning>
+
+```js
+Map = SerializableMap;
+Set = SerializableSet;
+```
+
+Monkey patching standard data structures isn't generally a good idea for the reasons you can look up on the web, but addition only overrides such as `toJSON` on top of the built-in `toJSON` that is simply a no-op looks truly harmless.
