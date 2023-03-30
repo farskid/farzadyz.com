@@ -209,9 +209,54 @@
   },
   {
     "title": "Let's explore Stately @ This is Tech Talks",
-    "description": "Explote Stately, Finite state machines and Statecharts",
+    "description": "Explore Stately, Finite state machines and Statecharts",
     "type": "show",
     "url": "https://youtu.be/fsjLmbMhIs0",
     "year": 2022
+  },
+  {
+    "title": "Visual programming and executable models @ Turku Frontend",
+    "description": "Let's look at the traditional way of making software, the importance of diagramming and ideas to take diagrams to the next level where they can be used as the single source of truth for the software behavior generating rest of the software such as tests, documentation and the runtime.",
+    "type": "talk",
+    "year": 2023,
+    "slidesUrl": "https://statelyai.slides.com/farzadyz/visual-programming-executable-models/fullscreen"
+  },
+  {
+    "title": "State orchestration using State machines @ Supermetrics Tech",
+    "description": "In this talk, we'll explore state machines for orchestrating the state across applications, from component level states to application level communication and how they open up to event based architecture. We'll also touch on benefits of using state machines and diagrams and model a few examples practically. After this talk, you should have a few action points in case you're interested to try them out in your projects.",
+    "type": "talk",
+    "videoUrl": "https://www.youtube.com/live/KuKC7Km44jU?feature=share&t=2684",
+    "slidesUrl": "https://statelyai.slides.com/farzadyz/state-orchestration-using-state-machines/fullscreen",
+    "year": 2023
+  },
+  {
+    "title": "Creating a Command Palette @ Stately Stream",
+    "url": "https://www.youtube.com/live/25zL7hUOc1k?feature=share",
+    "type": "show",
+    "year": 2023
+  },
+  {
+    "title": "Modeling an editor feature @ Stately Stream",
+    "url": "https://www.youtube.com/live/NQi9lGXruuM?feature=share",
+    "type": "show",
+    "year": 2022
+  },
+  {
+    "title": "Building a resizable panel @ Stately Stream",
+    "url": "https://www.youtube.com/live/Q6LdO3H77Lo?feature=share",
+    "type": "show",
+    "year": 2022
+  },
+  {
+    "title": "Adding resizable panel features @ Stately Stream",
+    "url": "https://www.youtube.com/live/OoE9DykTDC8?feature=share",
+    "type": "show",
+    "year": 2022
+  },
+  {
+    "title": "useState or useReducer?  @ Stately Stream",
+    "url": "https://www.youtube.com/live/THnYhR45iHc?feature=share",
+    "type": "show",
+    "year": 2023
   }
 ]

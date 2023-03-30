@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useMetadata } from "./MetadataContext";
 import React, { useMemo } from "react";
-import { PodcastIcon, TalkIcon } from "../src/Icons";
+import { PodcastIcon, Stately, TalkIcon } from "../src/Icons";
 import {
   track,
   trackPodcastLink,
@@ -135,6 +135,7 @@ export const Appearances: React.FC<{
                       <Link
                         isExternal
                         href={talk.videoUrl || talk.slidesUrl}
+                        display="block"
                         onClick={() => {
                           trackTalkLink(talk.title);
                         }}
@@ -154,6 +155,7 @@ export const Appearances: React.FC<{
                         <Link
                           isExternal
                           href={talk.slidesUrl}
+                          display="block"
                           textDecoration="underline"
                           onClick={() => {
                             trackTalkSlides(talk.title);
@@ -167,6 +169,7 @@ export const Appearances: React.FC<{
                           isExternal
                           href={talk.videoUrl}
                           textDecoration="underline"
+                          display="block"
                           onClick={() => {
                             trackTalkVideo(talk.title);
                           }}
@@ -196,12 +199,17 @@ export const Appearances: React.FC<{
             return (
               <ListItem key={i} marginBottom="6">
                 <HStack alignItems="flex-start">
-                  <TalkIcon />
+                  {show.event.includes("Stately Stream") ? (
+                    <Stately size={24} />
+                  ) : (
+                    <TalkIcon />
+                  )}
                   <VStack alignItems="stretch">
                     <Heading as="h4" fontSize="md">
                       <Link
                         isExternal
                         href={show.url}
+                        display="block"
                         onClick={() => {
                           trackTalkLink(show.title);
                         }}
@@ -242,6 +250,7 @@ export const Appearances: React.FC<{
                       <Link
                         isExternal
                         href={podcast.audioUrl}
+                        display="block"
                         onClick={() => {
                           trackPodcastLink(podcast.event);
                         }}
@@ -304,6 +313,7 @@ export const Appearances: React.FC<{
                   <Link
                     isExternal
                     textDecoration="underline"
+                    display="block"
                     href="https://www.goodreads.com/book/show/48611191-learn-react-hooks#other_reviews"
                     onClick={() => {
                       track(
@@ -316,6 +326,7 @@ export const Appearances: React.FC<{
                   <Link
                     isExternal
                     textDecoration="underline"
+                    display="block"
                     href="https://www.packtpub.com/product/learn-react-hooks/9781838641443"
                     onClick={() => {
                       track(
