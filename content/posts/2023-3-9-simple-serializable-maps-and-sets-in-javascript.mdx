@@ -15,6 +15,7 @@ draft: false
 author: Farzad Yousefzadeh
 excerpt: ""
 publishedAt: 2023-3-9
+updatedAt: 2023-3-30
 ---
 
 JavaScript `Map` and `Set` data structures are not serializable by default. It means they can
@@ -38,8 +39,9 @@ However, serializing maps by extending their built-in class can be done by a few
 
 ```js
 class SerializableMap extends Map {
+  constructor()
   toJSON() {
-    return Object.fromEntries(this.entries());
+    return Object.fromEntries(this);
   }
 }
 ```
@@ -61,7 +63,7 @@ Similar issue is present on `Set`s. We can take the same approach and make sets 
 ```js
 class SerializableSet extends Set {
   toJSON() {
-    return Array.from(this.values());
+    return Array.from(this);
   }
 }
 ```
