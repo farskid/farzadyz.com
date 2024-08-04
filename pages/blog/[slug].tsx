@@ -71,11 +71,11 @@ const PostPage: React.FC<{
           textAlign="left"
           padding={{ base: "0", md: "4" }}
           maxW="3xl"
-          contentEditable={
-            typeof window === "undefined" || window.self !== window.top
-              ? false
-              : process.env.NODE_ENV === "development" || post.draft
-          }
+          // contentEditable={
+          //   typeof window === "undefined" || window.self !== window.top
+          //     ? false
+          //     : process.env.NODE_ENV === "development" || post.draft
+          // }
         >
           <Heading size="xl" as="h1" fontWeight="medium">
             {post.draft && <Badge colorScheme="yellow">Draft</Badge>}{" "}
@@ -98,7 +98,7 @@ const PostPage: React.FC<{
             <Box display="flex" gridGap="5">
               <ChakraLink
                 isExternal
-                href={`https://github.com/statelyai/eng-blog/edit/main/content/posts/${post.fileName}`}
+                href={`https://github.com/farskid/farzadyz.com/edit/main/content/posts/${post.fileName}`}
                 fontSize="md"
                 textDecoration="underline"
               >
