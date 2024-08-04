@@ -1,4 +1,4 @@
-import matter from "gray-matter";
+import * as matter from "gray-matter";
 import type { Env, Post } from "../src/types";
 
 export const formatDate = (date: Intl.DateTimeFormatPart[]): string => {

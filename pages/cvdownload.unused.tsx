@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { useRef } from "react";
 import { Remarkable } from "remarkable";
 import { Box } from "@chakra-ui/react";
-import fs from "fs/promises";
+import * as fs from "fs/promises";
 import { useRouter } from "next/router";
 import { createMachine, assign } from "xstate";
 import { useMachine } from "@xstate/react";
@@ -11,10 +11,16 @@ import { createMarkdownParser } from "../src/utils";
 const autoCVMachine = createMachine({
   id: "autoCV",
   initial: "pending_md_render",
+  schema: {
+    context: {
+      html: "",
+    },
+  },
   states: {
     pending_md_render: {
       entry: ["renderMdToHTMLAndSave"],
-      always: "waiting_for_assets",
+      // always: "waiting_for_assets",
+      always: "printing",
     },
     waiting_for_assets: {
       invoke: {

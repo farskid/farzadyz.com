@@ -8,7 +8,7 @@ import {
   AlertIcon,
   AlertProps,
 } from "@chakra-ui/react";
-import React, { useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 
 const Pre: React.FC = (props) => {
   const ref = useRef<HTMLPreElement>(null!);

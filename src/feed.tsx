@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { Feed } from "feed";
 import { MDXRemote } from "next-mdx-remote";

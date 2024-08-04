@@ -1,4 +1,4 @@
-<img src="https://farzadyz.com/farzad-yousefzadeh.webp" width="200" style="border-radius:50%" />
+<img src="/farzad-yousefzadeh.webp" width="200" style="border-radius:50%" />
 
 # Farzad Yousefzadeh
 

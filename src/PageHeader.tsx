@@ -13,7 +13,7 @@ const navLinks: Readonly<
   }>
 > = [
   { title: "About", href: "/" },
-  { title: "CV", href: "/cv" },
+  // { title: "CV", href: "/cv" },
   { title: "Appearances", href: "/appearances" },
   { title: "Blog", href: "/blog" },
   {

@@ -1,15 +1,15 @@
-import React from "react";
 import dayjs from "dayjs";
 import { EmbedProps, Post } from "./types";
 import { Remarkable } from "remarkable";
 import { sortBy } from "lodash";
+import { createContext, useContext as useReactContext } from "react";
 
 export function createRequiredContext<T>(displayName: string) {
-  const context = React.createContext<T | null>(null);
+  const context = createContext<T | null>(null);
   context.displayName = displayName;
 
   const useContext = () => {
-    const ctx = React.useContext(context);
+    const ctx = useReactContext(context);
     if (!ctx) {
       throw new Error(
         `use${displayName} must be used inside ${displayName}Provider`

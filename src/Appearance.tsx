@@ -13,7 +13,7 @@ import {
   HeadingProps,
 } from "@chakra-ui/react";
 import { useMetadata } from "./MetadataContext";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { PodcastIcon, Stately, TalkIcon } from "../src/Icons";
 import {
   track,

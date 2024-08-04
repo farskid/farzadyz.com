@@ -13,7 +13,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import type { GetStaticProps, NextPage } from "next";
-import fs from "fs";
+import * as fs from "fs";
 import { Layout } from "../../src/Layout";
 import { getAllPosts } from "../../src/posts";
 import { Post } from "../../src/types";
@@ -23,7 +23,6 @@ import { formatDate, sortPostsByLatest } from "../../src/utils";
 import { generateFeed } from "../../src/feed";
 import { useEffect, useMemo, useState } from "react";
 import { isEnv } from "../../lib/utils";
-import React from "react";
 
 const useDraftUrl = ({ enabled }: { enabled: boolean }) => {
   const [draftsShown, setDraftsShown] = useState(false);
@@ -32,7 +31,7 @@ const useDraftUrl = ({ enabled }: { enabled: boolean }) => {
       const q = new URLSearchParams(window.location.search);
       setDraftsShown(q.get("drafts") === "0" ? false : true);
     }
-  }, []);
+  }, [enabled]);
   useEffect(() => {
     if (enabled) {
       const url = new URL(window.location.href);
@@ -40,7 +39,7 @@ const useDraftUrl = ({ enabled }: { enabled: boolean }) => {
       url.searchParams.set("drafts", q);
       window.history.pushState("", "", url);
     }
-  }, [draftsShown]);
+  }, [draftsShown, enabled]);
   return {
     draftsShown,
     showDrafts() {

@@ -1,5 +1,3 @@
-import React from "react";
-
 export const TalkIcon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -114,13 +112,7 @@ export const Stately: React.FC<{ size?: number }> = ({ size = 405 }) => (
     data-locator-experimental-features="true"
   >
     <title>Stately</title>
-    <g
-      id="Logos"
-      stroke="none"
-      stroke-width="1"
-      fill="none"
-      fill-rule="evenodd"
-    >
+    <g id="Logos" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="logomark-black">
         <rect fill="#FFFFFF" x="0" y="0" width="405" height="405" />
         <g

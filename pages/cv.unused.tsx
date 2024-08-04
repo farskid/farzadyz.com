@@ -17,7 +17,7 @@ import { useMetadata } from "../src/MetadataContext";
 import NextLink from "next/link";
 import { trackCVDownload } from "../src/analytics";
 import { createMarkdownParser } from "../src/utils";
-import fs from "fs/promises";
+import * as fs from "fs/promises";
 import { CVInfo, Podcast, Talk } from "../src/types";
 
 function separateByAt(str: string) {

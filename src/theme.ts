@@ -6,8 +6,8 @@ const theme = extendTheme({
     useSystemColorMode: false,
   },
   fonts: {
-    heading: "TTCommons, Arial, sans-serif",
-    body: "TTCommons, Arial, sans-serif",
+    heading: "Arial, sans-serif",
+    body: "Arial, sans-serif",
   },
   styles: {
     global: {
@@ -18,6 +18,7 @@ const theme = extendTheme({
         fontWeight: "450",
         // slnt is fix for Safari italicising variable fonts by default
         fontVariationSettings: "'wght' 450, 'slnt' 0",
+        color: "black",
       },
       a: {
         color: "black",

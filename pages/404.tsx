@@ -10,10 +10,7 @@ const NotFound: NextPage = () => (
         <SadPanda />
       </Box>
       <Box as="p" padding="6">
-        Sorry we can’t find that page.{" "}
-        <ChakraLink href="/" textDecoration="underline">
-          Return to all blog posts
-        </ChakraLink>
+        Sorry we can&apos;t find that page.
       </Box>
     </Box>
   </Layout>

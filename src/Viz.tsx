@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { EmbedProps } from "./types";
 import { makeEmbedUrl } from "./utils";
 

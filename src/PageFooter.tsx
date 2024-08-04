@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Link as ChakraLink, Text } from "@chakra-ui/react";
 
 export const PageFooter: React.FC = () => (

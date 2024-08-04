@@ -1,5 +1,5 @@
 import { NextSeo } from "next-seo";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useMetadata } from "./MetadataContext";
 import { SeoOverrides } from "./types";
 
