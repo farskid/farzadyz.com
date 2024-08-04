@@ -1,6 +1,7 @@
 [build]
-command = "npm run export"
+command = "yarn export"
 publish = "out"
 [build.environment]
 NETLIFY_USE_YARN = "false"
 NODE_ENV = 'production'
+NETLIFY_NEXT_PLUGIN_SKIP=true
