@@ -48,9 +48,7 @@
     "remarkable": "^2.0.1",
     "sass": "^1.42.1",
     "uuid": "^8.3.2",
-    "xstate": "^4.26.1"
-  },
-  "devDependencies": {
+    "xstate": "^4.26.1",
     "@mdx-js/react": "^1.6.22",
     "@mdx-js/runtime": "^1.6.22",
     "@types/fuzzy-search": "^2.1.1",
