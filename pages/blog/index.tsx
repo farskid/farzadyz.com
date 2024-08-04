@@ -20,7 +20,7 @@ import { Post } from "../../src/types";
 import Link from "next/link";
 import { Seo } from "../../src/Seo";
 import { formatDate, sortPostsByLatest } from "../../src/utils";
-import { generateFeed } from "../../src/feed";
+// import { generateFeed } from "../../src/feed";
 import { useEffect, useMemo, useState } from "react";
 import { isEnv } from "../../lib/utils";
 
