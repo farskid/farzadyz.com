@@ -13,7 +13,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import type { GetStaticProps, NextPage } from "next";
-import * as fs from "fs";
+// import * as fs from "fs";
 import { Layout } from "../../src/Layout";
 import { getAllPosts } from "../../src/posts";
 import { Post } from "../../src/types";
