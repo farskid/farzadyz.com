@@ -150,14 +150,14 @@ export const getStaticProps: GetStaticProps = async () => {
     posts = posts.filter((p) => !p.draft);
   }
 
-  if (isEnv("production")) {
-    const feed = await generateFeed(posts);
+  // if (isEnv("production")) {
+  //   const feed = await generateFeed(posts);
 
-    fs.mkdirSync("public/feeds/", { recursive: true });
-    fs.writeFileSync("public/feeds/rss.xml", feed.rss2());
-    fs.writeFileSync("public/feeds/feed.json", feed.json1());
-    fs.writeFileSync("public/feeds/atom.xml", feed.atom1());
-  }
+  //   fs.mkdirSync("public/feeds/", { recursive: true });
+  //   fs.writeFileSync("public/feeds/rss.xml", feed.rss2());
+  //   fs.writeFileSync("public/feeds/feed.json", feed.json1());
+  //   fs.writeFileSync("public/feeds/atom.xml", feed.atom1());
+  // }
 
   return { props: { posts } };
 };
