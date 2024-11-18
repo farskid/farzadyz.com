@@ -1,0 +1,41 @@
+---
+title: Uset `set` as a state primitive in useState
+description: >-
+  There comes times when you'd like to use a `Set` as the primitive data type in React. Specially with even simpler hooks such as `useState` that can be challenging
+publishedAt: "2024-11-17"
+tags:
+  - javascript
+  - typescript
+  - react
+  - set
+id: a65819c4-3dbf-444f-81ed-418c5c3a495j
+---
+
+When working with React, we sometimes need to use a Set as our primary data structure. However, this presents a challenge because React is designed around immutable state updates, while Set (and Map) are inherently mutable data structures.
+This creates a fundamental mismatch: React expects us to create new instances when updating state, but Set methods like add() and delete() modify the existing instance. The solution is to create an abstraction layer that:
+
+Preserves the efficiency and functionality of Set as the underlying data structure
+Provides an immutable interface that aligns with React's state update patterns
+Maintains referential integrity for React's change detection
+
+In simpler terms, we need to wrap our mutable Set operations in a way that makes them appear immutable to React, while still leveraging the Set data structure's unique properties and performance characteristics.
+
+## `useSet` custom hook
+
+```ts
+const useSet = <T>(initialSet: Set<T> = new Set<T>()) => {
+  const [state, _setState] = useState<Set<T>>(initialSet);
+  const add = useCallback((value: T) => {
+    _setState((prev) => {
+      const newSet = new Set(prev);
+      newSet.add(value);
+      return newSet;
+    });
+  }, []);
+  const clear = useCallback(() => {
+    _setState(new Set());
+  }, []);
+  // ... other Set methods
+  return [state, add, clear, ...otherMethods] as const;
+};
+```
